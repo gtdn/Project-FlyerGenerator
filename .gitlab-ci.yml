@@ -2,15 +2,14 @@
 # Not strictly necessary, but speeds up the builds.
 cache:
   key: "$CI_SSH_KEY"
-  paths:
     # Must be within the repository under test hence we can't use the
     # default ~/.m2
-    - .m2/repository
+    
 variables:
   # Use the cached directory above.
   MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
 
-junit:
+deploy:
   image: maven:3.6.1-jdk-11 # docker image with Maven
   before_script:
     # The runners on the forge need a proxy to access the web. mvn
