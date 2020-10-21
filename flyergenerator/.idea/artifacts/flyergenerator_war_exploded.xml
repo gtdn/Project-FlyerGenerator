@@ -21,6 +21,7 @@
         <element id="file-copy" path="$PROJECT_DIR$/target/flyergenerator/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="flyergenerator/web/Web" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/main/ressources" />
     </root>
   </artifact>
 </component>

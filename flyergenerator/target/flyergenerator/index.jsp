@@ -1,5 +1,5 @@
 <!--page d'acceuil-->
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="classes.ListeUser" %>
 <jsp:useBean id="listU" class="classes.ListeUser" scope="application" />
 <!DOCTYPE html>
