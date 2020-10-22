@@ -54,6 +54,7 @@
         var categorie="a1";
         function a1(){
             categorie="a1";
+
         }
         function a2(){
             categorie="a2";
@@ -63,6 +64,10 @@
         }
         function b2(){
             categorie="b2";
+        }
+        //transferer choix par url
+        function aller(){
+            window.location.href="visualFinal.jsp?cate="+categorie
         }
     </script>
 </head>
@@ -78,25 +83,21 @@
     <div class="droite">
     </div>
     <div class="gauche">
-        <img src="search.png" class="petiteImg" alt="user" />
-        </br>
-        <h>Bienvenu <%=u.getNom()%></h>
-        </br>
-        <a>event categorie</a>
-        </br>
-        <a>Categorie A</a>
-        <ul>
-            <li onclick="a1()">Ancienne saise A1</li>
-            <li onclick="a2()">Ancienne saise A2</li>
-        </ul>
-        </br>
-        <a>Categorie B</a>
-        <ul>
-            <li onclick="b1()">Ancienne saise B1</li>
-            <li onclick="b2()">Ancienne saise B2</li>
-        </ul>
-        </br>
-        <a href="visualFinal.jsp">
+        <img src="search.png" class="petiteImg" alt="user" /></br>
+
+        <h>Bienvenu <%=u.getNom()%></h></br>
+
+        <a>event categorie</a></br>
+
+        <a>Categorie A</a></br>
+            <input type="button" onclick="a1()" value="Ancienne saise A1"></br>
+            <input type="button" onclick="a2()" value="Ancienne saise A2" /></br>
+
+        <a>Categorie B</a></br>
+            <input type="button" onclick="b1()" value="Ancienne saise B1" /></br>
+            <input type="button" onclick="b2()" value="Ancienne saise B2"/></br>
+
+        <input type="button" onclick="aller()" value="aller au page de final visual"/>
     </div>
 </div>
 <div class="foot"></div>
