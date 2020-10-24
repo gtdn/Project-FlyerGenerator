@@ -12,5 +12,5 @@ deploy:
   script:
     - cd flyergenerator
     - mvn clean package
-    - cat $CI_SSH_KEY
-    - scp -o StrictHostKeyChecking=no -i $CI_SSH_KEY /builds/p1509933/mif10-2020/flyergenerator/target/flyergenerator.war gitlabci@192.168.74.210:/opt/tomcat/webapps/flyergenerator.war
+    - ssh-keygen -y -f $CI_SSH_KEY
+    - scp -v -o StrictHostKeyChecking=no -i $CI_SSH_KEY /builds/p1509933/mif10-2020/flyergenerator/target/flyergenerator.war gitlabci@192.168.74.210:/opt/tomcat/webapps/flyergenerator.war
