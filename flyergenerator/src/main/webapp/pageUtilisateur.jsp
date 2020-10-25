@@ -85,14 +85,7 @@
     <body>
         <nav class="navbar navbar-dark bg-dark">
             <span class="navbar-brand mb-0 h1">Flyer Generator</span>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="Deco">Se déconnecter</a>
-                    </li>
-
-                </ul>
-            </div>
+            <a class="btn btn-light nav-link" href="Deco">Se déconnecter</a>
         </nav>
         <div class="contents">
             <div class="innercontent">

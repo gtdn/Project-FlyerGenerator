@@ -49,6 +49,7 @@ montrer le resultat de inscription
     <body class="custombody">
         <nav class="navbar navbar-dark bg-dark">
             <span class="navbar-brand mb-0 h1">Flyer Generator</span>
+            <a class="btn btn-light nav-link" href="Deco">Se déconnecter</a>
         </nav>
         <div class="customcontainer">
             <div>
