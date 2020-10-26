@@ -2,15 +2,36 @@
 # Not strictly necessary, but speeds up the builds.
 cache:
   key: "$CI_SSH_KEY"
+<<<<<<< HEAD
 variables:
   MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/"
+=======
+    # Must be within the repository under test hence we can't use the
+    # default ~/.m2
+    
+variables:
+  # Use the cached directory above.
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+>>>>>>> c208ba467ac740cbc25c7ff43c07482477941eb1
 
 deploy:
   image: maven:3.6.1-jdk-11 # docker image with Maven
   before_script:
+<<<<<<< HEAD
     - . flyergenerator/setup-mvn-proxy.sh && chmod 400 $CI_SSH_KEY
   script:
     - cd flyergenerator
     - mvn clean package
     - ls -la /dev/tty
     - scp -v -o StrictHostKeyChecking=no -i $CI_SSH_KEY /builds/p1509933/mif10-2020/flyergenerator/target/flyergenerator.war gitlabci@192.168.74.210:/opt/tomcat/webapps/flyergenerator.war
+=======
+    # The runners on the forge need a proxy to access the web. mvn
+    # ignores the $http_proxy & friends variable => write a
+    # configuration file that does this for us.
+    - . flyergenerator/setup-mvn-proxy.sh
+    - chmod 400 $CI_SSH_KEY
+  script:
+    - cd /home/gitlabci/mif10-2020/flyergenerator
+    - mvn clean package
+    - scp -o StrictHostKeyChecking=no -i $CI_SSH_KEY /builds/home/gitlabci/mif10-2020/flyergenerator/target/flyergenerator.war gitlab@192.168.74.210:/opt/tomcat/webapps/v1.war
+>>>>>>> c208ba467ac740cbc25c7ff43c07482477941eb1
