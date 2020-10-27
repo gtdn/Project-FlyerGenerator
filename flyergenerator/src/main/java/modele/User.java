@@ -1,5 +1,7 @@
 package modele;
 
+import java.util.ArrayList;
+
 /**.
  * Classe Utilisateur du site
  */
@@ -40,7 +42,7 @@ public class User {
     /**
      * @return le pseudo de l'utilisateur
      */
-    public final int getPseudo() {
+    public final String getPseudo() {
         return pseudo;
     }
 

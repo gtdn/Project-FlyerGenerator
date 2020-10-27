@@ -2,7 +2,7 @@ package modele;
 /**.
  * Class des moyens de contact pour l'évènement (tel, mail, etc)
  */
-public class Contact {
+public class Contacts {
     /**.
      * identifiant du contact
      */
