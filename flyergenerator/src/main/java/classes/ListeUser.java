@@ -1,39 +1,64 @@
 package classes;
+
 import java.util.ArrayList;
 
-public class ListeUser{
+/**.
+ * Class gestion de utilisateur
+ * @author gr08
+ * @version 1.0
+ */
+public class ListeUser {
+    /**.
+     * list de user a gere
+     */
     private ArrayList<User> lUser;
 
-    public ListeUser() {
-        this.lUser = new ArrayList<>();
-    }
-
-    public ListeUser(ArrayList<User> lUser) {
-        this.lUser = lUser;
-    }
-
-    public ArrayList<User> getlUser() {
-        return lUser;
-    }
-
-    public void setlUser(ArrayList<User> lUser) {
-        this.lUser = lUser;
-    }
-    /**
-     * Chercher un utilisateur dans la liste
+    /**.
+     * constructeur par default
      */
-    public boolean trouverUser(User u){
-        for(int i=0;i<lUser.size();i++)
-        {
-            if(lUser.get(i).equals(u))
+    public ListeUser() {
+        this.lUser = new ArrayList<>(); }
+
+    /**.
+     * constructeur
+     * @param l entree
+     */
+    public ListeUser(final ArrayList<User> l) {
+        this.lUser = l; }
+
+    /**.
+     * get list user
+     * @return list user
+     */
+    public final ArrayList<User> getlUser() {
+        return lUser; }
+
+    /**.
+     * saisir
+     * @param l entree
+     */
+    public final void setlUser(final ArrayList<User> l) {
+        this.lUser = l; }
+
+    /**.
+     * cherche user
+     * @param u user pour cherche
+     * @return ture si trouve
+     */
+    public final boolean trouverUser(final User u) {
+        for (int i = 0; i < lUser.size(); i++) {
+            if (lUser.get(i).equals(u)) {
                 return true;
+            }
         }
         return false;
     }
-    /**
-     * Ajouter un nouv utilisatuer
+
+    /**.
+     * ajoute un user
+     * @param u user pour ajoute
      */
-    public void add(User u){
+    public final void add(final User u) {
         lUser.add(u);
     }
 }
