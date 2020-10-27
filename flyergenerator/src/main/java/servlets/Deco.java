@@ -10,10 +10,22 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**.
+ * pour deconnection
+ */
 @WebServlet(name = "Deco", urlPatterns = "/Deco")
-public class Deco extends HttpServlet{
+public class Deco extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    /**.
+     * Traiter les commend deconnect
+     * @param request requete
+     * @param response reqct
+     * @throws ServletException pour erreur
+     * @throws IOException pour erreur
+     */
+    protected final void doGet(final HttpServletRequest request,
+                         final HttpServletResponse response)
+            throws ServletException, IOException {
         HttpSession session = request.getSession(true);
         session.invalidate();
         response.sendRedirect("index.jsp");

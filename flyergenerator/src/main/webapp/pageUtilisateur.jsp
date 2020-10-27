@@ -13,9 +13,6 @@
 
 <html>
     <style>
-        .custombody{
-            background-color: #7a7a7a;
-        }
 
         .leftcontent{
             float: left;
