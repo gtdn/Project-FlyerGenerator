@@ -3,7 +3,7 @@ package modele;
  * Classe de l'evènement du type Competition.
  * Elle herite de Event.
  */
-public class Competition {
+public class Competition extends Event {
     /**.
      * id de la competition
      */
@@ -21,7 +21,7 @@ public class Competition {
      */
     private String nomOrganisateur;
     /**.
-     * descriptif de l'event
+     * descriptif de la competition
      */
     private String resume;
     /**.
