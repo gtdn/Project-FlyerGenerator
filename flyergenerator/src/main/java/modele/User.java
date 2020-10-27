@@ -1,23 +1,46 @@
 package modele;
 
-
+/**.
+ * Classe Utilisateur du site
+ */
 public class User {
-    
+    /**.
+     * Identifiant de l'utilisateur
+    */
     private int userID;
+
+    /**.
+     * Pseudo de l'utilisateur
+    */
     private String pseudo;
+
+    /**.
+     * Liste des evenènements de l'utilisateur
+    */
     private ArrayList<Event> listEvent;
 
-    public void setId (int id) {
+    /**
+     * @param id id a set
+     */
+    public final void setId(final int id) {
         userID = id;
     }
-    public int getID() {
+    /**
+     * @return l'id de l'utilisateur
+     */
+    public final int getID() {
         return userID;
     }
-
-    public void setPseudo (String P) {
-        pseudo = P;
+    /**
+     * @param p pseudo a set
+     */
+    public final void setPseudo(final String p) {
+        pseudo = p;
     }
-    public int getPseudo() {
+    /**
+     * @return le pseudo de l'utilisateur
+     */
+    public final int getPseudo() {
         return pseudo;
     }
 
