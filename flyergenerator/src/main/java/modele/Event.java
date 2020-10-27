@@ -1,4 +1,7 @@
 package modele;
+
+import java.util.ArrayList;
+
 /**.
  * Classe mère des evènements
  */
@@ -43,6 +46,14 @@ public class Event {
      * date de fin de l'evenement
      */
     private int dateFin;
+    /**.
+     * liste des intervenants de l'evenenement
+     */
+    private ArrayList<Personne> listeIntervenants;
+    /**.
+     * moyen de contacter les organisateur de l'evenement
+     */
+    private Contacts contacts;
 
 
 }
