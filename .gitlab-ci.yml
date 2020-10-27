@@ -10,7 +10,7 @@ deploy:
   before_script:
     - . flyergenerator/setup-mvn-proxy.sh && chmod 400 $CI_SSH_KEY
   script:
-    - cd flyergenerator && mvn test --batch-mode
+    - cd flyergenerator && mvn checkstyle:checkstyle
     - mvn clean package
     - ls -la /dev/tty
     - scp -v -o StrictHostKeyChecking=no -i $CI_SSH_KEY /builds/p1509933/mif10-2020/flyergenerator/target/flyergenerator.war gitlabci@192.168.74.210:/opt/tomcat/webapps/flyergenerator.war
