@@ -35,6 +35,14 @@ public class Event {
      * heure de fin de l'evenement
      */
     private int heureFin;
+    /**.
+     * date du debut de l'evenement
+     */
+    private int dateDebut;
+    /**.
+     * date de fin de l'evenement
+     */
+    private int dateFin;
 
 
 }
