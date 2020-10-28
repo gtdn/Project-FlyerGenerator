@@ -59,7 +59,7 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="listPerso">listPerso</label>
-            <input type="text" class="form-control" id="listPerso" placeholder="Pascal">
+            <input type="text" class="form-control" id="listPerso" placeholder="Tom">
         </div>
         <div class="form-group col-md-6">
             <label for="contacts">contacts</label>
