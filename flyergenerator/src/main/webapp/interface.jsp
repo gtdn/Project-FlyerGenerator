@@ -22,29 +22,7 @@
 
     <body>
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <div class="container">
-            <a class="navbar-brand" href="#">Flyer Generator</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                    <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Mon compte</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Deconnexion</a>
-                </li>
-                </ul>
-            </div>
-            </div>
-        </nav>
+        <jsp:include page="composants/menu.jsp"/>
 
         <!-- Page Content -->
         <div class="container" style="margin-top : 100px; margin-bottom: 100px;">
@@ -55,10 +33,10 @@
 
                     <h3 class="my-4">Choississez votre type d'evenement</h3>
                     <div class="list-group">
-                        <a href="interface.jsp?form=compet" class="list-group-item">Competion</a>
-                        <a href="interface.jsp?form=conf" class="list-group-item">Conference</a>
-                        <a href="interface.jsp?form=expo" class="list-group-item">Expostion</a>
-                        <a href="interface.jsp?form=spect" class="list-group-item">Spectable</a>
+                        <a href="interface.jsp?contenu=compet" class="list-group-item">Competion</a>
+                        <a href="interface.jsp?contenu=conf" class="list-group-item">Conference</a>
+                        <a href="interface.jsp?contenu=expo" class="list-group-item">Expostion</a>
+                        <a href="interface.jsp?contenu=spect" class="list-group-item">Spectable</a>
                     </div>
 
                 </div>
@@ -73,23 +51,27 @@
                             <button type="button" class="btn btn-light">Spectable</button>
                         </div>
                     </div>
-
+                    <c:choose>
+                        <c:when test="${param.contenu == null}">
+                            <jsp:include page="formCompet.jsp"/>
+                        </c:when>
+                        <c:when test = "${param.contenu == \"compet\"}">
+                            <jsp:include page="formCompet.jsp"/>
+                        </c:when>
+                        <c:when test = "${param.contenu == 'conf'}">
+                            <jsp:include page="formConf.jsp" />
+                        </c:when>
+                        <c:when test = "${param.contenu == 'expo'}">
+                            <jsp:include page="formExpo.jsp" />
+                        </c:when>
+                        <c:when test = "${param.contenu == 'spect'}">
+                            <jsp:include page="formSpect.jsp" />
+                        </c:when>
+                    </c:choose>
+                    
                     <div class="row">
                         <div style="text-align: center;">
-                            <c:choose>
-                                <c:when test = "${param.form == \"compet\"}">
-                                    <jsp:include page="formCompet.jsp"/>
-                                </c:when>
-                                <c:when test = "${param.form == 'conf'}">
-                                    <jsp:include page="formConf.jsp" />
-                                </c:when>
-                                <c:when test = "${param.form == 'expo'}">
-                                    <jsp:include page="formExpo.jsp" />
-                                </c:when>
-                                <c:when test = "${param.form == 'spect'}">
-                                    <jsp:include page="formSpect.jsp" />
-                                </c:when>
-                            </c:choose>
+                            
                         </div>
                     </div>  
                 </div>             
@@ -97,11 +79,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="py-5 bg-dark">
-            <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; FlyerGenerator</p>
-            </div>
-        </footer>
+        <jsp:include page="composants/footer.jsp"/>
 
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>
