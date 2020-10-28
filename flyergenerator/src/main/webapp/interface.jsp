@@ -22,7 +22,7 @@
 
     <body>
         <!-- Navigation -->
-        <jsp:include page="composants/menu.jsp"/>
+        <jsp:include page="composants/menu.html"/>
 
         <!-- Page Content -->
         <div class="container" style="margin-top : 100px; margin-bottom: 100px;">
@@ -79,8 +79,7 @@
         </div>
 
         <!-- Footer -->
-        <jsp:include page="composants/footer.jsp"/>
-
+        <jsp:include page="composants/footer.html"/>
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
