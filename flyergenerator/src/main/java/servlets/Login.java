@@ -1,6 +1,6 @@
 package servlets;
 
-import classes.User;
+import modele.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,12 +27,12 @@ public class Login extends HttpServlet {
     protected final void doPost(final HttpServletRequest request,
                          final HttpServletResponse response)
             throws ServletException, IOException {
-        String nom = request.getParameter("nom");
-        String mot = request.getParameter("mot");
-        if (nom != null && !nom.equals("")) {
+        String name = request.getParameter("name");
+        String pwd = request.getParameter("pwd");
+        if (name != null && !name.equals("")) {
             HttpSession session = request.getSession(true);
-            session.setAttribute("user", new User(nom, mot));
-            request.getRequestDispatcher("pageUtilisateur.jsp").
+            session.setAttribute("user", new User(name, pwd));
+            request.getRequestDispatcher("interface.jsp").
                     forward(request, response);
         } else {
             response.sendRedirect("index.jsp");

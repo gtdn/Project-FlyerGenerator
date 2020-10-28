@@ -58,12 +58,12 @@
                 <h1>Connexion</h1>
                 <div class="form-group">
                     <label for="emailinput">Nom</label>
-                    <input type="text" class="form-control" name="nom" id="emailinput"
+                    <input type="text" class="form-control" name="name" id="emailinput"
                            placeholder="Nom d'utilisateur" required="required">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Mot de passe</label>
-                    <input type="password" class="form-control" name="mot" id="mdp" required="required">
+                    <input type="password" class="form-control" name="pwd" id="mdp" required="required">
                 </div>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1" onclick="reveal()">
