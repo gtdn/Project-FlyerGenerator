@@ -24,4 +24,40 @@ public class Contacts {
      */
     private String mail;
 
+
+    /**
+     * @return l'id du contact
+     */
+    public final int getID() {
+        return id;
+    }
+
+    /**
+     * @return l'id de l'event associé
+     */
+    public final int getIDEvent() {
+        return idEvent;
+    }
+
+    /**
+     * @return le nom du contact
+     */
+    public final String getnom() {
+        return nom;
+    }
+
+    /**
+     * @return le numero de telephone du contact
+     */
+    public final int getNumero() {
+        return numero;
+    }
+
+    /**
+     * @return le mail du contact
+     */
+    public final String getMail() {
+        return mail;
+    }
+
 }

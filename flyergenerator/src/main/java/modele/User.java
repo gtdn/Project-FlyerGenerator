@@ -46,6 +46,14 @@ public class User {
         return pseudo;
     }
 
-    // pas de get/set pour event list pour l'instant, j'attends de voir
-    // comment on l'utilise
+    // pas beaucoup de get/set pour event list pour l'instant,
+    // j'attends de voir comment on l'utilise
+
+    /**
+     * @return la taille(i.e. le nombre) de la
+     * liste d'evenement de l'utilisateur.
+     */
+    public final int getListEventSize() {
+        return listEvent.size();
+    }
 }
