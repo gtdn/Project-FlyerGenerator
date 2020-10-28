@@ -30,11 +30,11 @@ public class User {
 
     /**.
      * Constructeur
-     * @param n de user
      * @param p de user
+     * @param pwd de user
      */
-    public User(final String pseudo, final String pwd) {
-        this.pseudo = pseudo;
+    public User(final String p, final String pwd) {
+        this.pseudo = p;
         this.password = pwd;
     }
 
