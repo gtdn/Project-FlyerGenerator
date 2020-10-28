@@ -74,6 +74,14 @@
         function aller() {
             window.location.href = "visualFinal.jsp?cate=" + categorie
         }
+        /*
+        function click(){
+            var target=document.getElementById('form');
+                target.style.display='block';
+        }*/
+        function click(){
+            window.location.href = "formulaire.jsp";
+        }
     </script>
     <head>
         <meta charset="utf-8">
@@ -105,6 +113,11 @@
                             <h6>Categorie B</h6>
                             <input type="button" class="btn btn-light btn-sm" onclick="b1()" value="Ancienne saise B1" /></br>
                             <input type="button" class="btn btn-light btn-sm" onclick="b2()" value="Ancienne saise B2"/></br>
+                        </div>
+                        <br>
+                        <div>
+                            <h6>Remplacer les info de flyer</h6>
+                            <a class="btn btn-light btn-sm" href="formulaire.jsp" >Remplir formulaire</a></br>
                         </div>
                     </div>
                     <input type="button" class="btn btn-dark" onclick="aller()" value="Page de visuel final"/>
