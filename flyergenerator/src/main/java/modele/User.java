@@ -22,6 +22,9 @@ public class User {
     @Column(name = "id_utilisateur")
     private int userID;
 
+    /**.
+     * mot de passe de l'utilisateur
+    */
     private String password;
 
     /**.
