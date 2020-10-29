@@ -8,6 +8,10 @@ public class Contacts {
      */
     private int id;
     /**.
+     * identifiant de l'event associé
+     */
+    private int idEvent;
+    /**.
      * nom du contact
      */
     private String nom;
