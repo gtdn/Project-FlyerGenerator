@@ -11,10 +11,6 @@ public class Competition extends Event {
     /**.
      * id de l'event general
      */
-    private int idEvent;
-    /**.
-     * hashtag de l'event
-     */
     private String hashtag;
     /**.
      * nom de l'organisateur

@@ -9,10 +9,6 @@ public class Conference extends Event {
      */
     private int idConference;
     /**.
-     * id de l'event general
-     */
-    private int idEvent;
-    /**.
      * descriptif de la conference
      */
     private int resume;

@@ -9,10 +9,6 @@ public class Spectacle extends Event {
      */
     private int idSpectacle;
     /**.
-     * id de l'event general
-     */
-    private int idEvent;
-    /**.
      * nom de l'association organisatrice
      */
     private String nomAssociation;
