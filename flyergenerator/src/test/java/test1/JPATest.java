@@ -12,7 +12,6 @@ public class JPATest {
 
     @Test
     public void setupEMTest() {
-        @PersistenceContext(unitName = "flyergenerator");
         EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
         em.close();
     }
