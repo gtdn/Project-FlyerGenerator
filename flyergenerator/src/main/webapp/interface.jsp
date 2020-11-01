@@ -76,8 +76,9 @@
                     </div>  
                 </div>             
             </div>
+            <jsp:include page="carouselle.jsp"/>
         </div>
-        <jsp:include page="carouselle.jsp"/>
+
         <!-- Footer -->
         <jsp:include page="composants/footer.html"/>
         <!-- Bootstrap core JavaScript -->
