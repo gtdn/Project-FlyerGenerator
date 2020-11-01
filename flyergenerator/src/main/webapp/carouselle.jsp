@@ -48,7 +48,7 @@
             </div>
 
             <div class="item">
-                <img src="img3.png" alt="Soiree" width="230" height="172">
+                <img src="img3.png " alt="Soiree" width="230" height="172">
                 <div class="carousel-caption">
                     <h3>Soiree</h3>
                     <p></p>
@@ -70,10 +70,12 @@
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
+
         <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+        
     </div>
 </div>
 
