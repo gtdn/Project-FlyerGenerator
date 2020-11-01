@@ -10,10 +10,6 @@ public class Exposition extends Event {
      */
     private int idExposition;
     /**.
-     * id de l'event general
-     */
-    private int idEvent;
-    /**.
      * description du theme de l'exposition
      */
     private String theme;
