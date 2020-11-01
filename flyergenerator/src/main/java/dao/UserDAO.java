@@ -37,17 +37,22 @@ public class UserDAO {
      * @param pseudo pseudo
      * @return l'utilisateur créé ou lis à jour
      */
-    /**public final User createOrUpdate(final String pseudo, String password) {
-        User user = getUserById(userID);
-        if (user == null) {
-        user = new User();
-        user.setId(userID);
-            user.setPseudo(pseudo);
-            em.persist(user);
-        } else {
-            user.setPseudo(pseudo);
-        }
+    /**public final User AjouterUser
+     * (final String pseudo, final String password) {
+        User user = new User(pseudo, password);
+        TypedQuery<User> q = em.createQuery("SELE
+        CT utilisateur FROM utilisateur
+         WHERE utilisateur.pseudo = ?1", User.class);
+        q.setParameter(1,pseudo);
+        Collection<User> results = q.getResultList();
+        if (results.size() < 1) {
+        em.getTransaction().begin();
+        em.persist(user);
+        em.getTransaction().commit();
         return user;
+        }
+        return null;
+    }
     }*/
         /**
      * Créée un nouvel utilisateur ou met à jour son pseudo.

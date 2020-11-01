@@ -49,6 +49,7 @@ public class Login extends HttpServlet {
     final EntityManagerFactory factory;
     factory = Persistence.createEntityManagerFactory("flyergenerator");
     this.em =  factory.createEntityManager();
+
     this.userdao = new UserDAO(em);
 }
 
