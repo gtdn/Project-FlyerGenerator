@@ -38,6 +38,7 @@
                 <button type="submit" class="btn btn-dark">Se connecter</button>
             </form>
         </div>
+        <jsp:include page="carouselle.jsp"/>
         <jsp:include page="composants/footer.html"/>
     </body>
 </html>
