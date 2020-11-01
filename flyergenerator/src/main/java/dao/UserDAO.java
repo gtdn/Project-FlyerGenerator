@@ -33,11 +33,11 @@ public class UserDAO {
 
     /**
      * Créée un nouvel utilisateur ou met à jour son pseudo.
-     * @param userID id du useur
-     * @param pseudo id du pseudo
+     * @param password mot de passe du useur
+     * @param pseudo pseudo
      * @return l'utilisateur créé ou lis à jour
      */
-    public final User createOrUpdate(final int userID, final String pseudo) {
+    /**public final User createOrUpdate(final String pseudo, String password) {
         User user = getUserById(userID);
         if (user == null) {
         user = new User();
@@ -47,6 +47,19 @@ public class UserDAO {
         } else {
             user.setPseudo(pseudo);
         }
+        return user;
+    }*/
+        /**
+     * Créée un nouvel utilisateur ou met à jour son pseudo.
+     * @param password mot de passe du useur
+     * @param pseudo pseudo
+     * @return l'utilisateur créé ou lis à jour
+     */
+    public final User createTest(final String pseudo, final String password) {
+        User user = new User(pseudo, password);
+        em.getTransaction().begin();
+        em.persist(user);
+        em.getTransaction().commit();
         return user;
     }
 }

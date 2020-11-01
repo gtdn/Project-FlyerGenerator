@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 
 //import java.util.ArrayList;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**.
@@ -41,9 +40,12 @@ public class User {
     * @OnetoMany(mappedBy = "utilisateur")
     * private ArrayList<Event> listEvent;
     */
-    private ArrayList<Event> listEvent;
+    //private ArrayList<Event> listEvent;
 
-
+    public User() {
+        this.pseudo = "test";
+        this.password = "test";
+    }
     /**.
      * Constructeur
      * @param p de user
@@ -91,10 +93,11 @@ public class User {
     /**
      * @return la taille(i.e. le nombre) de la
      * liste d'evenement de l'utilisateur.
-     */
-    public final int getListEventSize() {
+
+     public final int getListEventSize() {
         return listEvent.size();
     }
+    */
 
     /**.
      * compare user

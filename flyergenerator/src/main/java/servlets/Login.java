@@ -2,7 +2,7 @@ package servlets;
 
 import modele.User;
 import dao.UserDAO;
-import javax.servlet.ServletConfig;
+//import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,16 +40,15 @@ public class Login extends HttpServlet {
 
     /**.
      * Instancies les DAO
-     * @param servletconfig paramètre
      * @throws ServletException erreurs
     */
 
-    public final void init(final ServletConfig servletconfig)
+     public final void init() // final ServletConfig servletconfig)
     throws ServletException {
-    super.init(servletconfig);
+    super.init();
     final EntityManagerFactory factory;
     factory = Persistence.createEntityManagerFactory("flyergenerator");
-    em =  factory.createEntityManager();
+    this.em =  factory.createEntityManager();
     this.userdao = new UserDAO(em);
 }
 
@@ -57,16 +56,15 @@ public class Login extends HttpServlet {
      * Methode post
      * @param request requete
      * @param response reponse
-     * @param servletconfig servlet config
      * @throws ServletException erreurs
      * @throws IOException autre erreurs
     */
     protected final void doPost(final HttpServletRequest request,
-                         final HttpServletResponse response,
-                        final ServletConfig servletconfig)
+                         final HttpServletResponse response)
             throws ServletException, IOException {
         String name = request.getParameter("name");
         String pwd = request.getParameter("pwd");
+        userdao.createTest(name, pwd);
         if (name != null && !name.equals("")) {
             HttpSession session = request.getSession(true);
             session.setAttribute("user", new User(name, pwd));
