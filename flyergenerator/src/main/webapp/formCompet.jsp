@@ -3,7 +3,7 @@
 <form>
     <h2> Formulaire Competition </h2>
     <div class="form-group">
-      <label for="name">Nom de la l'evenement</label>
+      <label for="name">Nom de l'evenement</label>
       <input type="email" class="form-control" id="name">
     </div>
     <div class="form-group">
