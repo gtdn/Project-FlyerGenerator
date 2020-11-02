@@ -6,7 +6,3 @@ function reveal() {
         x.type = "password";
     }
 }
-
-$('.carousel').carousel()
-
-console.log('coucu')

@@ -38,6 +38,6 @@
                 <button type="submit" class="btn btn-dark">Se connecter</button>
             </form>
         </div>
-        <jsp:include page="composants/footer.html"/>
+        <jsp:include page="composants/footerCo.html"/>
     </body>
 </html>
