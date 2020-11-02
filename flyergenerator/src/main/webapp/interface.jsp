@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="js/interface.js"></script>
 
     </head>
 
@@ -53,7 +54,7 @@
                     </div>
                     <c:choose>
                         <c:when test="${param.contenu == null}">
-                            <jsp:include page="formCompet.jsp"/>
+                            <jsp:include page="home.jsp"/>
                         </c:when>
                         <c:when test = "${param.contenu == \"compet\"}">
                             <jsp:include page="formCompet.jsp"/>
@@ -81,8 +82,8 @@
         <!-- Footer -->
         <jsp:include page="composants/footer.html"/>
         <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
 
     </body>
 

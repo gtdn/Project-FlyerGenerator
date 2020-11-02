@@ -12,7 +12,7 @@
         </div>        
         <c:choose>
             <c:when test="${param.contenu == null}">
-                <jsp:include page="formCompet.jsp" />
+                <jsp:include page="home.jsp" />
             </c:when>
             <c:when test="${param.contenu == \"compet\"}">
                 <jsp:include page="formCompet.jsp" />
