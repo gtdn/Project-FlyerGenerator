@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
 <form>
-    <h2> Formulaire exposition</h2>
+    <h2> Formulaire Exposition</h2>
     <div class="form-group">
-      <label for="name">Nom de la l'evenement</label>
+      <label for="name">Nom de l'evenement</label>
       <input type="email" class="form-control" id="name">
     </div>
     <div class="form-group">

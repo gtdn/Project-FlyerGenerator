@@ -21,15 +21,6 @@ import javax.persistence.Persistence;
 @WebServlet(name = "Login", urlPatterns = "/Login")
 public class Login extends HttpServlet {
     /**.
-     * traiter pour inscription
-     * @param request requete
-     * @param response react
-     * @param servletconfig servletconfig
-     * @throws ServletException si il a erreur
-     * @throws IOException pour erreur
-     */
-
-     /**.
      * Entity manager pour faire le lien avec la base de données
     */
     private EntityManager em;
@@ -42,8 +33,7 @@ public class Login extends HttpServlet {
      * Instancies les DAO
      * @throws ServletException erreurs
     */
-
-     public final void init() // final ServletConfig servletconfig)
+    public final void init() // final ServletConfig servletconfig)
     throws ServletException {
     super.init();
     final EntityManagerFactory factory;

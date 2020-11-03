@@ -33,15 +33,9 @@ public class User {
     */
     private String password;
 
-    /**.
-     * Liste des evenènements de l'utilisateur
-    */
     /**
-    * @OnetoMany(mappedBy = "utilisateur")
-    * private ArrayList<Event> listEvent;
+     * Constructeur.
     */
-    //private ArrayList<Event> listEvent;
-
     public User() {
         this.pseudo = "test";
         this.password = "test";
@@ -89,16 +83,6 @@ public class User {
     public final String getPassword() {
         return password;
     }
-
-    /**
-     * @return la taille(i.e. le nombre) de la
-     * liste d'evenement de l'utilisateur.
-
-     public final int getListEventSize() {
-        return listEvent.size();
-    }
-    */
-
     /**.
      * compare user
      * @param o de entree
