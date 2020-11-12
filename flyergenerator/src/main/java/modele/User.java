@@ -12,7 +12,7 @@ import java.util.Objects;
 /**.
  * Classe Utilisateur du site
  */
-@Entity
+@Entity(name = "utilisateur")
 @Table(name = "utilisateur")
 public class User {
     /**.
@@ -31,6 +31,7 @@ public class User {
     /**.
      * Password de l'utilisateur
     */
+    @Column(name = "mot_de_passe")
     private String password;
 
     /**.
