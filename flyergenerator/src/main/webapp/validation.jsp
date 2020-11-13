@@ -17,7 +17,6 @@
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
-    <script type="text/javascript" src="js/interface.js"></script>
 
     </head>
 
@@ -44,16 +43,10 @@
        
                 <div class="col-lg-9">
                     <div style="text-align: center;">
-                        <h2 class="my-4">Choississez votre type d'evenement</h2>
-                        <div>
-                            <a href="interface.jsp?contenu=compet"><button type="button" class="btn btn-light">Competition</button></a>
-                            <a href="interface.jsp?contenu=conf"><button type="button" class="btn btn-light">Conference</button></a>
-                            <a href="interface.jsp?contenu=expo"><button type="button" class="btn btn-light">Expostion</button></a>
-                            <a href="interface.jsp?contenu=spect"><button type="button" class="btn btn-light">Spectable</button></a>
-                        </div>
+                        <h2 class="my-4">Flyer de votre evenement</h2>
                     </div>
                     <c:choose>
-                        <c:when test="${param.contenu == null || param.contenu == 'home'}">
+                        <c:when test="${param.contenu == 'home'}">
                             <jsp:include page="home.jsp"/>
                         </c:when>
                         <c:when test = "${param.contenu == 'compet'}">
