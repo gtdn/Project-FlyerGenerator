@@ -9,10 +9,13 @@ import java.sql.Time;
  * Classe de l'evènement du type Conference.
  * Elle herite de Event.
  */
-@Entity( name = "conference")
+@Entity(name = "conference")
 @Table(name = "conference")
 public class Conference extends Event {
 
+    /**.
+     * Constructeur vide Conference
+     */
     public Conference() {
         super();
         this.resume = "resume_de_base";
@@ -76,15 +79,15 @@ public class Conference extends Event {
     /**.
     * @return resume
     */
-    public String getResume() {
+    public final String getResume() {
         return this.resume;
     }
 
     /**.
-    * @param resume
-     */
-    public void setResume(String resume) {
-        this.resume = resume;
+    * @param newresume resume
+    */
+    public final void setResume(final String newresume) {
+        this.resume = newresume;
     }
     /**.
      * descriptif de la conference

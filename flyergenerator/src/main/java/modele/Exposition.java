@@ -46,12 +46,19 @@ public class Exposition extends Event {
         this.theme = newtheme;
     }
 
-    public String getTheme() {
+    /**.
+     *
+     * @return theme
+     */
+    public final String getTheme() {
         return this.theme;
     }
 
-    public void setTheme(String theme) {
-        this.theme = theme;
+    /**.
+     * @param newtheme nouveau theme
+     */
+    public final void setTheme(final String newtheme) {
+        this.theme = newtheme;
     }
     /**.
      * description du theme de l'exposition

@@ -5,6 +5,9 @@ package modele;
  */
 public class Competition extends Event {
 
+    /**.
+     * constructeur vide
+     */
     public Competition() {
         super();
     }
@@ -25,36 +28,63 @@ public class Competition extends Event {
      */
     private String cashPrize;
 
-    public String getHashtag() {
+    /**.
+     *
+     * @return retourne hashtag
+     */
+    public final String getHashtag() {
         return this.hashtag;
     }
 
-    public void setHashtag(String hashtag) {
-        this.hashtag = hashtag;
+    /**.
+     *
+     * @param newhashtag nouvel hashtag
+     */
+    public final void setHashtag(final String newhashtag) {
+        this.hashtag = newhashtag;
     }
 
-    public String getNomOrganisateur() {
+    /**.
+     * @return nomOrganisateur
+     */
+    public final String getNomOrganisateur() {
         return this.nomOrganisateur;
     }
 
-    public void setNomOrganisateur(String nomOrganisateur) {
-        this.nomOrganisateur = nomOrganisateur;
+    /**.
+     *
+     * @param newnomOrganisateur nouveau nom d'organisateur
+     */
+    public final void setNomOrganisateur(final String newnomOrganisateur) {
+        this.nomOrganisateur = newnomOrganisateur;
     }
 
-    public String getResume() {
+    /**.
+     * @return resume
+     */
+    public final String getResume() {
         return this.resume;
     }
 
-    public void setResume(String resume) {
-        this.resume = resume;
+    /**.
+     * @param newresume nouveau resume
+     */
+    public final void setResume(final String newresume) {
+        this.resume = newresume;
     }
 
-    public String getCashPrize() {
+    /**.
+     * @return cashPrize
+     */
+    public final String getCashPrize() {
         return this.cashPrize;
     }
 
-    public void setCashPrize(String cashPrize) {
-        this.cashPrize = cashPrize;
+    /**.
+     * @param newcashPrize nouveau cashPrize
+     */
+    public final void setCashPrize(final String newcashPrize) {
+        this.cashPrize = newcashPrize;
     }
 
 }

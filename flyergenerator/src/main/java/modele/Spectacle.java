@@ -7,12 +7,11 @@ import java.sql.Date;
 import java.sql.Time;
 
 
-
-@Entity(name = "spectacle")
-@Table(name = "spectacle")
     /**.
      * Class spectacle herite de Event
      */
+@Entity(name = "spectacle")
+@Table(name = "spectacle")
 public class Spectacle extends Event {
 
     /**.
