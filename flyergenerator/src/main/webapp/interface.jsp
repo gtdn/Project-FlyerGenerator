@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
 <html lang="fr">
@@ -32,12 +33,12 @@
 
                 <div class="col-lg-3">
 
-                    <h3 class="my-4">Choississez votre type d'evenement</h3>
+                    <h3 class="my-4">Choississez votre type d'évènement</h3>
                     <div class="list-group">
-                        <a href="interface.jsp?contenu=compet" class="list-group-item">Competion</a>
-                        <a href="interface.jsp?contenu=conf" class="list-group-item">Conference</a>
-                        <a href="interface.jsp?contenu=expo" class="list-group-item">Expostion</a>
-                        <a href="interface.jsp?contenu=spect" class="list-group-item">Spectable</a>
+                        <a href="interface.jsp?contenu=compet" class="list-group-item">Compétition</a>
+                        <a href="interface.jsp?contenu=conf" class="list-group-item">Conférence</a>
+                        <a href="interface.jsp?contenu=expo" class="list-group-item">Exposition</a>
+                        <a href="interface.jsp?contenu=spect" class="list-group-item">Spectacle</a>
                     </div>
 
                 </div>
@@ -46,10 +47,10 @@
                     <div style="text-align: center;">
                         <h2 class="my-4">Choississez votre type d'evenement</h2>
                         <div>
-                            <a href="interface.jsp?contenu=compet"><button type="button" class="btn btn-light">Competition</button></a>
-                            <a href="interface.jsp?contenu=conf"><button type="button" class="btn btn-light">Conference</button></a>
-                            <a href="interface.jsp?contenu=expo"><button type="button" class="btn btn-light">Expostion</button></a>
-                            <a href="interface.jsp?contenu=spect"><button type="button" class="btn btn-light">Spectable</button></a>
+                            <a href="interface.jsp?contenu=compet"><button type="button" class="btn btn-light">Compétition</button></a>
+                            <a href="interface.jsp?contenu=conf"><button type="button" class="btn btn-light">Conférence</button></a>
+                            <a href="interface.jsp?contenu=expo"><button type="button" class="btn btn-light">Exposition</button></a>
+                            <a href="interface.jsp?contenu=spect"><button type="button" class="btn btn-light">Spectacle</button></a>
                         </div>
                     </div>
                     <c:choose>
