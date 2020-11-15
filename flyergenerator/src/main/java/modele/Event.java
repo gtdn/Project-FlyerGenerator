@@ -175,7 +175,7 @@ public class Event {
      * moyen de contacter les organisateur de l'evenement
      */
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_event")
+    @JoinColumn(name = "id_contact")
     private Contacts contacts;
 
     /**.
@@ -209,7 +209,7 @@ public class Event {
      * @param newid nouvel id
      */
     public final void setId(final int newid) {
-        this.id_event = id;
+        this.id_event = newid;
     }
     /**
      * Renvoie l'email de l'utilisateur.
