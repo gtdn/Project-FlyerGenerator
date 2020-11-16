@@ -1,71 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.io.IOException" %>
-<%@ page import="java.nio.charset.Charset" %>
-<%@ page import="java.nio.charset.StandardCharsets" %>
-<%@ page import="java.io.File" %>
-<%@ page import="java.nio.file.Files" %>
-<%@ page import="java.nio.file.Paths" %>
-<%@ page import="java.nio.file.Path" %>
-<%@ page import="java.io.FileOutputStream" %>
-<%@ page import="java.io.FileInputStream" %>
-<%@ page import="org.apache.commons.io.IOUtils" %>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
-<%
-
-String htmlString = new String(Files.readAllBytes(Paths.get("html/flyer_exposition.html")), StandardCharsets.UTF_8);
-FileOutputStream outputStream = new FileOutputStream("html/generated_file.html");
-byte[] strToBytes = htmlString.getBytes();
-outputStream.write(strToBytes);
-
-outputStream.close();
-
-Process wkhtml;
-
-File destinationFile = new File("pdf/output.pdf");
-File sourceFile = new File("html/generated_file.html");
-
-FileInputStream fis = new FileInputStream(sourceFile);
-FileOutputStream fos = new FileOutputStream(destinationFile);
-
-String command = "wkhtmltopdf --disable-smart-shrinking --enable-local-file-access --page-size A5 -L 0 -B 0 -R 0 -T 0 " + sourceFile + " " + destinationFile;
-
-wkhtml = Runtime.getRuntime().exec(command);
-
-Thread errThread = new Thread(() -> {
-    try {
-        IOUtils.copy(wkhtml.getErrorStream(), System.err);
-    } catch (IOException e) {
-        throw new RuntimeException(e);
-    }
-});
-
-Thread htmlReadThread = new Thread(() -> {
-    try {
-        IOUtils.copy(fis, wkhtml.getOutputStream());
-        wkhtml.getOutputStream().flush();
-        wkhtml.getOutputStream().close();
-    } catch (IOException e) {
-        throw new RuntimeException(e);
-    }
-});
-
-Thread pdfWriteThread = new Thread(() -> {
-    try {
-        IOUtils.copy(wkhtml.getInputStream(), fos);
-    } catch (IOException e) {
-        throw new RuntimeException(e);
-    }
-});
-
-errThread.start();
-pdfWriteThread.start();
-htmlReadThread.start();
-
-wkhtml.waitFor(); // Allow process to run
-%>
 
 <html lang="fr">
 

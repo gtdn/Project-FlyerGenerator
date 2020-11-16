@@ -29,7 +29,7 @@
             background-position: center center;
             background-repeat: no-repeat; 
             background-size: contain; 
-            background-image: url("../../ressources/flyer_exposition_background_image.jpeg"); 
+            background-image: url("$urlApplication$/html/flyer_exposition_background_image.jpeg");
         }
 
         #eventTitleContainer {
@@ -160,7 +160,7 @@
         }
 
         #eventPlace2 {
-        	font-size: inherit!important;
+        	font-size: 40px!important;
         	color: #c3c3c3;
         }
 
@@ -200,41 +200,41 @@
     <div id='flyer'>
         <div id='eventTitleContainer'>
             <div id='eventTitle'>
-                <p>Salon Mondial de l'Automobile</p>
+                <p>$eventTitle$</p>
             </div>
             <div id='eventYear'>
-                <div id='eventYearText'><p>2021</p></div>
+                <div id='eventYearText'><p>$eventYear$</p></div>
             </div>
         </div>
         <div id='eventInfosContainer'>
         	<div id="eventDate">
         		<div id="eventDate1">
         			<div id="eventDate1-1">
-        				<p>14</p>
+        				<p>$eventDateBeg$</p>
         			</div>
         			<div id="eventDate1-2">
-        				<img src="../../ressources/icons/fast-forward.png">
+        				<img src="$urlApplication$/html/fast-forward.png">
         			</div>
         			<div id="eventDate1-3">
-        				<p>17</p>
+        				<p>$eventDateEnd$</p>
         			</div>
         		</div>
         		<div id="eventDate2">
-        			<p>mars</p>
+        			<p>$eventMonth$</p>
         		</div>
         	</div>
         	<div id="eventPlace">
-        		<p id="eventPlace1">Palais des Expositions</p>
-        		<p id="eventPlace2">Genève</p>
+        		<p id="eventPlace1">$eventLocation$</p>
+        		<p id="eventPlace2">$eventCity$</p>
         	</div>
         </div>
         <div id="eventPrice">
-        	15€
+        	$eventPrice$
         </div>
         <div id="eventContact">
-        	<div id="eventContact1">06 19 25 69 41</div>
-        	<div id="eventContact3"></div>
-        	<div id="eventContact2">PALEXPO GENEVE</div>
+        	<div id="eventContact1">$eventContactNumber$</div>
+        	<div id="eventContact3">$eventContactName$</div>
+        	<div id="eventContact2">$eventContactEmail$</div>
         </div>
     </div>
   </body>

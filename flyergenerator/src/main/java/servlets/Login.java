@@ -27,6 +27,7 @@ public class Login extends HttpServlet {
     protected final void doPost(final HttpServletRequest request,
                          final HttpServletResponse response)
             throws ServletException, IOException {
+
         String name = request.getParameter("name");
         String pwd = request.getParameter("pwd");
         if (name != null && !name.equals("")) {
