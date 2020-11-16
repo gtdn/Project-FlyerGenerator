@@ -17,7 +17,7 @@ public class UserDAO {
     private final EntityManager em;
 
     /**
-     * @param newEm entite manageur
+     * @param newEm entite manageur.
      */
     public UserDAO(final EntityManager newEm) {
         this.em = newEm;

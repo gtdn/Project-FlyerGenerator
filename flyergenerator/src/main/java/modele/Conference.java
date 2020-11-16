@@ -7,7 +7,6 @@ import java.sql.Date;
 import java.sql.Time;
 
 /**
- * .
  * Classe de l'evènement du type Conference. Elle herite de Event.
  */
 @Entity(name = "conference")
@@ -15,8 +14,7 @@ import java.sql.Time;
 public class Conference extends Event {
 
     /**
-     * .
-     * Constructeur vide Conference
+     * Constructeur vide Conference.
      */
     public Conference() {
         super();
@@ -24,9 +22,7 @@ public class Conference extends Event {
     }
 
     /**
-     * .
      * Constructeur avec toutes les valeures possibles.
-     *
      * @param idUser idUser
      * @param nom nom evenement
      * @param imagePath lienimage
@@ -79,23 +75,20 @@ public class Conference extends Event {
     }
      */
     /**
-     * .
-     * @return resume
+     * @return resume.
      */
     public final String getResume() {
         return this.resume;
     }
 
     /**
-     * .
-     * @param newresume resume
+     * @param newresume resume.
      */
     public final void setResume(final String newresume) {
         this.resume = newresume;
     }
     /**
-     * .
-     * descriptif de la conference
+     * descriptif de la conference.
      */
     @Column(name = "resumee")
     private String resume;

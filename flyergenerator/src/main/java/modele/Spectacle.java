@@ -7,15 +7,14 @@ import java.sql.Date;
 import java.sql.Time;
 
 /**
- * .
- * Class spectacle herite de Event
+ * Class spectacle herite de Event.
  */
 @Entity(name = "spectacle")
 @Table(name = "spectacle")
 public class Spectacle extends Event {
 
     /*
-    /**.
+    /**
      * Constructeur avec toutes les valeures possibles.
      * @param idUser idUser
      * @param nom nom evenement
@@ -39,9 +38,7 @@ public class Spectacle extends Event {
     }
      */
     /**
-     * .
      * Constructeur avec toutes les valeures possibles.
-     *
      * @param idUser idUser
      * @param nom nom evenement
      * @param imagePath lienimage

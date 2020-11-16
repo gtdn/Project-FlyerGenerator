@@ -7,26 +7,26 @@ import java.util.List;
 
 
 import javax.persistence.EntityManager;
-    /**.
-     * Class Dao pour Exposition
+    /**
+     * Class Dao to Exposition.
      */
 public class ExpositionDAO {
 
 
-    /**.
-     * entite manager
+    /**
+     * Entity manager.
      */
     private final EntityManager em;
 
-    /**.
-     * @param newEm entite manageur
+    /**
+     * @param newEm entite manageur.
      */
     public ExpositionDAO(final EntityManager newEm) {
         this.em = newEm;
     }
 
-    /**.
-     * @param idUser Spectacle donné en parametre
+    /**
+     * @param idUser Spectacle donné en parametre.
      * @return toutes les conferences de l'utilisateur
      */
     public final List<Exposition> getExpositionByIdUser(final int idUser) {
@@ -43,8 +43,8 @@ public class ExpositionDAO {
         }
     }
 
-    /**.
-     * modifie ou crée une conference
+    /**
+     * modifie ou crée une conference.
      * dans la data base
      * @param exp exposition donné en parametre
      */
@@ -71,8 +71,8 @@ public class ExpositionDAO {
         }
 
 }
-    /**.
-     * ajoute une conference
+    /**
+     * ajoute une conference.
      * dans la data base
      * @param exp Spectacle donné en parametre
      */
