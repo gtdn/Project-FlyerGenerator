@@ -13,15 +13,15 @@ import java.io.IOException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-/**.
- * Pour la demande connection
+/**
+ * Pour la demande connection.
  * Si utilisatuer existe faire connection
  * sinon faire inscription
  * */
 @WebServlet(name = "Login", urlPatterns = "/Login")
 public class Login extends HttpServlet {
-    /**.
-     * Entity manager pour faire le lien avec la base de données
+    /**
+     * Entity manager pour faire le lien avec la base de données.
     */
     private EntityManager em;
     /**.
@@ -29,8 +29,8 @@ public class Login extends HttpServlet {
     */
     private UserDAO userdao;
 
-    /**.
-     * Instancies les DAO
+    /**
+     * Instancies les DAO.
      * @throws ServletException erreurs
     */
     public final void init() // final ServletConfig servletconfig)
@@ -43,8 +43,8 @@ public class Login extends HttpServlet {
     this.userdao = new UserDAO(em);
 }
 
-    /**.
-     * Methode post
+    /**
+     * Methode post.
      * @param request requete
      * @param response reponse
      * @throws ServletException erreurs
@@ -67,8 +67,8 @@ public class Login extends HttpServlet {
         }
     }
 
-    /**.
-     * aller au page inscription
+    /**
+     * aller au page inscription.
      * @param request requete
      * @param response react
      * @throws ServletException erreur

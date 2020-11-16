@@ -8,26 +8,26 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-/**.
-     * Class Dao pour conference
-     */
+/**
+    * Class Dao pour conference.
+*/
 public class ConferenceDAO {
 
 
-    /**.
-     * entite manager
+    /**
+     * entite manager.
      */
     private final EntityManager em;
 
-    /**.
-     * @param newEm entite manageur
+    /**
+     * @param newEm entite manageur.
      */
     public ConferenceDAO(final EntityManager newEm) {
         this.em = newEm;
     }
 
-    /**.
-     * @param idUser conference donné en parametre
+    /**
+     * @param idUser conference donné en parametre.
      * @return toutes les conferences de l'utilisateur
      */
     public final List<Conference> getConferenceByIdUser(final int idUser) {
@@ -43,8 +43,8 @@ public class ConferenceDAO {
             return null;
         }
     }
-    /**.
-     * modifie ou crée une conference
+    /**
+     * modifie ou crée une conference.
      * dans la data base
      * @param spec Conference donné en parametre
      */
@@ -72,8 +72,8 @@ public class ConferenceDAO {
         }
 
 }
-    /**.
-     * ajoute une conference
+    /**
+     * ajoute une conference.
      * dans la data base
      * @param spec Spectacle donné en parametre
      */
