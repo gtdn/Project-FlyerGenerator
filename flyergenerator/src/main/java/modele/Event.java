@@ -35,7 +35,7 @@ public class Event {
      * Constructeur vide
      */
     public Event() {
-        this.id_utilisateur = 0;
+        this.idUtilisateur = 0;
         this.nom = "nom_event";
         this.imagePath = "imagePath";
         this.lieu = "lieu";
@@ -47,7 +47,7 @@ public class Event {
         this.listeIntervenants = null;
 
     }
-
+    /*
     /**.
      *
      * @param newidutilisateur a
@@ -59,12 +59,12 @@ public class Event {
      * @param newheureFin a
      * @param newdateDebut a
      * @param newdateFin a
-     */
+     /
     public Event(final int newidutilisateur,
      final String newnom, final String newimagePath,
      final String newlieu, final int newprix, final Time newheureDebut,
       final Time newheureFin, final Date newdateDebut, final Date newdateFin) {
-        this.id_utilisateur = newidutilisateur;
+        this.idUtilisateur = newidutilisateur;
         this.nom = newnom;
         this.imagePath = newimagePath;
         this.lieu = newlieu;
@@ -75,7 +75,7 @@ public class Event {
         this.dateFin = newdateFin;
         this.listeIntervenants = null;
     }
-
+*/
     /**.
      *
      * @param newidutilisateur &
@@ -88,7 +88,7 @@ public class Event {
     public Event(final int newidutilisateur, final String newnom,
      final String newimagePath, final String newlieu,
       final Time newheureDebut, final Date newdateDebut) {
-        this.id_utilisateur = newidutilisateur;
+        this.idUtilisateur = newidutilisateur;
         this.nom = newnom;
         this.imagePath = newimagePath;
         this.lieu = newlieu;
@@ -102,13 +102,13 @@ public class Event {
     @Id
     @GeneratedValue()
     @Column(name = "id_event")
-    private int id_event;
+    private int idEvent;
 
     /**.
      * identifiant de l'utilisateur associé (créateur)
      */
     @Column(name = "id_utilisateur")
-    private int id_utilisateur;
+    private int idUtilisateur;
     /**.
      * nom de l'evenement
      */
@@ -191,7 +191,7 @@ public class Event {
     public final void setContacts(final Contacts newcontacts) {
         System.out.print("ID_EVENT DE CONTACT:");
         //System.out.print(contacts.getIDEvent());
-        System.out.print(this.id_event);
+        System.out.print(this.idEvent);
         System.out.print("ID_EVENT DE CONTACT:");
         this.contacts = newcontacts;
     }
@@ -202,14 +202,14 @@ public class Event {
      * @return id.
      */
     public final int getId() {
-        return this.id_event;
+        return this.idEvent;
     }
 
     /**.
      * @param newid nouvel id
      */
     public final void setId(final int newid) {
-        this.id_event = newid;
+        this.idEvent = newid;
     }
     /**
      * Renvoie l'email de l'utilisateur.
@@ -217,14 +217,14 @@ public class Event {
      * @return id User
      */
     public final int getIdutilisateur() {
-        return this.id_utilisateur;
+        return this.idUtilisateur;
     }
 
     /**.
      * @param newidutilisateur nouvel id utilisateur
      */
     public final void setIdutilisateur(final int newidutilisateur) {
-        this.id_utilisateur = newidutilisateur;
+        this.idUtilisateur = newidutilisateur;
     }
     /**
      * Renvoie l'email de l'utilisateur.

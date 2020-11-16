@@ -29,13 +29,33 @@ public class Exposition extends Event {
      * @param nom nom evenement
      * @param imagePath lienimage
      * @param lieu lieu evenement
+     * @param heureDebut heure debutEvenement
+     * @param dateDebut date debut evenement
+     * @param newtheme nom association
+     */
+    public Exposition(final int idUser,
+     final String nom, final String imagePath,
+      final String lieu, final Time heureDebut,
+      final Date dateDebut, final String newtheme) {
+
+        super(idUser, nom, imagePath, lieu,
+         heureDebut, dateDebut);
+        this.theme = newtheme;
+    }
+    /*
+    /**.
+     * Constructeur avec toutes les valeures possibles.
+     * @param idUser idUser
+     * @param nom nom evenement
+     * @param imagePath lienimage
+     * @param lieu lieu evenement
      * @param prix evenement
      * @param heureDebut heure debutEvenement
      * @param heureFin heure fin evenement
      * @param dateDebut date debut evenement
      * @param dateFin date fin
      * @param newtheme nom association
-     */
+     /
     public Exposition(final int idUser, final String nom,
     final String imagePath, final String lieu, final int prix,
     final Time heureDebut, final Time heureFin, final Date dateDebut,
@@ -45,7 +65,7 @@ public class Exposition extends Event {
          heureDebut, heureFin, dateDebut, dateFin);
         this.theme = newtheme;
     }
-
+*/
     /**.
      *
      * @return theme

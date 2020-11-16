@@ -32,7 +32,7 @@ public class ExpositionDAO {
     public final List<Exposition> getExpositionByIdUser(final int idUser) {
 
         TypedQuery<Exposition> q = em.createQuery("SELECT spec"
-        + " FROM exposition spec WHERE spec.id_utilisateur"
+        + " FROM exposition spec WHERE spec.idUtilisateur"
         + " = ?1", Exposition.class);
         q.setParameter(1, idUser);
         List<Exposition> results = q.getResultList();
@@ -50,7 +50,7 @@ public class ExpositionDAO {
      */
     public final void updateExposition(final Exposition exp) {
         TypedQuery<Exposition> q = em.createQuery("SELECT spec"
-        + " FROM exposition spec WHERE spec.id_event"
+        + " FROM exposition spec WHERE spec.idEvent"
         + " = ?1", Exposition.class);
         q.setParameter(1, exp.getId());
         List<Exposition> results = q.getResultList();

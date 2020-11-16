@@ -40,6 +40,7 @@ public class Conference extends Event {
          heureDebut, dateDebut);
         this.resume = newresume;
     }
+    /*
     /**.
      * Constructeur avec toutes les valeures possibles.
      * @param idUser idUser
@@ -52,7 +53,7 @@ public class Conference extends Event {
      * @param dateDebut date debut evenement
      * @param dateFin date fin
      * @param newresume nom association
-     */
+     /
     public Conference(final int idUser, final String nom,
     final String imagePath, final String lieu, final int prix,
     final Time heureDebut, final Time heureFin, final Date dateDebut,
@@ -62,6 +63,7 @@ public class Conference extends Event {
          heureDebut, heureFin, dateDebut, dateFin);
         this.resume = newresume;
     }
+    */
     /**.
      * id de la conference
      * private int idConference;

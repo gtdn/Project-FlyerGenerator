@@ -13,7 +13,7 @@ import java.sql.Time;
 @Entity(name = "spectacle")
 @Table(name = "spectacle")
 public class Spectacle extends Event {
-
+/*
     /**.
      * Constructeur avec toutes les valeures possibles.
      * @param idUser idUser
@@ -26,7 +26,7 @@ public class Spectacle extends Event {
      * @param dateDebut date debut evenement
      * @param dateFin date fin
      * @param newnomAssociation nom association
-     */
+     /
     public Spectacle(final int idUser, final String nom,
     final String imagePath, final String lieu, final int prix,
     final Time heureDebut, final Time heureFin, final Date dateDebut,
@@ -36,7 +36,7 @@ public class Spectacle extends Event {
          heureDebut, heureFin, dateDebut, dateFin);
         this.nomAssociation = newnomAssociation;
     }
-
+*/
     /**.
      * Constructeur avec toutes les valeures possibles.
      * @param idUser idUser
@@ -56,6 +56,7 @@ public class Spectacle extends Event {
          heureDebut, dateDebut);
         this.nomAssociation = newnomAssociation;
     }
+
     /**.
     * Constructeur par défaut
     */

@@ -33,7 +33,7 @@ public class SpectacleDAO {
     public final List<Spectacle> getSpectacleByIdUser(final int idUser) {
 
         TypedQuery<Spectacle> q = em.createQuery("SELECT spec"
-        + " FROM spectacle spec WHERE spec.id_utilisateur"
+        + " FROM spectacle spec WHERE spec.idUtilisateur"
         + " = ?1", Spectacle.class);
         q.setParameter(1, idUser);
         List<Spectacle> results = q.getResultList();
@@ -54,7 +54,7 @@ public class SpectacleDAO {
      */
     public final void updateSpectacle(final Spectacle spec) {
         TypedQuery<Spectacle> q = em.createQuery("SELECT spec"
-        + " FROM spectacle spec WHERE spec.id_event"
+        + " FROM spectacle spec WHERE spec.idEvent"
         + "  = ?1", Spectacle.class);
         q.setParameter(1, spec.getId());
         System.out.print("ID SPECTACLE MODIFIE : ");
@@ -65,10 +65,15 @@ public class SpectacleDAO {
             System.out.print(results.iterator().next().equals(spec));
             System.out.print("COMPARAISON SPECTACLE");
             if (results.iterator().next().equals(spec)) {
+                System.out.print(" ENDGAME ENDGAME ENDGAME ENDGAMR ");
                 em.getTransaction().begin();
+                System.out.print(" INFINITY WARS ");
                  em.remove(results.iterator().next());
+                 System.out.print(" ENDGAME ENDGAME ENDGAME ENDGAMR ");
                  em.persist(spec);
+                 System.out.print(" 22222222222222 WARS ");
                  em.getTransaction().commit();
+                 System.out.print(" 33333333333333 WARS ");
             } else {
                 return;
             }
