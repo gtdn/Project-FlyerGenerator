@@ -1,5 +1,4 @@
 package servlets;
- 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -16,18 +15,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
- 
+/**
+ * Define webServelt.
+ */
 @WebServlet("/formEvent")
 public class FormEvent extends HttpServlet {
- 
-    protected void doPost(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
-
+    /**
+     * doPost method.
+     * @param request request
+     * @param response response
+     * @throws ServletException servelt
+     * @throws IOException exception
+     */
+    protected final void doPost(final HttpServletRequest request,
+    final HttpServletResponse response) throws ServletException, IOException {
         String urlApplication = request.getRequestURL().toString();
         urlApplication = urlApplication.replace("/formEvent", "");
 
         String current = new java.io.File(".").getCanonicalPath();
-        String htmlString = new String(Files.readAllBytes(Paths.get(current + "/html/flyer_exposition.html")), StandardCharsets.UTF_8);
+        String htmlString = new String(Files.readAllBytes(Paths.get(
+            current + "/html/flyer_exposition.html")),
+        StandardCharsets.UTF_8);
 
         String eventTitle = request.getParameter("eventTitle");
         String eventCity = request.getParameter("eventCity");
@@ -45,12 +53,15 @@ public class FormEvent extends HttpServlet {
         String[] eventDateEndSplitted = eventDateEnd.split("-");
         eventDateEnd = eventDateEndSplitted[2];
         String eventYear = eventDateBegSplitted[0];
-        String[] months = {"None", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"};
-        String eventMonth = months[(Integer.parseInt(eventDateBegSplitted[1]))];
-        String eventContactName = request.getParameter("eventContactName");
+        String[] months = {"None", "Janvier", "Février", "Mars", "Avril",
+        "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre",
+        "Novembre", "Décembre"};
+        String eventMonth = months[(Integer.parseInt(
+            eventDateBegSplitted[1]))];
+        String eventContactName = request.getParameter(
+            "eventContactName");
         String eventContactNumber = request.getParameter("eventContactNumber");
         String eventContactEmail = request.getParameter("eventContactEmail");
-        
         htmlString = htmlString.replace("$eventTitle$", eventTitle);
         htmlString = htmlString.replace("$urlApplication$", urlApplication);
         htmlString = htmlString.replace("$eventCity$", eventCity);
@@ -60,31 +71,40 @@ public class FormEvent extends HttpServlet {
         htmlString = htmlString.replace("$eventDateEnd$", eventDateEnd);
         htmlString = htmlString.replace("$eventYear$", eventYear);
         htmlString = htmlString.replace("$eventMonth$", eventMonth);
-        htmlString = htmlString.replace("$eventContactName$", eventContactName);
-        htmlString = htmlString.replace("$eventContactNumber$", eventContactNumber);
-        htmlString = htmlString.replace("$size$", "eventContactEmail");
+        htmlString = htmlString.replace("$eventContactName$",
+        eventContactName);
+        htmlString = htmlString.replace("$eventContactNumber$",
+        eventContactNumber);
+        htmlString = htmlString.replace("$eventContactEmail$",
+        eventContactEmail);
 
         byte[] pdfData = getPdf(htmlString);
-
-        FileUtils.writeByteArrayToFile(new File(current + "/pdf/output.pdf"), pdfData);
-
+        FileUtils.writeByteArrayToFile(new File(
+            current + "/pdf/output.pdf"), pdfData);
         response.sendRedirect("validation.jsp");
     }
-
-    public byte[] getPdf(String html) {
+    /**
+     * function to getPDF.
+     * @param html link to getPDF
+     * @return results.
+     */
+    public final byte[] getPdf(final String html) {
         byte[] results = null;
-        try {   
-          String[] command = {"wkhtmltopdf", "--disable-smart-shrinking", "--enable-local-file-access", "--page-size", "A5", "-L", "0", "-B", "0", "-R", "0", "-T", "0", "-", "-"};
+        try {
+          String[] command = {"wkhtmltopdf", "--disable-smart-shrinking",
+          "--enable-local-file-access",
+          "--page-size", "A5", "-L", "0",
+          "-B", "0", "-R", "0", "-T", "0", "-", "-"};
           ProcessBuilder builder = new ProcessBuilder(command);
           builder.redirectErrorStream(false);
-      
           Process process = builder.start();
-          
-          try (BufferedOutputStream stdin = new BufferedOutputStream(process.getOutputStream())) {
+          try (BufferedOutputStream stdin = new BufferedOutputStream(
+          process.getOutputStream())) {
               stdin.write(html.getBytes());
           }
-      
-          try(BufferedInputStream stdout = new BufferedInputStream(process.getInputStream()); ByteArrayOutputStream outputStream = new ByteArrayOutputStream(); ) {
+          try (BufferedInputStream stdout = new BufferedInputStream(
+          process.getInputStream());
+          ByteArrayOutputStream outputStream = new ByteArrayOutputStream();) {
             while (true) {
                 int x = stdout.read();
                 if (x == -1) {
@@ -95,11 +115,9 @@ public class FormEvent extends HttpServlet {
             results = outputStream.toByteArray();
             process.waitFor();
           }
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             return null;
         }
         return results;
       }
- 
 }
