@@ -11,7 +11,7 @@ import java.sql.Date;
 import java.sql.Time;
 
 import modele.Exposition;
-import modele.User;
+//import modele.User;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -100,14 +100,16 @@ public class FormEvent extends HttpServlet {
         Exposition expo = new Exposition();
         ExpositionDAO expositionDAO = new ExpositionDAO(em);
         expo.setNom(eventTitle);
-        expo.setIdutilisateur(((User) request.getAttribute("user")).getID());
+        /*((User) request.getAttribute("user")).getID()*/
+        final int i = 27;
+        expo.setIdutilisateur(i);
         expo.setLieu(eventCity);
         /*expo.setLocation(eventLocation)*/
         Time heurBeg = new Time(0);
         expo.setHeureDebut(heurBeg);
         Date dateBeg = Date.valueOf(request.getParameter("eventDateBeg"));
         expo.setDateDebut(dateBeg);
-        String theme = request.getParameter("theme");
+        String theme = "theme";
         expo.setTheme(theme);
 
         /* Add in BDD */
