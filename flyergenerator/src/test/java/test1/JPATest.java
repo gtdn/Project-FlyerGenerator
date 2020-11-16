@@ -38,6 +38,16 @@ public class JPATest {
         ExpositionDAO expositiondao = new ExpositionDAO(em);
         Spectacle spec = new Spectacle(27, "blabla", "chemin", "bercy", new Time(0), new Date(0), "asso");
         spectacledao.updateSpectacle(spec);
+        List<Spectacle> liste_spectacle = spectacledao.getSpectacleByIdUser(test.getID());
+        
+        Spectacle test_2 = liste_spectacle.get(0);
+        Collection<String> testintervenant = new ArrayList<String>();
+        testintervenant.add("test_4_265");
+        testintervenant.add("test_4_toujours_265");
+        test_2.setListeIntervenants(testintervenant);
+        Contacts contact = new Contacts();
+        test_2.setContacts(contact);
+        spectacledao.updateSpectacle(test_2);
         /*Exposition exp = new Exposition(27, "blabla", "chemin", "bercy", 0, new Time(0), new Time(0), new Date(0), new Date(0), "asso");
         Conference conf = new Conference(27, "blabla", "chemin", "bercy", 0, new Time(0), new Time(0), new Date(0), new Date(0), "asso");
         Contacts contact = new Contacts();

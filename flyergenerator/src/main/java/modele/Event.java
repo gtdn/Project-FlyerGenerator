@@ -21,6 +21,7 @@ import javax.persistence.CollectionTable;
 import javax.persistence.JoinColumn;
 //import javax.persistence.JoinColumns;
 import javax.persistence.OneToOne;
+//import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
 
 /**.
@@ -154,6 +155,7 @@ public class Event {
         name = "INTERVENANT",
         joinColumns = @JoinColumn(name = "ID_EVENT")
     )
+    //@OneToMany(cascade = CascadeType.ALL)
     @Column(name = "nom")
     private Collection<String> listeIntervenants = new ArrayList<>();
 
