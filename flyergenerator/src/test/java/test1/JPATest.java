@@ -12,6 +12,8 @@ import modele.Conference;
 import modele.Contacts;
 import modele.Exposition;
 import modele.Contacts;
+import java.util.Collection;
+import java.util.Vector;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -37,16 +39,29 @@ public class JPATest {
         Exposition exp = new Exposition(27, "blabla", "chemin", "bercy", 0, new Time(0), new Time(0), new Date(0), new Date(0), "asso");
         Conference conf = new Conference(27, "blabla", "chemin", "bercy", 0, new Time(0), new Time(0), new Date(0), new Date(0), "asso");
         Contacts contact = new Contacts();
-        spec.setContacts(contact);
+        /*spec.setContacts(contact);
         spectacledao.updateSpectacle(spec);
         expositiondao.updateExposition(exp);
         //conferencedao.updateConference(conf);
         System.out.print(test.getID());
+        
+        */
         List<Spectacle> liste_spectacle = spectacledao.getSpectacleByIdUser(test.getID());
-        //Spectacle test_2 = liste_spectacle.get(0);
+        
+        Spectacle test_2 = liste_spectacle.get(1);
+        System.out.print(" ANNONCE ID SPECTACLE TEST : ");
+        System.out.print(test_2.getId());
+        System.out.print( "ANNONCE ID SPECTACLE TEST : ");
         //test_2.setLieu("20");
         //spec.setLieu("TEST_SPEC_9");
-        //spectacledao.UpdateSpectacle(test_2);
+        contact = test_2.getContacts();
+        Collection<String> testintervenant = test_2.getListeIntervenants();
+        //testintervenant.add("test_208");
+        //testintervenant.add("test_toujours_208");
+        spectacledao.updateSpectacle(test_2);
+        System.out.print(" ANNONCE MAIL CONTACT : ");
+        //System.out.print(testintervenant.toArray()[0]);
+        System.out.print( "ANNONCE MAIL CONTACT : ");
         //System.out.print(test_2.getId());        
         /*for(int i=0; i<liste_spectacle.size(); i++)
         {

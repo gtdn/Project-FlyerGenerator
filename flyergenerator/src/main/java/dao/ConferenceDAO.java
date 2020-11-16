@@ -32,7 +32,9 @@ public class ConferenceDAO {
      */
     public final List<Conference> getConferenceByIdUser(final int idUser) {
 
-        TypedQuery<Conference> q = em.createQuery("SELECT spec FROM conference spec WHERE spec.id_utilisateur = ?1", Conference.class);
+        TypedQuery<Conference> q = em.createQuery("SELECT spec"
+        + " FROM conference spec WHERE spec.id_utilisateur"
+        + " = ?1", Conference.class);
         q.setParameter(1, idUser);
         List<Conference> results = q.getResultList();
         if (results.size() > 0) {
@@ -48,7 +50,9 @@ public class ConferenceDAO {
      */
     public final void updateConference(final Conference spec) {
         System.out.print("COMPARAISON CONFERENCE");
-        TypedQuery<Conference> q = em.createQuery("SELECT spec FROM conference spec WHERE spec.id_event = ?1", Conference.class);
+        TypedQuery<Conference> q = em.createQuery("SELECT spec"
+        + " FROM conference spec WHERE spec.id_event"
+        + " = ?1", Conference.class);
         q.setParameter(1, spec.getId());
         List<Conference> results = q.getResultList();
         if (results.size() > 0) {

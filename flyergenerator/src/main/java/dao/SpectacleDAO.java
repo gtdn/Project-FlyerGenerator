@@ -32,9 +32,14 @@ public class SpectacleDAO {
      */
     public final List<Spectacle> getSpectacleByIdUser(final int idUser) {
 
-        TypedQuery<Spectacle> q = em.createQuery("SELECT spec FROM spectacle spec WHERE spec.id_utilisateur = ?1", Spectacle.class);
+        TypedQuery<Spectacle> q = em.createQuery("SELECT spec"
+        + " FROM spectacle spec WHERE spec.id_utilisateur"
+        + " = ?1", Spectacle.class);
         q.setParameter(1, idUser);
         List<Spectacle> results = q.getResultList();
+        System.out.print("NOMBRE DE SPECTACLE");
+        System.out.print(results.size());
+        System.out.print("NOMBRE DE SPECTACLE");
         if (results.size() > 0) {
             return results;
         } else {
@@ -48,8 +53,12 @@ public class SpectacleDAO {
      * @param spec Spectacle donné en parametre
      */
     public final void updateSpectacle(final Spectacle spec) {
-        TypedQuery<Spectacle> q = em.createQuery("SELECT spec FROM spectacle spec WHERE spec.id_event = ?1", Spectacle.class);
+        TypedQuery<Spectacle> q = em.createQuery("SELECT spec"
+        + " FROM spectacle spec WHERE spec.id_event"
+        + "  = ?1", Spectacle.class);
         q.setParameter(1, spec.getId());
+        System.out.print("ID SPECTACLE MODIFIE : ");
+        System.out.print(spec.getId());
         List<Spectacle> results = q.getResultList();
         if (results.size() > 0) {
             System.out.print("COMPARAISON SPECTACLE");

@@ -5,9 +5,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
-import javax.persistence.CascadeType;
-import javax.persistence.OneToOne;
-import javax.persistence.JoinColumn;
 /**.
  * Class des moyens de contact pour l'évènement (tel, mail, etc)
  */
@@ -37,7 +34,7 @@ public class Contacts {
     private int id;
     /**.
      * identifiant de l'event associé
-     
+
     @OneToOne(mappedBy = "id_event", cascade = CascadeType.ALL)
     @JoinColumn(name = "id_event")
     private Event idEvent;

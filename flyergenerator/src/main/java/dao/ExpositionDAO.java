@@ -31,7 +31,9 @@ public class ExpositionDAO {
      */
     public final List<Exposition> getExpositionByIdUser(final int idUser) {
 
-        TypedQuery<Exposition> q = em.createQuery("SELECT spec FROM exposition spec WHERE spec.id_utilisateur = ?1", Exposition.class);
+        TypedQuery<Exposition> q = em.createQuery("SELECT spec"
+        + " FROM exposition spec WHERE spec.id_utilisateur"
+        + " = ?1", Exposition.class);
         q.setParameter(1, idUser);
         List<Exposition> results = q.getResultList();
         if (results.size() > 0) {
@@ -47,7 +49,9 @@ public class ExpositionDAO {
      * @param exp exposition donné en parametre
      */
     public final void updateExposition(final Exposition exp) {
-        TypedQuery<Exposition> q = em.createQuery("SELECT spec FROM exposition spec WHERE spec.id_event = ?1", Exposition.class);
+        TypedQuery<Exposition> q = em.createQuery("SELECT spec"
+        + " FROM exposition spec WHERE spec.id_event"
+        + " = ?1", Exposition.class);
         q.setParameter(1, exp.getId());
         List<Exposition> results = q.getResultList();
         if (results.size() > 0) {

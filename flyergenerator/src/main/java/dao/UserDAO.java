@@ -44,7 +44,9 @@ public class UserDAO {
      */
     public final User ajouterUser(final String pseudo, final String password) {
         User user = new User(pseudo, password);
-        TypedQuery<User> q = em.createQuery("SELECT u FROM utilisateur u WHERE u.pseudo = ?1", User.class);
+        TypedQuery<User> q = em.createQuery("SELECT"
+        + " u FROM utilisateur u WHERE u.pseudo"
+        + " = ?1", User.class);
         q.setParameter(1, pseudo);
         List<User> results = q.getResultList();
         if (results.size() > 0) {
@@ -68,7 +70,8 @@ public class UserDAO {
      * @param pseudo pseudo
      * @return l'utilisateur créé ou lis à jour
      */
-    public final User createDataBase(final String pseudo, final String password) {
+    public final User createDataBase(final String pseudo,
+     final String password) {
         User user = new User(pseudo, password);
         em.getTransaction().begin();
         em.persist(user);
