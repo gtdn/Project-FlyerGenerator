@@ -1,5 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
 <html lang="fr">
@@ -18,11 +19,11 @@
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
-    <script type="text/javascript" src="js/interface.js"></script>
 
     </head>
 
     <body>
+
         <!-- Navigation -->
         <jsp:include page="composants/menu.html"/>
 
@@ -45,16 +46,13 @@
        
                 <div class="col-lg-9">
                     <div style="text-align: center;">
-                        <h2 class="my-4">Choississez votre type d'evenement</h2>
-                        <div>
-                            <a href="interface.jsp?contenu=compet"><button type="button" class="btn btn-light">Compétition</button></a>
-                            <a href="interface.jsp?contenu=conf"><button type="button" class="btn btn-light">Conférence</button></a>
-                            <a href="interface.jsp?contenu=expo"><button type="button" class="btn btn-light">Exposition</button></a>
-                            <a href="interface.jsp?contenu=spect"><button type="button" class="btn btn-light">Spectacle</button></a>
-                        </div>
+                        <h2 class="my-4">Flyer de votre evenement</h2>
+
+                        <embed src="pdf/output.pdf" width="700px" height="700px" />
+
                     </div>
                     <c:choose>
-                        <c:when test="${param.contenu == null || param.contenu == 'home'}">
+                        <c:when test="${param.contenu == 'home'}">
                             <jsp:include page="home.jsp"/>
                         </c:when>
                         <c:when test = "${param.contenu == 'compet'}">
