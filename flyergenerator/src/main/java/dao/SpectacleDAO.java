@@ -68,7 +68,7 @@ public class SpectacleDAO {
                 System.out.print(" ENDGAME ENDGAME ENDGAME ENDGAMR ");
                 em.getTransaction().begin();
                 System.out.print(" INFINITY WARS ");
-                 em.remove(results.iterator().next());
+                 //em.remove(results.iterator().next());
                  System.out.print(" ENDGAME ENDGAME ENDGAME ENDGAMR ");
                  em.persist(spec);
                  System.out.print(" 22222222222222 WARS ");

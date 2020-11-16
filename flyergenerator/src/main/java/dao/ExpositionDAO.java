@@ -60,7 +60,7 @@ public class ExpositionDAO {
             System.out.print("COMPARAISON Exposition");
             if (results.iterator().next().equals(exp)) {
                 em.getTransaction().begin();
-                 em.remove(results.iterator().next());
+                 //em.remove(results.iterator().next());
                  em.persist(exp);
                  em.getTransaction().commit();
             } else {

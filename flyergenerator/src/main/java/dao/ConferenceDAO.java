@@ -61,7 +61,7 @@ public class ConferenceDAO {
             System.out.print("COMPARAISON Conference");
             if (results.iterator().next().equals(spec)) {
                 em.getTransaction().begin();
-                 em.remove(results.iterator().next());
+                 //em.remove(results.iterator().next());
                  em.persist(spec);
                  em.getTransaction().commit();
             } else {
