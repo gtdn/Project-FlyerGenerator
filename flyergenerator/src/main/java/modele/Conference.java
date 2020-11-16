@@ -5,15 +5,17 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 import java.sql.Date;
 import java.sql.Time;
-/**.
- * Classe de l'evènement du type Conference.
- * Elle herite de Event.
+
+/**
+ * .
+ * Classe de l'evènement du type Conference. Elle herite de Event.
  */
 @Entity(name = "conference")
 @Table(name = "conference")
 public class Conference extends Event {
 
-    /**.
+    /**
+     * .
      * Constructeur vide Conference
      */
     public Conference() {
@@ -21,8 +23,10 @@ public class Conference extends Event {
         this.resume = "resume_de_base";
     }
 
-    /**.
+    /**
+     * .
      * Constructeur avec toutes les valeures possibles.
+     *
      * @param idUser idUser
      * @param nom nom evenement
      * @param imagePath lienimage
@@ -32,14 +36,15 @@ public class Conference extends Event {
      * @param newresume nom association
      */
     public Conference(final int idUser,
-     final String nom, final String imagePath,
-      final String lieu, final Time heureDebut,
-      final Date dateDebut, final String newresume) {
+            final String nom, final String imagePath,
+            final String lieu, final Time heureDebut,
+            final Date dateDebut, final String newresume) {
 
         super(idUser, nom, imagePath, lieu,
-         heureDebut, dateDebut);
+                heureDebut, dateDebut);
         this.resume = newresume;
     }
+
     /*
     /**.
      * Constructeur avec toutes les valeures possibles.
@@ -63,12 +68,8 @@ public class Conference extends Event {
          heureDebut, heureFin, dateDebut, dateFin);
         this.resume = newresume;
     }
-    */
-    /**.
-     * id de la conference
-     * private int idConference;
-
-
+     */
+ /*
     public int getIdConference() {
         return this.idConference;
     }
@@ -76,22 +77,24 @@ public class Conference extends Event {
     public void setIdConference(int idConference) {
         this.idConference = idConference;
     }
-    */
-
-    /**.
-    * @return resume
-    */
+     */
+    /**
+     * .
+     * @return resume
+     */
     public final String getResume() {
         return this.resume;
     }
 
-    /**.
-    * @param newresume resume
-    */
+    /**
+     * .
+     * @param newresume resume
+     */
     public final void setResume(final String newresume) {
         this.resume = newresume;
     }
-    /**.
+    /**
+     * .
      * descriptif de la conference
      */
     @Column(name = "resumee")

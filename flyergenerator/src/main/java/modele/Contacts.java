@@ -5,18 +5,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
-/**.
+
+/**
+ * .
  * Class des moyens de contact pour l'évènement (tel, mail, etc)
  */
 @Entity(name = "contact")
 @Table(name = "contact")
 public class Contacts {
 
-    /**.
+    /**
+     * .
      *
      */
-    public static final int NUMERO =  0600000000;
-    /**.
+    public static final int NUMERO = 0600000000;
+
+    /**
+     * .
      * Constructeur vide
      */
     public Contacts() {
@@ -25,34 +30,37 @@ public class Contacts {
         this.numero = NUMERO;
     }
 
-    /**.
+    /**
+     * .
      * identifiant du contact
      */
     @Id
     @GeneratedValue()
     @Column(name = "id_contact")
     private int id;
-    /**.
-     * identifiant de l'event associé
-
+    /*
     @OneToOne(mappedBy = "id_event", cascade = CascadeType.ALL)
     @JoinColumn(name = "id_event")
     private Event idEvent;
-    */
-    /**.
+     */
+    /**
+     * .
      * nom du contact
      */
     private String nom;
-    /**.
+    /**
+     * .
      * numero de tel du contact
      */
     private int numero;
-    /**.
+    /**
+     * .
      * adresse mail du contact
      */
     private String mail;
 
-    /**.
+    /**
+     * .
      *
      * @param newid id
      */
@@ -81,14 +89,14 @@ public class Contacts {
     public void setMail(String mail) {
         this.mail = mail;
     }
-    */
-    /**.
+     */
+    /**
+     * .
      * @return id du contact
      */
     public final int getID() {
         return id;
     }
-
 
     /**
      * @return le nom du contact
