@@ -4,10 +4,13 @@ package modele;
  * Elle herite de Event.
  */
 public class Competition extends Event {
+
     /**.
-     * id de la competition
+     * constructeur vide
      */
-    private int idCompetition;
+    public Competition() {
+        super();
+    }
     /**.
      * id de l'event general
      */
@@ -24,5 +27,64 @@ public class Competition extends Event {
      * ce que l'on peut gagner dans cette competition
      */
     private String cashPrize;
+
+    /**.
+     *
+     * @return retourne hashtag
+     */
+    public final String getHashtag() {
+        return this.hashtag;
+    }
+
+    /**.
+     *
+     * @param newhashtag nouvel hashtag
+     */
+    public final void setHashtag(final String newhashtag) {
+        this.hashtag = newhashtag;
+    }
+
+    /**.
+     * @return nomOrganisateur
+     */
+    public final String getNomOrganisateur() {
+        return this.nomOrganisateur;
+    }
+
+    /**.
+     *
+     * @param newnomOrganisateur nouveau nom d'organisateur
+     */
+    public final void setNomOrganisateur(final String newnomOrganisateur) {
+        this.nomOrganisateur = newnomOrganisateur;
+    }
+
+    /**.
+     * @return resume
+     */
+    public final String getResume() {
+        return this.resume;
+    }
+
+    /**.
+     * @param newresume nouveau resume
+     */
+    public final void setResume(final String newresume) {
+        this.resume = newresume;
+    }
+
+    /**.
+     * @return cashPrize
+     */
+    public final String getCashPrize() {
+        return this.cashPrize;
+    }
+
+    /**.
+     * @param newcashPrize nouveau cashPrize
+     */
+    public final void setCashPrize(final String newcashPrize) {
+        this.cashPrize = newcashPrize;
+    }
 
 }

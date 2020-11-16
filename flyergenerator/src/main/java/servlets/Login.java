@@ -56,7 +56,7 @@ public class Login extends HttpServlet {
 
         String name = request.getParameter("name");
         String pwd = request.getParameter("pwd");
-        userdao.createTest(name, pwd);
+        userdao.ajouterUser(name, pwd);
         if (name != null && !name.equals("")) {
             HttpSession session = request.getSession(true);
             session.setAttribute("user", new User(name, pwd));
