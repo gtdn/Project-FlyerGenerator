@@ -27,6 +27,7 @@ public class Deco extends HttpServlet {
                          final HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession(true);
+        session.removeAttribute("user");
         session.invalidate();
         response.sendRedirect("index.jsp");
         return;
