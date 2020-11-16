@@ -7,19 +7,33 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.sql.Date;
+import java.sql.Time;
 
+import modele.Exposition;
+import modele.User;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 
 import org.apache.commons.io.FileUtils;
+
+import dao.ExpositionDAO;
 /**
  * Define webServelt.
  */
 @WebServlet("/formEvent")
 public class FormEvent extends HttpServlet {
+    /**
+     * Entity manager pour faire le lien avec la base de données.
+    */
+    private EntityManager em;
     /**
      * doPost method.
      * @param request request
@@ -77,6 +91,29 @@ public class FormEvent extends HttpServlet {
         eventContactNumber);
         htmlString = htmlString.replace("$eventContactEmail$",
         eventContactEmail);
+
+
+        /* Save in BDD */
+        final EntityManagerFactory factory;
+        factory = Persistence.createEntityManagerFactory("flyergenerator");
+        this.em =  factory.createEntityManager();
+        Exposition expo = new Exposition();
+        ExpositionDAO expositionDAO = new ExpositionDAO(em);
+        expo.setNom(eventTitle);
+        expo.setIdutilisateur(((User) request.getAttribute("user")).getID());
+        expo.setLieu(eventCity);
+        /*expo.setLocation(eventLocation)*/
+        Time heurBeg = new Time(0);
+        expo.setHeureDebut(heurBeg);
+        Date dateBeg = Date.valueOf(request.getParameter("eventDateBeg"));
+        expo.setDateDebut(dateBeg);
+        String theme = request.getParameter("theme");
+        expo.setTheme(theme);
+
+        /* Add in BDD */
+        expositionDAO.updateExposition(expo);
+
+
 
         byte[] pdfData = getPdf(htmlString);
         FileUtils.writeByteArrayToFile(new File(
