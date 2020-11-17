@@ -1,8 +1,14 @@
 package modele;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Column;
 /**
  * Classe de l'evènement du type Competition.
  * Elle herite de Event.
  */
+@Entity(name = "competition")
+@Table(name = "competition")
 public class Competition extends Event {
 
     /**
@@ -18,6 +24,7 @@ public class Competition extends Event {
     /**
      * nom de l'organisateur.
      */
+    @Column(name = "nom_orga")
     private String nomOrganisateur;
     /**
      * descriptif de la competition.
