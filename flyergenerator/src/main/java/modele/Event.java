@@ -338,6 +338,18 @@ public class Event {
     public final void setDateFin(final Date newdateFin) {
         this.dateFin = newdateFin;
     }
+    /**
+     * permet de copier un event.
+     * @param e l'event a copier.
+     */
+    public final void copieEvent(final Event e) {
+        this.idUtilisateur = e.getIdutilisateur();
+        this.nom = e.getNom();
+        this.lieu = e.getLieu();
+        //this.ville = e.getVille();
+        this.heureDebut = e.getHeureDebut();
+        this.dateDebut = e.getDateDebut();
+    }
 
     /*public ArrayList<Personne> getListeIntervenants() {
         return this.listeIntervenants;
