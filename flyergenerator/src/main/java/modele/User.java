@@ -1,15 +1,26 @@
 package modele;
 
-import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+
+//import java.util.ArrayList;
 import java.util.Objects;
 
 /**.
  * Classe Utilisateur du site
  */
+@Entity(name = "utilisateur")
+@Table(name = "utilisateur")
 public class User {
     /**.
      * Identifiant de l'utilisateur
     */
+    @Id
+    @GeneratedValue()
+    @Column(name = "id_utilisateur")
     private int userID;
 
     /**.
@@ -20,14 +31,16 @@ public class User {
     /**.
      * Password de l'utilisateur
     */
+    @Column(name = "mot_de_passe")
     private String password;
 
-    /**.
-     * Liste des evenènements de l'utilisateur
+    /**
+     * Constructeur.
     */
-    private ArrayList<Event> listEvent;
-
-
+    public User() {
+        this.pseudo = "test";
+        this.password = "test";
+    }
     /**.
      * Constructeur
      * @param p de user
@@ -63,21 +76,14 @@ public class User {
         return pseudo;
     }
 
+    // pas de get/set pour event list pour l'instant, j'attends de voir
+    // comment on l'utilise
     /**
      * @return le password de l'utilisateur
      */
     public final String getPassword() {
         return password;
     }
-
-    /**
-     * @return la taille(i.e. le nombre) de la
-     * liste d'evenement de l'utilisateur.
-     */
-    public final int getListEventSize() {
-        return listEvent.size();
-    }
-
     /**.
      * compare user
      * @param o de entree

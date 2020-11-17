@@ -33,7 +33,7 @@
 
                 <div class="col-lg-3">
 
-                    <h3 class="my-4">Choississez votre type d'évènement</h3>
+                    <h3 class="my-4">Choisissez votre type d'évènement</h3>
                     <div class="list-group">
                         <a href="interface.jsp?contenu=compet" class="list-group-item">Compétition</a>
                         <a href="interface.jsp?contenu=conf" class="list-group-item">Conférence</a>
@@ -45,7 +45,7 @@
        
                 <div class="col-lg-9">
                     <div style="text-align: center;">
-                        <h2 class="my-4">Choississez votre type d'evenement</h2>
+                        <h2 class="my-4">Choisissez votre type d'évènement</h2>
                         <div>
                             <a href="interface.jsp?contenu=compet"><button type="button" class="btn btn-light">Compétition</button></a>
                             <a href="interface.jsp?contenu=conf"><button type="button" class="btn btn-light">Conférence</button></a>
