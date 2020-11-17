@@ -31,7 +31,7 @@ import javax.persistence.Persistence;
 public class JPATest {
 
     @Test
-    public void setupEMTest() {
+    public void setupEMTest() {/*
         EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
         Competition compet = new Competition();
         UserDAO userdao = new UserDAO(em);
@@ -89,7 +89,7 @@ public class JPATest {
             System.out.print(liste_spectacle.size());
             System.out.print(liste_spectacle.get(i).getLieu());
         }*/
-        em.close();
+        /*em.close();*/
 
     }
    
