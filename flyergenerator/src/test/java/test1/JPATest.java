@@ -89,7 +89,7 @@ public class JPATest {
             System.out.print(liste_spectacle.size());
             System.out.print(liste_spectacle.get(i).getLieu());
         }*/
-        em.close();
+        /*em.close();*/
 
     }
    
