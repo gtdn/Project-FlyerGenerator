@@ -21,6 +21,11 @@
     </div>
 
     <div class="form-group">
+        <label for="eventPrice">Prix d'entrée</label>
+        <input type="number" name="eventPrice" placeholder="10" class="form-control" id="eventPrice" min="0">
+    </div>
+
+    <div class="form-group">
         <label for="img">Background Flyer (à voir plus tard)</label>
         <input type="image" class="form-control" id="img">
     </div>
