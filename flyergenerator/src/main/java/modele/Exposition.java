@@ -21,6 +21,8 @@ public class Exposition extends Event {
 
     public Exposition() {
         super();
+        this.heureFin = new Time(0);
+        this.dateFin = new Date(0);
         this.theme = "theme_de_base";
     }
     /**
@@ -67,6 +69,13 @@ public class Exposition extends Event {
     }
 */
     /**
+     * getterName.
+     * @return name
+     */
+    public final String getName() {
+        return super.getNom();
+    }
+    /**
      * @return theme
      */
     public final String getTheme() {
@@ -84,4 +93,42 @@ public class Exposition extends Event {
      */
     @Column
     private String theme;
+        /**
+     * heure de fin de l'evenement.
+     */
+    @Column(name = "heuredef")
+    private Time heureFin;
+    /**
+     * date de fin de l'evenement.
+     */
+    @Column(name = "datedef")
+    private Date dateFin;
+    /**
+     * Renvoie l'email de l'utilisateur.
+     * @return heureFin
+     */
+    public final Time getHeureFin() {
+        return this.heureFin;
+    }
+
+    /**.
+     * @param newheureFin nouvelle heure de fin
+     */
+    public final void setHeureFin(final Time newheureFin) {
+        this.heureFin = newheureFin;
+    }
+    /**
+     * Renvoie l'email de l'utilisateur.
+     * @return dateFin
+     */
+    public final Date getDateFin() {
+        return this.dateFin;
+    }
+
+    /**
+     * @param newdateFin nouvelle date de fin.
+     */
+    public final void setDateFin(final Date newdateFin) {
+        this.dateFin = newdateFin;
+    }
 }

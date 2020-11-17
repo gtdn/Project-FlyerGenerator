@@ -11,7 +11,9 @@ import java.sql.Date;
 import java.sql.Time;
 
 import modele.Exposition;
-//import modele.User;
+import modele.User;
+import modele.Event;
+import javax.servlet.http.HttpSession;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +45,9 @@ public class FormEvent extends HttpServlet {
      */
     protected final void doPost(final HttpServletRequest request,
     final HttpServletResponse response) throws ServletException, IOException {
+
+        HttpSession session = request.getSession(true);
+
         String urlApplication = request.getRequestURL().toString();
         urlApplication = urlApplication.replace("/formEvent", "");
 
@@ -92,28 +97,40 @@ public class FormEvent extends HttpServlet {
         htmlString = htmlString.replace("$eventContactEmail$",
         eventContactEmail);
 
-
+        //Save Commun
+        Event e = new Event();
         /* Save in BDD */
         final EntityManagerFactory factory;
         factory = Persistence.createEntityManagerFactory("flyergenerator");
         this.em =  factory.createEntityManager();
-        Exposition expo = new Exposition();
-        ExpositionDAO expositionDAO = new ExpositionDAO(em);
-        expo.setNom(eventTitle);
-        /*((User) request.getAttribute("user")).getID()*/
-        final int i = 27;
-        expo.setIdutilisateur(i);
-        expo.setLieu(eventCity);
-        /*expo.setLocation(eventLocation)*/
-        Time heurBeg = new Time(0);
-        expo.setHeureDebut(heurBeg);
-        Date dateBeg = Date.valueOf(request.getParameter("eventDateBeg"));
-        expo.setDateDebut(dateBeg);
-        String theme = "theme";
-        expo.setTheme(theme);
 
-        /* Add in BDD */
-        expositionDAO.updateExposition(expo);
+        e.setNom(eventTitle);
+        final int i = ((User) session.getAttribute("user")).getID();
+        e.setIdutilisateur(i);
+        e.setLieu(eventCity);
+        /*e.setLocation(eventLocation)*/ // quand le champ Location sera en BDD
+        Time heurBeg = new Time(0);
+        e.setHeureDebut(heurBeg);
+        Date dateBeg = Date.valueOf(request.getParameter("eventDateBeg"));
+        e.setDateDebut(dateBeg);
+
+
+        String eventType = request.getParameter("eventType");
+        if (eventType.equals("exposition")) {
+
+            Exposition expo = new Exposition();
+            expo.copieEvent(e);
+            ExpositionDAO expositionDAO = new ExpositionDAO(em);
+
+            String theme = "theme";
+            expo.setTheme(theme);
+
+            /* Add in BDD */
+            expositionDAO.updateExposition(expo);
+
+        }
+
+
 
 
 
