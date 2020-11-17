@@ -5,7 +5,9 @@ import org.junit.Test;
 import dao.ConferenceDAO;
 import dao.ExpositionDAO;
 import dao.SpectacleDAO;
+import dao.CompetitionDAO;
 import dao.UserDAO;
+import modele.Competition;
 import modele.User;
 import modele.Spectacle;
 import modele.Conference;
@@ -31,11 +33,13 @@ public class JPATest {
     @Test
     public void setupEMTest() {
         EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
+        Competition compet = new Competition();
         UserDAO userdao = new UserDAO(em);
         User test = userdao.ajouterUser("pseudo", "motdepasse");
         SpectacleDAO spectacledao = new SpectacleDAO(em);
         ConferenceDAO conferencedao = new ConferenceDAO(em);
         ExpositionDAO expositiondao = new ExpositionDAO(em);
+        CompetitionDAO competDAO = new CompetitionDAO(em);
         Spectacle spec = new Spectacle(27, "blabla", "chemin", "bercy", new Time(0), new Date(0), "asso");
         spectacledao.updateSpectacle(spec);
         List<Spectacle> liste_spectacle = spectacledao.getSpectacleByIdUser(test.getID());
@@ -46,8 +50,10 @@ public class JPATest {
         testintervenant.add("test_4_toujours_265");
         test_2.setListeIntervenants(testintervenant);
         Contacts contact = new Contacts();
-        test_2.setContacts(contact);
+        spec.setContacts(contact);
         spectacledao.updateSpectacle(test_2);
+        compet.setIdutilisateur(27);
+        competDAO.updateCompetition(compet);
         /*Exposition exp = new Exposition(27, "blabla", "chemin", "bercy", 0, new Time(0), new Time(0), new Date(0), new Date(0), "asso");
         Conference conf = new Conference(27, "blabla", "chemin", "bercy", 0, new Time(0), new Time(0), new Date(0), new Date(0), "asso");
         Contacts contact = new Contacts();

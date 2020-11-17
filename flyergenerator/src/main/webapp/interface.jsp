@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="modele.User" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
@@ -26,10 +27,14 @@
         <!-- Navigation -->
         <jsp:include page="composants/menu.html"/>
 
+        
+
         <!-- Page Content -->
         <div class="container" style="margin-top : 100px; margin-bottom: 100px;">
-
             <div class="row">
+                <div class="col-lg-12">
+                    <h1>Bienvenue <%= ((User)session.getAttribute("user")).getPseudo() %> !</h1>
+                </div>
 
                 <div class="col-lg-3">
 

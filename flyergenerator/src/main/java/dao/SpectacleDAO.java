@@ -8,26 +8,26 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-    /**.
-     * classe SpectacleDao
+    /**
+     * classe SpectacleDao.
      */
 public class SpectacleDAO {
 
 
     /**.
-     * entite manager
+     * entite manager.
      */
     private final EntityManager em;
 
-    /**.
-     * @param newEm entite manageur
+    /**
+     * @param newEm entite manageur.
      */
     public SpectacleDAO(final EntityManager newEm) {
         this.em = newEm;
     }
 
-    /**.
-     * @param idUser Spectacle donné en parametre
+    /**
+     * @param idUser Spectacle donné en parametre.
      * @return toutes les spectacles de l'utilisateur
      */
     public final List<Spectacle> getSpectacleByIdUser(final int idUser) {
@@ -47,8 +47,8 @@ public class SpectacleDAO {
         }
     }
 
-    /**.
-     * modifie ou crée une spectacle
+    /**
+     * modifie ou crée une spectacle.
      * dans la data base
      * @param spec Spectacle donné en parametre
      */
@@ -82,8 +82,8 @@ public class SpectacleDAO {
         }
 
 }
-    /**.
-     * ajoute un spectacle
+    /**
+     * ajoute un spectacle.
      * dans la data base
      * @param spec Spectacle donné en parametre
      */

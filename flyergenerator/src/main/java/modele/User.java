@@ -9,27 +9,27 @@ import javax.persistence.GeneratedValue;
 //import java.util.ArrayList;
 import java.util.Objects;
 
-/**.
- * Classe Utilisateur du site
+/**
+ * Classe Utilisateur du site.
  */
 @Entity(name = "utilisateur")
 @Table(name = "utilisateur")
 public class User {
-    /**.
-     * Identifiant de l'utilisateur
+    /**
+     * Identifiant de l'utilisateur.
     */
     @Id
     @GeneratedValue()
     @Column(name = "id_utilisateur")
     private int userID;
 
-    /**.
-     * Pseudo de l'utilisateur
+    /**
+     * Pseudo de l'utilisateur.
     */
     private String pseudo;
 
-    /**.
-     * Password de l'utilisateur
+    /**
+     * Password de l'utilisateur.
     */
     @Column(name = "mot_de_passe")
     private String password;
@@ -41,8 +41,8 @@ public class User {
         this.pseudo = "test";
         this.password = "test";
     }
-    /**.
-     * Constructeur
+    /**
+     * Constructeur.
      * @param p de user
      * @param pwd de user
      */
@@ -52,25 +52,25 @@ public class User {
     }
 
     /**
-     * @param id id a set
+     * @param id id a set.
      */
     public final void setId(final int id) {
         userID = id;
     }
     /**
-     * @return l'id de l'utilisateur
+     * @return l'id de l'utilisateur.
      */
     public final int getID() {
         return userID;
     }
     /**
-     * @param p pseudo a set
+     * @param p pseudo a set.
      */
     public final void setPseudo(final String p) {
         pseudo = p;
     }
     /**
-     * @return le pseudo de l'utilisateur
+     * @return le pseudo de l'utilisateur.
      */
     public final String getPseudo() {
         return pseudo;
@@ -79,13 +79,13 @@ public class User {
     // pas de get/set pour event list pour l'instant, j'attends de voir
     // comment on l'utilise
     /**
-     * @return le password de l'utilisateur
+     * @return le password de l'utilisateur.
      */
     public final String getPassword() {
         return password;
     }
-    /**.
-     * compare user
+    /**
+     * compare user.
      * @param o de entree
      * @return true si le meme
      */
@@ -102,8 +102,8 @@ public class User {
                 && user.getPassword().equals(this.password);
     }
 
-    /**.
-     * comparer hash obj
+    /**
+     * comparer hash obj.
      * @return true si mem hash
      */
     @Override

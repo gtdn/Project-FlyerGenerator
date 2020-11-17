@@ -7,22 +7,19 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 
 /**
- * .
- * Class des moyens de contact pour l'évènement (tel, mail, etc)
+ * Class des moyens de contact pour l'évènement (tel, mail, etc).
  */
 @Entity(name = "contact")
 @Table(name = "contact")
 public class Contacts {
 
     /**
-     * .
-     *
+     * numero.
      */
     public static final int NUMERO = 0600000000;
 
     /**
-     * .
-     * Constructeur vide
+     * Constructeur vide.
      */
     public Contacts() {
         this.nom = "nom_contact";
@@ -31,8 +28,7 @@ public class Contacts {
     }
 
     /**
-     * .
-     * identifiant du contact
+     * identifiant du contact.
      */
     @Id
     @GeneratedValue()
@@ -44,25 +40,20 @@ public class Contacts {
     private Event idEvent;
      */
     /**
-     * .
-     * nom du contact
+     * nom du contact.
      */
     private String nom;
     /**
-     * .
-     * numero de tel du contact
+     * numero de tel du contact.
      */
     private int numero;
     /**
-     * .
-     * adresse mail du contact
+     * adresse mail du contact.
      */
     private String mail;
 
     /**
-     * .
-     *
-     * @param newid id
+     * @param newid id.
      */
     public final void id(final int newid) {
         this.id = newid;
@@ -91,8 +82,7 @@ public class Contacts {
     }
      */
     /**
-     * .
-     * @return id du contact
+     * @return id du contact.
      */
     public final int getID() {
         return id;

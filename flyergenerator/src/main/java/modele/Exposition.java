@@ -5,15 +5,15 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 import java.sql.Date;
 import java.sql.Time;
-/**.
+/**
  * Classe de l'evènement du type Exposition.
  * Elle herite de Event.
  */
 @Entity(name = "exposition")
 @Table(name = "exposition")
 public class Exposition extends Event {
-    /**.
-     * id de l'exposition
+    /**
+     * id de l'exposition.
      */
     //private int idExposition;
 
@@ -23,7 +23,7 @@ public class Exposition extends Event {
         super();
         this.theme = "theme_de_base";
     }
-    /**.
+    /**
      * Constructeur avec toutes les valeures possibles.
      * @param idUser idUser
      * @param nom nom evenement
@@ -43,7 +43,7 @@ public class Exposition extends Event {
         this.theme = newtheme;
     }
     /*
-    /**.
+    /**
      * Constructeur avec toutes les valeures possibles.
      * @param idUser idUser
      * @param nom nom evenement
@@ -66,22 +66,21 @@ public class Exposition extends Event {
         this.theme = newtheme;
     }
 */
-    /**.
-     *
+    /**
      * @return theme
      */
     public final String getTheme() {
         return this.theme;
     }
 
-    /**.
-     * @param newtheme nouveau theme
+    /**
+     * @param newtheme nouveau theme.
      */
     public final void setTheme(final String newtheme) {
         this.theme = newtheme;
     }
-    /**.
-     * description du theme de l'exposition
+    /**
+     * description du theme de l'exposition.
      */
     @Column
     private String theme;

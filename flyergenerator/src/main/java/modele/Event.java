@@ -24,16 +24,16 @@ import javax.persistence.OneToOne;
 //import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
 
-/**.
- * Classe mère des evènements
+/**
+ * Classe mère des evènements.
  */
 @Entity
 @Table(name = "event")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Event {
 
-    /**.
-     * Constructeur vide
+    /**
+     * Constructeur vide.
      */
     public Event() {
         this.idUtilisateur = 0;
@@ -77,9 +77,8 @@ public class Event {
         this.listeIntervenants = null;
     }
 */
-    /**.
-     *
-     * @param newidutilisateur &
+    /**
+     * @param newidutilisateur &.
      * @param newnom &
      * @param newimagePath &
      * @param newlieu &
@@ -97,58 +96,58 @@ public class Event {
         this.dateDebut = newdateDebut;
         this.listeIntervenants = null;
     }
-    /**.
-     * identifiant de l'evenement
+    /**
+     * identifiant de l'evenement.
      */
     @Id
     @GeneratedValue()
     @Column(name = "id_event")
     private int idEvent;
 
-    /**.
-     * identifiant de l'utilisateur associé (créateur)
+    /**
+     * identifiant de l'utilisateur associé (créateur).
      */
     @Column(name = "id_utilisateur")
     private int idUtilisateur;
-    /**.
-     * nom de l'evenement
+    /**
+     * nom de l'evenement.
      */
     private String nom;
-    /**.
-     * chemin de l'image de fond (background)
+    /**
+     * chemin de l'image de fond (background).
      */
     @Column(name = "path_img_back")
     private String imagePath;
-    /**.
-     * lieu de l'evenement
+    /**
+     * lieu de l'evenement.
      */
     private String lieu;
-    /**.
-     * prix d'entrée de l'evenement
+    /**
+     * prix d'entrée de l'evenement.
      */
     private int prix;
     /**.
-     * heure du debut de l'evenement
+     * heure du debut de l'evenement.
      */
     @Column(name = "heuredeb")
     private Time heureDebut;
-    /**.
-     * heure de fin de l'evenement
+    /**
+     * heure de fin de l'evenement.
      */
     @Column(name = "heuredef")
     private Time heureFin;
-    /**.
-     * date du debut de l'evenement
+    /**
+     * date du debut de l'evenement.
      */
     @Column(name = "datedeb")
     private Date dateDebut;
-    /**.
-     * date de fin de l'evenement
+    /**
+     * date de fin de l'evenement.
      */
     @Column(name = "datedef")
     private Date dateFin;
-    /**.
-     * liste des intervenants de l'evenenement
+    /**
+     * liste des intervenants de l'evenenement.
      */
     @ElementCollection
     @CollectionTable(
@@ -159,36 +158,36 @@ public class Event {
     @Column(name = "nom")
     private Collection<String> listeIntervenants = new ArrayList<>();
 
-    /**.
-     * @return listeIntervenants
+    /**
+     * @return listeIntervenants.
      */
     public final Collection<String> getListeIntervenants() {
         return this.listeIntervenants;
     }
 
-    /**.
-     * @param newlisteIntervenants nouvelle liste d'intervenants
+    /**
+     * @param newlisteIntervenants nouvelle liste d'intervenants.
      */
     public final void setListeIntervenants(
         final Collection<String> newlisteIntervenants) {
         this.listeIntervenants = newlisteIntervenants;
     }
-    /**.
-     * moyen de contacter les organisateur de l'evenement
+    /**
+     * moyen de contacter les organisateur de l'evenement.
      */
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_contact")
     private Contacts contacts;
 
-    /**.
-     * @return contacts
+    /**
+     * @return contacts.
      */
     public final Contacts getContacts() {
         return this.contacts;
     }
 
-    /**.
-     * @param newcontacts nouveau contact
+    /**
+     * @param newcontacts nouveau contact.
      */
     public final void setContacts(final Contacts newcontacts) {
         System.out.print("ID_EVENT DE CONTACT:");
@@ -198,47 +197,44 @@ public class Event {
         this.contacts = newcontacts;
     }
 
-    /**.
+    /**
      * Renvoie l'email de l'utilisateur.
-     *
      * @return id.
      */
     public final int getId() {
         return this.idEvent;
     }
 
-    /**.
-     * @param newid nouvel id
+    /**
+     * @param newid nouvel id.
      */
     public final void setId(final int newid) {
         this.idEvent = newid;
     }
     /**
      * Renvoie l'email de l'utilisateur.
-     *
      * @return id User
      */
     public final int getIdutilisateur() {
         return this.idUtilisateur;
     }
 
-    /**.
-     * @param newidutilisateur nouvel id utilisateur
+    /**
+     * @param newidutilisateur nouvel id utilisateur.
      */
     public final void setIdutilisateur(final int newidutilisateur) {
         this.idUtilisateur = newidutilisateur;
     }
     /**
      * Renvoie l'email de l'utilisateur.
-     *
      * @return nom
      */
     public final String getNom() {
         return this.nom;
     }
 
-    /**.
-     * @param newnom nouveau nom
+    /**
+     * @param newnom nouveau nom.
      */
     public final void setNom(final String newnom) {
         this.nom = newnom;
@@ -251,61 +247,56 @@ public class Event {
         return this.imagePath;
     }
 
-    /**.
-     * @param newimagePath nouveau lien image
+    /**
+     * @param newimagePath nouveau lien image.
      */
     public final void setImagePath(final String newimagePath) {
         this.imagePath = newimagePath;
     }
     /**
      * Renvoie l'email de l'utilisateur.
-     *
      * @return lieu
      */
     public final String getLieu() {
         return this.lieu;
     }
 
-    /**.
-     * @param newlieu nouveau lieu
+    /**
+     * @param newlieu nouveau lieu.
      */
     public final void setLieu(final String newlieu) {
         this.lieu = newlieu;
     }
     /**
      * Renvoie l'email de l'utilisateur.
-     *
      * @return prix
      */
     public final int getPrix() {
         return this.prix;
     }
 
-    /**.
-     * @param newprix nouveau prix
+    /**
+     * @param newprix nouveau prix.
      */
     public final void setPrix(final int newprix) {
         this.prix = newprix;
     }
     /**
      * Renvoie l'email de l'utilisateur.
-     *
      * @return heureDebut
      */
     public final Time getHeureDebut() {
         return this.heureDebut;
     }
 
-    /**.
-     *
-     * @param newheureDebut nlle heure debut
+    /**
+     * @param newheureDebut nlle heure debut.
      */
     public final void setHeureDebut(final Time newheureDebut) {
         this.heureDebut = newheureDebut;
     }
     /**
      * Renvoie l'email de l'utilisateur.
-     *
      * @return heureFin
      */
     public final Time getHeureFin() {
@@ -327,15 +318,14 @@ public class Event {
         return this.dateDebut;
     }
 
-    /**.
-     * @param newdateDebut nouvelle date de début
+    /**
+     * @param newdateDebut nouvelle date de début.
      */
     public final void setDateDebut(final Date newdateDebut) {
         this.dateDebut = newdateDebut;
     }
     /**
      * Renvoie l'email de l'utilisateur.
-     *
      * @return dateFin
      */
     public final Date getDateFin() {
@@ -343,7 +333,7 @@ public class Event {
     }
 
     /**
-     * @param newdateFin nouvelle date de fin
+     * @param newdateFin nouvelle date de fin.
      */
     public final void setDateFin(final Date newdateFin) {
         this.dateFin = newdateFin;
@@ -364,7 +354,5 @@ public class Event {
     public void setContacts(Contacts contacts) {
         this.contacts = contacts;
     }*/
-
-
 
 }
