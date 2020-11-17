@@ -20,9 +20,8 @@ public class ControllerSpect extends HttpServlet {
      */
     protected void doGet(final HttpServletRequest request,
      final HttpServletResponse response) throws ServletException, IOException {
-        // request.setAttribute("sepectacles",..);
-        // RequestDispatcher rd = request.getRequestDispatcher("histo.jsp");
-        // rd.include(request, response);
+        RequestDispatcher rd = request.getRequestDispatcher("histoExpo.jsp");
+        rd.include(request, response);
     }
 
     /**

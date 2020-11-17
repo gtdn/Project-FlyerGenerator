@@ -20,9 +20,9 @@ public class ControllerCompet extends HttpServlet {
      */
     protected void doGet(final HttpServletRequest request,
      final HttpServletResponse response) throws ServletException, IOException {
-        // request.setAttribute("test", "test");
-        // RequestDispatcher rd = request.getRequestDispatcher("histo.jsp");
-        // rd.forward(request, response);
+        request.setAttribute("test", "test");
+        RequestDispatcher rd = request.getRequestDispatcher("histoExpo.jsp");
+        rd.forward(request, response);
     }
 
     /**
