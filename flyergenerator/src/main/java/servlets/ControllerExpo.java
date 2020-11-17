@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modele.Exposition;
 import dao.ExpositionDAO;
+import modele.User;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import javax.persistence.EntityManager;
 
@@ -25,11 +27,14 @@ public class ControllerExpo extends HttpServlet {
      */
     protected void doGet(final HttpServletRequest request,
      final HttpServletResponse response) throws ServletException, IOException {
+
+        HttpSession session = request.getSession(true);
+
         List<Exposition> expositions = (List<Exposition>) getServletContext().
         getAttribute("expositions");
         ExpositionDAO expoDao = new ExpositionDAO(
             (EntityManager) getServletContext().getAttribute("em"));
-        final int i = 27;
+        final int i = ((User) session.getAttribute("user")).getID();
         expositions = expoDao.getExpositionByIdUser(i);
         request.setAttribute("expositions", expositions);
         RequestDispatcher rd = request.getRequestDispatcher("histoExpo.jsp");

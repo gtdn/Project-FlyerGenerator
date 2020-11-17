@@ -51,7 +51,6 @@
                     <div style="text-align: center;">
                         <h2 class="my-4">Historique de vos évènement</h2>
                     </div>
-                    <%out.println(((List<Exposition>)request.getAttribute("expositions")).get(1).getName());%>
                     <table class="table">
                         <thead>
                             <tr>
