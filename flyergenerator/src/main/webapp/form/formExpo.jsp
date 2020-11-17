@@ -3,56 +3,75 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
 <form method="POST" action="formEvent">
-    <h2>Formulaire Exposition</h2>
+    <h2>Créez votre flyer pour une exposition</h2>
 
     <div class="form-group">
-      <label for="name">Nom de l'évènement</label>
-      <input type="text" name="eventTitle" placeholder="Salon Mondial de l'Automobile" class="form-control" id="name" maxlength="45" required>
+      <label for="eventTitle">Nom de l'évènement</label>
+      <input type="text" name="eventTitle" placeholder="Salon Mondial de l'Automobile" class="form-control" id="eventTitle" minlength="15" maxlength="45" required>
     </div>
 
     <div class="form-group">
-        <label for="location">Ville</label>
-        <input type="text" name="eventCity" class="form-control" id="location" maxlength="25" required>
+        <label for="eventCity">Ville</label>
+        <input type="text" name="eventCity" placeholder="Genève" class="form-control" id="eventCity" minlength="2" maxlength="25" required>
     </div>
 
     <div class="form-group">
-        <label for="location">Lieu</label>
-        <input type="text" name="eventLocation" class="form-control" id="location" maxlength="30" required>
+        <label for="eventLocation">Lieu</label>
+        <input type="text" name="eventLocation" placeholder="Palais des Expositions" class="form-control" id="eventLocation" maxlength="30" required>
     </div>
 
     <div class="form-group">
-        <label for="prix">Prix d'entrée</label>
-        <input type="number" name="eventPrice" class="form-control" id="prix" min="0">
+        <label for="eventPrice">Prix d'entrée</label>
+        <input type="number" name="eventPrice" placeholder="10" class="form-control" id="eventPrice" min="0">
     </div>
 
     <div class="form-group">
-        <label for="img">Background Flyer</label>
+        <label for="img">Background Flyer (à voir plus tard)</label>
         <input type="image" class="form-control" id="img">
     </div>
 
     <div class="form-group">
-        <label for="dateBeg">Date de début</label>
-        <input type="date" name="eventDateBeg" class="form-control" id="dateBeg" required>
+        <label for="eventDateBeg">Date de début</label>
+        <input type="date" name="eventDateBeg" value="2020-12-29" class="form-control" id="eventDateBeg" required>
     </div>
 
     <div class="form-group">
-        <label for="dateEnd">Date de fin</label>
-        <input type="date" name="eventDateEnd" class="form-control" id="dateEnd" required>
+        <label for="eventDateEnd">Date de fin</label>
+        <input type="date" name="eventDateEnd" value="2020-12-31" class="form-control" id="eventDateEnd" required>
     </div>
 
     <div class="form-group">
-        <label for="contactName">Nom contact</label>
-        <input type="text" name="eventContactName" class="form-control" id="contactName">
+        <label for="eventHourBeg">Horaire de début (pas encore mis en place sur le flyer)</label>
+        <input type="time" name="eventHourBeg" class="form-control" id="eventHourBeg" required>
     </div>
 
     <div class="form-group">
-        <label for="contactNumber">Numero contact</label>
-        <input type="number" name="eventContactNumber" class="form-control" id="contactNumber" required>
+        <label for="eventHourEnd">Horaire de fin (pas encore mis en place sur le flyer)</label>
+        <input type="time" name="eventHourEnd" class="form-control" id="eventHourEnd" required>
     </div>
 
     <div class="form-group">
-        <label for="contactEmail">Email contact</label>
-        <input type="email" name="eventContactEmail" class="form-control" id="contactEmail" required>
+        <label for="eventContactName">Nom contact (facultatif)</label>
+        <input type="text" name="eventContactName" placeholder="Office du tourisme de Genève" class="form-control" id="eventContactName">
+    </div>
+
+    <div class="form-group">
+        <label for="eventContactNumber">Numero contact</label>
+        <input type="number" name="eventContactNumber" placeholder="0619527182" class="form-control" id="eventContactNumber" required>
+    </div>
+
+    <div class="form-group">
+        <label for="eventContactEmail">Email contact</label>
+        <input type="email" name="eventContactEmail" placeholder="palexpo@geneve.ch" class="form-control" id="eventContactEmail" required>
+    </div>
+
+    <div class="form-group">
+        <label for="eventTheme">Thème de l'évènement</label>
+        <input type="text" name="eventTheme" placeholder="Automobile" class="form-control" id="eventTheme" required>
+    </div>
+
+    <div class="form-group">
+        <input type="hidden" name="eventType" class="form-control" id="eventType" value="exposition" required>
     </div>
 
     <div class="form-group">
