@@ -40,11 +40,10 @@ public class Event {
         this.nom = "nom_event";
         this.imagePath = "imagePath";
         this.lieu = "lieu";
+        this.ville = "ville";
         this.prix = 0;
         this.heureDebut = new Time(0);
-        this.heureFin = new Time(0);
         this.dateDebut = new Date(0);
-        this.dateFin = new Date(0);
         this.listeIntervenants = null;
 
     }
@@ -123,6 +122,10 @@ public class Event {
      */
     private String lieu;
     /**
+     * ville de l'evenement.
+     */
+    private String ville;
+    /**
      * prix d'entrée de l'evenement.
      */
     private int prix;
@@ -132,20 +135,10 @@ public class Event {
     @Column(name = "heuredeb")
     private Time heureDebut;
     /**
-     * heure de fin de l'evenement.
-     */
-    @Column(name = "heuredef")
-    private Time heureFin;
-    /**
      * date du debut de l'evenement.
      */
     @Column(name = "datedeb")
     private Date dateDebut;
-    /**
-     * date de fin de l'evenement.
-     */
-    @Column(name = "datedef")
-    private Date dateFin;
     /**
      * liste des intervenants de l'evenenement.
      */
@@ -269,6 +262,20 @@ public class Event {
     }
     /**
      * Renvoie l'email de l'utilisateur.
+     * @return ville
+     */
+    public final String getVille() {
+        return this.ville;
+    }
+
+    /**
+     * @param newVille nouvelle ville.
+     */
+    public final void setVille(final String newVille) {
+        this.ville = newVille;
+    }
+    /**
+     * Renvoie l'email de l'utilisateur.
      * @return prix
      */
     public final int getPrix() {
@@ -297,20 +304,6 @@ public class Event {
     }
     /**
      * Renvoie l'email de l'utilisateur.
-     * @return heureFin
-     */
-    public final Time getHeureFin() {
-        return this.heureFin;
-    }
-
-    /**.
-     * @param newheureFin nouvelle heure de fin
-     */
-    public final void setHeureFin(final Time newheureFin) {
-        this.heureFin = newheureFin;
-    }
-    /**
-     * Renvoie l'email de l'utilisateur.
      *
      * @return dateDebut
      */
@@ -324,20 +317,7 @@ public class Event {
     public final void setDateDebut(final Date newdateDebut) {
         this.dateDebut = newdateDebut;
     }
-    /**
-     * Renvoie l'email de l'utilisateur.
-     * @return dateFin
-     */
-    public final Date getDateFin() {
-        return this.dateFin;
-    }
 
-    /**
-     * @param newdateFin nouvelle date de fin.
-     */
-    public final void setDateFin(final Date newdateFin) {
-        this.dateFin = newdateFin;
-    }
     /**
      * permet de copier un event.
      * @param e l'event a copier.
