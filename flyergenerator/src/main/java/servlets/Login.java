@@ -91,9 +91,10 @@ public class Login extends HttpServlet {
         context.setAttribute("spectacles", this.spectacles);
         context.setAttribute("conferences", this.conferences);
         context.setAttribute("em", this.em);
-        if (name != null && !name.equals("")) {
+        User u = userdao.ajouterUser(name, pwd);
+        if (u != null) {
             HttpSession session = request.getSession(true);
-            session.setAttribute("user", new User(name, pwd));
+            session.setAttribute("user", u);
             request.getRequestDispatcher("interface.jsp").
                     forward(request, response);
         } else {

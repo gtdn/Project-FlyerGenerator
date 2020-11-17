@@ -31,7 +31,7 @@ import javax.persistence.Persistence;
 public class JPATest {
 
     @Test
-    public void setupEMTest() {
+    public void setupEMTest() {/*
         EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
         Competition compet = new Competition();
         UserDAO userdao = new UserDAO(em);
@@ -44,14 +44,14 @@ public class JPATest {
         spectacledao.updateSpectacle(spec);
         List<Spectacle> liste_spectacle = spectacledao.getSpectacleByIdUser(test.getID());
         
-        Spectacle test_2 = liste_spectacle.get(0);
+        //Spectacle test_2 = liste_spectacle.get(0);
         Collection<String> testintervenant = new ArrayList<String>();
         testintervenant.add("test_4_265");
         testintervenant.add("test_4_toujours_265");
-        test_2.setListeIntervenants(testintervenant);
+        //test_2.setListeIntervenants(testintervenant);
         Contacts contact = new Contacts();
         spec.setContacts(contact);
-        spectacledao.updateSpectacle(test_2);
+        //spectacledao.updateSpectacle(test_2);
         compet.setIdutilisateur(27);
         competDAO.updateCompetition(compet);
         /*Exposition exp = new Exposition(27, "blabla", "chemin", "bercy", 0, new Time(0), new Time(0), new Date(0), new Date(0), "asso");
@@ -89,7 +89,7 @@ public class JPATest {
             System.out.print(liste_spectacle.size());
             System.out.print(liste_spectacle.get(i).getLieu());
         }*/
-        em.close();
+        /*em.close();*/
 
     }
    
