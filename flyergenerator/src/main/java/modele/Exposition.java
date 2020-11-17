@@ -67,6 +67,13 @@ public class Exposition extends Event {
     }
 */
     /**
+     * getterName.
+     * @return name
+     */
+    public final String getName() {
+        return super.getNom();
+    }
+    /**
      * @return theme
      */
     public final String getTheme() {
