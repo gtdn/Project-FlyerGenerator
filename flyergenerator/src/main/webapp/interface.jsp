@@ -40,10 +40,10 @@
 
                     <h3 class="my-4">Choississez votre type d'évènement</h3>
                     <div class="list-group">
-                        <a href="interface.jsp?contenu=compet" class="list-group-item">Compétition</a>
-                        <a href="interface.jsp?contenu=conf" class="list-group-item">Conférence</a>
-                        <a href="interface.jsp?contenu=expo" class="list-group-item">Exposition</a>
-                        <a href="interface.jsp?contenu=spect" class="list-group-item">Spectacle</a>
+                        <a href="Competition" class="list-group-item">Compétition</a>
+                        <a href="Conference" class="list-group-item">Conférence</a>
+                        <a href="Exposition" class="list-group-item">Exposition</a>
+                        <a href="Spectacle" class="list-group-item">Spectacle</a>
                     </div>
 
                 </div>

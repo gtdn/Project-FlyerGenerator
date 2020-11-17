@@ -1,11 +1,17 @@
 package servlets;
 
 import modele.User;
+import modele.Competition;
+import modele.Conference;
+import modele.Exposition;
+import modele.Spectacle;
+
 import dao.UserDAO;
 //import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,6 +19,8 @@ import java.io.IOException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.List;
+import java.util.ArrayList;
 /**
  * Pour la demande connection.
  * Si utilisatuer existe faire connection
@@ -30,6 +38,23 @@ public class Login extends HttpServlet {
     private UserDAO userdao;
 
     /**
+     * List op competitions.
+     */
+    private List<Competition> competitions;
+     /**
+     * List op expositions.
+     */
+    private List<Exposition> expositions;
+    /**
+     * List op conferences.
+     */
+    private List<Conference> conferences;
+     /**
+     * List op spectacles.
+     */
+    private List<Spectacle> spectacles;
+
+    /**
      * Instancies les DAO.
      * @throws ServletException erreurs
     */
@@ -39,8 +64,11 @@ public class Login extends HttpServlet {
     final EntityManagerFactory factory;
     factory = Persistence.createEntityManagerFactory("flyergenerator");
     this.em =  factory.createEntityManager();
-
     this.userdao = new UserDAO(em);
+    this.competitions = new ArrayList<>();
+    this.expositions = new ArrayList<>();
+    this.spectacles = new ArrayList<>();
+    this.conferences = new ArrayList<>();
 }
 
     /**
@@ -57,6 +85,12 @@ public class Login extends HttpServlet {
         String name = request.getParameter("name");
         String pwd = request.getParameter("pwd");
         userdao.ajouterUser(name, pwd);
+        ServletContext context = getServletContext();
+        context.setAttribute("competitions", this.competitions);
+        context.setAttribute("expositions", this.expositions);
+        context.setAttribute("spectacles", this.spectacles);
+        context.setAttribute("conferences", this.conferences);
+        context.setAttribute("em", this.em);
         if (name != null && !name.equals("")) {
             HttpSession session = request.getSession(true);
             session.setAttribute("user", new User(name, pwd));
