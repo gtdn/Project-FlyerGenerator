@@ -1,66 +1,81 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-<form method="GET" action="validation.jsp">
-    <h2> Formulaire Competition </h2>
+
+<form method="POST" action="formEvent">
+    <h2>Créez votre flyer pour une compétition</h2>
+
     <div class="form-group">
-      <label for="name">Nom de l'evenement</label>
-      <input type="email" class="form-control" id="name">
+      <label for="eventTitle">Nom de l'évènement</label>
+      <input type="text" name="eventTitle" placeholder="Coupe de France de bucheronnage" class="form-control" id="eventTitle" minlength="15" maxlength="45" required>
     </div>
+
     <div class="form-group">
-      <label for="location">Lieu</label>
-      <input type="text" class="form-control" id="location">
+        <label for="eventCity">Ville</label>
+        <input type="text" name="eventCity" placeholder="La Rochelle" class="form-control" id="eventCity" minlength="2" maxlength="25" required>
     </div>
+
     <div class="form-group">
-        <label for="prix">Prix</label>
-        <input type="number" class="form-control" id="prix">
+        <label for="eventLocation">Lieu</label>
+        <input type="text" name="eventLocation" placeholder="Parc de Mireuil" class="form-control" id="eventLocation" maxlength="30" required>
     </div>
+
     <div class="form-group">
-        <label for="img">Background Flyer</label>
+        <label for="eventPrice">Prix d'entrée</label>
+        <input type="number" name="eventPrice" placeholder="10" class="form-control" id="eventPrice" min="0">
+    </div>
+
+    <div class="form-group">
+        <label for="eventCashPrize">Cashprize du gagnant</label>
+        <input type="text" name="eventCashPrize" placeholder="Pack de bières / 15€" class="form-control" id="eventCashPrize" maxlength="25">
+    </div>
+
+    <div class="form-group">
+        <label for="img">Background Flyer (à voir plus tard)</label>
         <input type="image" class="form-control" id="img">
     </div>
+
     <div class="form-group">
-        <label for="horBeg">Horaire Commencement</label>
-        <input type="time" class="form-control" id="horBeg">
+        <label for="eventDate">Date</label>
+        <input type="date" name="eventDate" value="2020-12-29" class="form-control" id="eventDate" required>
     </div>
+
     <div class="form-group">
-        <label for="horEnd">Horaire de fin</label>
-        <input type="time" class="form-control" id="horEnd">
+        <label for="eventHour">Horaire</label>
+        <input type="time" name="eventHour" class="form-control" id="eventHour" required>
     </div>
+
     <div class="form-group">
-        <label for="dateBeg">Date de debut</label>
-        <input type="date" class="form-control" id="dateBeg">
+        <label for="eventOrganizer">Nom de l'organisateur</label>
+        <input type="text" name="eventOrganizer" placeholder="Fédération Française de Bucheronnage" class="form-control" id="eventOrganizer">
     </div>
+
     <div class="form-group">
-        <label for="dateEnd">Date de fin</label>
-        <input type="date" class="form-control" id="dateEnd">
+        <label for="eventContactNumber">Numero contact</label>
+        <input type="number" name="eventContactNumber" placeholder="0617283971" class="form-control" id="eventContactNumber" required>
     </div>
+
     <div class="form-group">
-        <label for="contactName">Nom contact</label>
-        <input type="text" class="form-control" id="contactName">
+        <label for="eventContactEmail">Email contact</label>
+        <input type="email" name="eventContactEmail" placeholder="roger.legrobra@gmail.com" class="form-control" id="eventContactEmail" required>
     </div>
+
     <div class="form-group">
-        <label for="contactNumber">Numero contact</label>
-        <input type="number" class="form-control" id="contactNumber">
+        <label for="eventHashtag">Hashtag de l'évènement</label>
+        <input type="text" name="eventHashtag" placeholder="bucheronnageCompetition" class="form-control" id="eventPrice" min="0" pattern="[A-Za-z]">
     </div>
+
     <div class="form-group">
-        <label for="contactEmail">Email contact</label>
-        <input type="email" class="form-control" id="contactEmail">
+        <label for="eventDescription">Description de l'évènement</label>
+        <input type="text" name="eventDescription" placeholder="Affrontez les plus grands bûcherons de France..." class="form-control" id="eventDescription" maxlength="120">
     </div>
+
     <div class="form-group">
-        <label for="hashTag">Hashtag</label>
-        <input type="text" class="form-control" id="hashTag">
-    </div>    
-    <div class="form-group">
-        <label for="resume">Resume</label>
-        <input type="text" class="form-control" id="resume">
+        <input type="hidden" name="eventType" class="form-control" id="eventType" value="competition" required>
     </div>
+
     <div class="form-group">
-        <label for="price">Prix du la competition</label>
-        <input type="text" class="form-control" id="price">
-    </div>
-    <div class="form-group">
-        <label for="price">Choissiser le graphisme de votre flyer</label>
+        <label for="price">Choisissez le graphisme de votre flyer</label>
         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
             <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>

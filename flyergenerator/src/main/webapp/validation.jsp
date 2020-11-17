@@ -46,7 +46,7 @@
        
                 <div class="col-lg-9">
                     <div style="text-align: center;">
-                        <h2 class="my-4">Flyer de votre evenement</h2>
+                        <h2 class="my-4">Flyer de votre évènement</h2>
 
                         <embed src="pdf/output.pdf" width="700px" height="700px" />
 
