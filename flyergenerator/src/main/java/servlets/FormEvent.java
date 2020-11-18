@@ -77,26 +77,13 @@ public class FormEvent extends HttpServlet {
 
         // Saving those common data in mother Class Event
         Event e = new Event();
+
+        fillEvent(e, session, request);
         final EntityManagerFactory factory;
         factory = Persistence.createEntityManagerFactory("flyergenerator");
         this.em =  factory.createEntityManager();
 
-        e.setIdutilisateur(((User) session.getAttribute("user")).getID());
-        e.setNom(eventTitle);
-        e.setVille(eventCity);
-        e.setLieu(eventLocation);
-        int prix = Integer.valueOf(eventPrice);
-        e.setPrix(prix);
-        Time heurBeg = Time.valueOf(eventHourBeg);
-        e.setHeureDebut(heurBeg);
-        Date dateBeg = Date.valueOf(eventDateBeg);
-        e.setDateDebut(dateBeg);
-        Contacts contacts = new Contacts();
-        contacts.setNom(eventContactName);
-        int numeroTel = Integer.valueOf(eventContactNumber);
-        contacts.setNumero(numeroTel);
-        contacts.setMail(eventContactEmail);
-        e.setContacts(contacts);
+
 
         /* treating those Data in the appropriate Daughter Class
         and adding the specifiques data to this Class*/
@@ -121,8 +108,7 @@ public class FormEvent extends HttpServlet {
             ExpositionDAO expositionDAO = new ExpositionDAO(em);
             expositionDAO.updateExposition(expo);
 
-        }
-        else if (eventType.equals("competition")) {
+        } else if (eventType.equals("competition")) {
             /* create a competition from general Events data */
             Competition compet = new Competition();
             compet.copieEvent(e);
@@ -137,8 +123,7 @@ public class FormEvent extends HttpServlet {
             /* Save the complete competition data into our DataBase */
             CompetitionDAO competDAO = new CompetitionDAO(em);
             competDAO.updateCompetition(compet);
-        }
-        else if (eventType.equals("conference")) {
+        } else if (eventType.equals("conference")) {
             /* create a conferance from general Events data */
             Conference conf = new Conference();
             conf.copieEvent(e);
@@ -203,6 +188,46 @@ public class FormEvent extends HttpServlet {
 
 
 
+
+    }
+
+    /**
+     * This fonction fill an given Event with commons Data.
+     * @param e the Event to fill.
+     * @param session the actual session.
+     * @param request the HttpServlet to request parameters from.
+     */
+    public void fillEvent(final Event e, final HttpSession session,
+        final HttpServletRequest request) {
+
+        String eventTitle = request.getParameter("eventTitle");
+        String eventCity = request.getParameter("eventCity");
+        String eventLocation = request.getParameter("eventLocation");
+        String eventPrice = request.getParameter("eventPrice");
+        String eventHourBeg = request.getParameter("eventHourBeg") + ":00";
+        String eventDateBeg = request.getParameter("eventDateBeg");
+        // PersonneList missing yet
+        String eventContactName = request.getParameter(
+            "eventContactName");
+        String eventContactNumber = request.getParameter("eventContactNumber");
+        String eventContactEmail = request.getParameter("eventContactEmail");
+
+        e.setIdutilisateur(((User) session.getAttribute("user")).getID());
+        e.setNom(eventTitle);
+        e.setVille(eventCity);
+        e.setLieu(eventLocation);
+        int prix = Integer.valueOf(eventPrice);
+        e.setPrix(prix);
+        Time heurBeg = Time.valueOf(eventHourBeg);
+        e.setHeureDebut(heurBeg);
+        Date dateBeg = Date.valueOf(eventDateBeg);
+        e.setDateDebut(dateBeg);
+        Contacts contacts = new Contacts();
+        contacts.setNom(eventContactName);
+        int numeroTel = Integer.valueOf(eventContactNumber);
+        contacts.setNumero(numeroTel);
+        contacts.setMail(eventContactEmail);
+        e.setContacts(contacts);
 
     }
     /**
