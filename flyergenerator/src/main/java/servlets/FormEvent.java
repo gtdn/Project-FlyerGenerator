@@ -14,6 +14,7 @@ import modele.Exposition;
 import modele.Competition;
 import modele.User;
 import modele.Event;
+import modele.Contacts;
 import javax.servlet.http.HttpSession;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -57,12 +58,14 @@ public class FormEvent extends HttpServlet {
 
 
 
-
+        // requests saved in a var cause used multiple times
         String eventTitle = request.getParameter("eventTitle");
         String eventCity = request.getParameter("eventCity");
         String eventLocation = request.getParameter("eventLocation");
         String eventPrice = request.getParameter("eventPrice");
+        String eventHourBeg = request.getParameter("eventHourBeg") + ":00";
         String eventDateBeg = request.getParameter("eventDateBeg");
+        // PersonneList missing yet
         String eventContactName = request.getParameter(
             "eventContactName");
         String eventContactNumber = request.getParameter("eventContactNumber");
@@ -77,26 +80,41 @@ public class FormEvent extends HttpServlet {
         factory = Persistence.createEntityManagerFactory("flyergenerator");
         this.em =  factory.createEntityManager();
 
-        e.setNom(request.getParameter("eventTitle"));
-        final int i = ((User) session.getAttribute("user")).getID();
-        e.setIdutilisateur(i);
-        e.setLieu(eventCity);
-        /*e.setLocation(eventLocation)*/ // quand le champ Location sera en BDD
-        Time heurBeg = new Time(0);
+        e.setIdutilisateur(((User) session.getAttribute("user")).getID());
+        e.setNom(eventTitle);
+        e.setVille(eventCity);
+        e.setLieu(eventLocation);
+        int prix = Integer.valueOf(eventPrice);
+        e.setPrix(prix);
+        Time heurBeg = Time.valueOf(eventHourBeg);
         e.setHeureDebut(heurBeg);
-        Date dateBeg = Date.valueOf(request.getParameter("eventDateBeg"));
+        Date dateBeg = Date.valueOf(eventDateBeg);
         e.setDateDebut(dateBeg);
+        Contacts contacts = new Contacts();
+        contacts.setNom(eventContactName);
+        int numeroTel = Integer.valueOf(eventContactNumber);
+        contacts.setNumero(numeroTel);
+        contacts.setMail(eventContactEmail);
+        e.setContacts(contacts);
 
 
         if (eventType.equals("exposition")) {
 
             Exposition expo = new Exposition();
             expo.copieEvent(e);
-            ExpositionDAO expositionDAO = new ExpositionDAO(em);
 
-            String theme = "theme";
+            String theme = request.getParameter("eventTheme");
             expo.setTheme(theme);
-            String[] eventDateBegSplitted = eventDateBeg.split("-");
+
+            String eventHourEnd = request.getParameter("eventHourEnd") + ":00";
+            Time heurEnd = Time.valueOf(eventHourEnd);
+            expo.setHeureFin(heurEnd);
+
+            String eventDateEnd = request.getParameter("eventDateEnd");
+            Date dateEnd = Date.valueOf(eventDateEnd);
+            expo.setDateFin(dateEnd);
+
+            ExpositionDAO expositionDAO = new ExpositionDAO(em);
             expositionDAO.updateExposition(expo);
 
         }
