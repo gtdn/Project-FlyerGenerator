@@ -9,6 +9,7 @@ import dao.CompetitionDAO;
 import dao.UserDAO;
 import modele.Competition;
 import modele.User;
+import modele.Event;
 import modele.Spectacle;
 import modele.Conference;
 import modele.Contacts;
@@ -32,7 +33,7 @@ public class JPATest {
 
     @Test
     public void setupEMTest() {
-        /*EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
+        EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
         Competition compet = new Competition();
         UserDAO userdao = new UserDAO(em);
         User test = userdao.ajouterUser("pseudo", "motdepasse");
@@ -40,56 +41,32 @@ public class JPATest {
         ConferenceDAO conferencedao = new ConferenceDAO(em);
         ExpositionDAO expositiondao = new ExpositionDAO(em);
         CompetitionDAO competDAO = new CompetitionDAO(em);
-        Spectacle spec = new Spectacle(27, "blabla", "chemin", "bercy", new Time(0), new Date(0), "asso");
+        Event event = new Event();
+        event.setIdutilisateur(732);
+        Spectacle spec = new Spectacle();
+        Exposition exp = new Exposition();
+        Conference conf = new Conference();
+        Competition comp = new Competition();
+        spec.copieEvent(event);
+        conf.copieEvent(event);
+        exp.copieEvent(event);
+        comp.copieEvent(event);
         spectacledao.updateSpectacle(spec);
-        List<Spectacle> liste_spectacle = spectacledao.getSpectacleByIdUser(test.getID());
+        conferencedao.updateConference(conf);
+        competDAO.updateCompetition(comp);
+        List<Competition> liste_competition = competDAO.getCompetitionByIdUser(732);
+        System.out.println(liste_competition.size());
+        System.out.println("<--------------------");
+
+
+        expositiondao.updateExposition(exp);
+        /*List<Spectacle> liste_spectacle = spectacledao.getSpectacleByIdUser(test.getID());
         
         //Spectacle test_2 = liste_spectacle.get(0);
         Collection<String> testintervenant = new ArrayList<String>();
-        testintervenant.add("test_4_265");
-        testintervenant.add("test_4_toujours_265");
-        //test_2.setListeIntervenants(testintervenant);
-        Contacts contact = new Contacts();
-        spec.setContacts(contact);
-        //spectacledao.updateSpectacle(test_2);
-        compet.setIdutilisateur(27);
-        competDAO.updateCompetition(compet);
-        /*Exposition exp = new Exposition(27, "blabla", "chemin", "bercy", 0, new Time(0), new Time(0), new Date(0), new Date(0), "asso");
-        Conference conf = new Conference(27, "blabla", "chemin", "bercy", 0, new Time(0), new Time(0), new Date(0), new Date(0), "asso");
-        Contacts contact = new Contacts();
-        //spec.setContacts(contact);
-        spectacledao.updateSpectacle(spec);
-        expositiondao.updateExposition(exp);
-        conferencedao.updateConference(conf);
-        System.out.print(test.getID());
-        
-        
-        List<Spectacle> liste_spectacle = spectacledao.getSpectacleByIdUser(test.getID());
-        
-        Spectacle test_2 = liste_spectacle.get(0);
-        System.out.print(" ANNONCE ID SPECTACLE TEST : ");
-        //System.out.print(test_2.getId());
-        System.out.print( "ANNONCE ID SPECTACLE TEST : ");
-        //test_2.setLieu("20");
-        //spec.setLieu("TEST_SPEC_9");
-        //contact = test_2.getContacts();
-        Collection<String> testintervenant = new ArrayList<String>();//= test_2.getListeIntervenants();
-        testintervenant.add("test_2_265");
-        testintervenant.add("test_2_toujours_265");
-        //test_2.setListeIntervenants(testintervenant);
-        spectacledao.updateSpectacle(test_2);
-        //conferencedao.updateConference(conf);
-
-        System.out.print(" ANNONCE MAIL CONTACT : ");
-        //System.out.print(testintervenant.toArray()[0]);
-        System.out.print( "ANNONCE MAIL CONTACT : ");
-        //System.out.print(test_2.getId());        
-        /*for(int i=0; i<liste_spectacle.size(); i++)
-        {
-            System.out.print(liste_spectacle.size());
-            System.out.print(liste_spectacle.get(i).getLieu());
+       
         }*/
-        /*em.close();*/
+        em.close();
 
     }
    

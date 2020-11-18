@@ -65,10 +65,23 @@ public class Spectacle extends Event {
         this.nomAssociation = "association_de_base";
     }
 
-    //private int idSpectacle;
     /**
      * nom de l'association organisatrice.
      */
     @Column(name = "nom_asso")
     private String nomAssociation;
+
+    /**
+     * @return nom de l'association organisatrice.
+     */
+    public String getNomAssociation() {
+        return this.nomAssociation;
+    }
+
+    /**
+     * @param nomAssociation de l'association organisatrice.
+     */
+    public void setNomAssociation(final String nomAssociation) {
+        this.nomAssociation = nomAssociation;
+    }
 }

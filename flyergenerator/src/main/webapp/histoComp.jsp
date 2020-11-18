@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.io.*" %>
-<%@ page import="modele.Exposition" %>
+<%@ page import="modele.Competition" %>
 <%@ page import="java.util.List" %>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -59,9 +59,7 @@
                             <th scope="col">Ville</th>
                             <th scope="col">Prix</th>
                             <th scope="col">Heure début</th>
-                            <th scope="col">Heure de fin</th>
                             <th scope="col">Date début</th>
-                            <th scope="col">Date de fin</th>
                             <th scope="col">Thème</th>
                             <th scope="col">Nom Contact</th>
                             <th scope="col">Numéro contact</th>
@@ -69,34 +67,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${requestScope.expositions}" var="exposition">
+                            <c:forEach items="${requestScope.competitions}" var="competition">
                                 <tr>
                                     <td scope="row">
-                                        <c:out value="${ exposition.getNom() }" />
+                                        <c:out value="${ competition.getNom() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ exposition.getLieu() }" />
+                                        <c:out value="${ competition.getLieu() }" />
                                     </td>
                                     <td scope="row">
                                         <c:out value="" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ exposition.getPrix() }" />
+                                        <c:out value="${ competition.getPrix() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ exposition.getHeureDebut() }" />
+                                        <c:out value="${ competition.getHeureDebut() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ exposition.getHeureFin() }" />
+                                        <c:out value="${ competition.getDateDebut() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ exposition.getDateDebut() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ exposition.getDateFin() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ exposition.getTheme() }" />
+                                        <c:out value="${ competition.getResume()}" />
                                     </td>
                                     <td scope="row">
                                         <c:out value="" />

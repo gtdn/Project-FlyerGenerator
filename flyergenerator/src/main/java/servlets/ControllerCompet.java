@@ -5,6 +5,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modele.Competition;
+import dao.CompetitionDAO;
+import modele.User;
+import javax.servlet.http.HttpSession;
+import java.util.List;
+import javax.persistence.EntityManager;
+
 
 import java.io.IOException;
 
@@ -20,8 +27,18 @@ public class ControllerCompet extends HttpServlet {
      */
     protected void doGet(final HttpServletRequest request,
      final HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("test", "test");
-        RequestDispatcher rd = request.getRequestDispatcher("histoExpo.jsp");
+
+        HttpSession session = request.getSession(true);
+
+        List<Competition> competitions =
+        (List<Competition>) getServletContext().
+        getAttribute("competitions");
+        CompetitionDAO compDao = new CompetitionDAO(
+            (EntityManager) getServletContext().getAttribute("em"));
+        final int i = ((User) session.getAttribute("user")).getID();
+        competitions = compDao.getCompetitionByIdUser(i);
+        request.setAttribute("competitions", competitions);
+        RequestDispatcher rd = request.getRequestDispatcher("histoComp.jsp");
         rd.forward(request, response);
     }
 
