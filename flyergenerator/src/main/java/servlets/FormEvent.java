@@ -12,6 +12,7 @@ import java.sql.Time;
 
 import modele.Exposition;
 import modele.Competition;
+import modele.Conference;
 import modele.User;
 import modele.Event;
 import modele.Contacts;
@@ -30,6 +31,7 @@ import org.apache.commons.io.FileUtils;
 
 import dao.ExpositionDAO;
 import dao.CompetitionDAO;
+import dao.ConferenceDAO;
 /**
  * Define webServelt.
  */
@@ -73,9 +75,8 @@ public class FormEvent extends HttpServlet {
 
 
 
-        //Save Commun
+        // Saving those common data in mother Class Event
         Event e = new Event();
-        /* Save in BDD */
         final EntityManagerFactory factory;
         factory = Persistence.createEntityManagerFactory("flyergenerator");
         this.em =  factory.createEntityManager();
@@ -97,12 +98,14 @@ public class FormEvent extends HttpServlet {
         contacts.setMail(eventContactEmail);
         e.setContacts(contacts);
 
-
+        /* treating those Data in the appropriate Daughter Class
+        and adding the specifiques data to this Class*/
         if (eventType.equals("exposition")) {
-
+            /* create an exposition from general Events data */
             Exposition expo = new Exposition();
             expo.copieEvent(e);
 
+            /* add specifics data */
             String theme = request.getParameter("eventTheme");
             expo.setTheme(theme);
 
@@ -114,26 +117,45 @@ public class FormEvent extends HttpServlet {
             Date dateEnd = Date.valueOf(eventDateEnd);
             expo.setDateFin(dateEnd);
 
+            /* Save the complete exposition data into our DataBase */
             ExpositionDAO expositionDAO = new ExpositionDAO(em);
             expositionDAO.updateExposition(expo);
 
         }
-        if (eventType.equals("competition")) {
-
+        else if (eventType.equals("competition")) {
+            /* create a competition from general Events data */
             Competition compet = new Competition();
             compet.copieEvent(e);
-            CompetitionDAO competDAO = new CompetitionDAO(em);
 
-            /* Add in BDD */
+            /* add specifics data */
+            compet.setHashtag(request.getParameter("eventHashtag"));
+            compet.setNomOrganisateur(request.getParameter("eventOrganizer"));
+            compet.setResume(request.getParameter("eventDescription"));
+            compet.setCashPrize(request.getParameter("eventCashPrize"));
+
+
+            /* Save the complete competition data into our DataBase */
+            CompetitionDAO competDAO = new CompetitionDAO(em);
             competDAO.updateCompetition(compet);
+        }
+        else if (eventType.equals("conference")) {
+            /* create a conferance from general Events data */
+            Conference conf = new Conference();
+            conf.copieEvent(e);
+
+            /* add specifics data */
+            conf.setResume(request.getParameter("eventDescription"));
+
+
+            /* Save the complete competition data into our DataBase */
+            ConferenceDAO confDAO = new ConferenceDAO(em);
+            confDAO.updateConference(conf);
 
         }
 
 
 
         if (eventType.equals("exposition")) {
-            System.out.println("test");
-            System.out.println(eventTitle);
             String current = new java.io.File(".").getCanonicalPath();
             String htmlString = new String(Files.readAllBytes(Paths.get(
                 current + "/html/flyer_exposition.html")),
