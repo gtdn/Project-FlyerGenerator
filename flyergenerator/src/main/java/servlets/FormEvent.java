@@ -234,7 +234,9 @@ public class FormEvent extends HttpServlet {
      * @param e the Event to copy from.
      * @param request the HttpServlet to request parameters from.
      */
-    public void fillAndSaveCompetition(final Event e, final HttpServletRequest request) {
+    public void fillAndSaveCompetition(final Event e,
+        final HttpServletRequest request) {
+
     /* create a competition from general Events data */
     Competition compet = new Competition();
     compet.copieEvent(e);
@@ -256,7 +258,9 @@ public class FormEvent extends HttpServlet {
      * @param e the Event to copy from.
      * @param request the HttpServlet to request parameters from.
      */
-    public void fillAndSaveConference(final Event e, final HttpServletRequest request) {
+    public void fillAndSaveConference(final Event e,
+        final HttpServletRequest request) {
+
         /* create a conferance from general Events data */
         Conference conf = new Conference();
         conf.copieEvent(e);
@@ -273,7 +277,9 @@ public class FormEvent extends HttpServlet {
      * @param e the Event to copy from.
      * @param request the HttpServlet to request parameters from.
      */
-    public void fillAndSaveSpectacle(final Event e, final HttpServletRequest request) {
+    public void fillAndSaveSpectacle(final Event e,
+        final HttpServletRequest request) {
+
         /* create a spectacle from general Events data */
         Spectacle spec = new Spectacle();
         spec.copieEvent(e);
