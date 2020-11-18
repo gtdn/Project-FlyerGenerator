@@ -229,7 +229,8 @@ public class FormEvent extends HttpServlet {
      * @param e the Event to copy from.
      * @param request the HttpServlet to request parameters from.
      */
-    public void fillAndSaveExpo(final Event e, final HttpServletRequest request) {
+    public void fillAndSaveExpo(final Event e,
+     final HttpServletRequest request) {
         /* create an exposition from general Events data */
         Exposition expo = new Exposition();
         expo.copieEvent(e);

@@ -103,7 +103,7 @@ public class Contacts {
     /**
      * @return le nom du contact
      */
-    public final String getnom() {
+    public final String getNom() {
         return nom;
     }
 
