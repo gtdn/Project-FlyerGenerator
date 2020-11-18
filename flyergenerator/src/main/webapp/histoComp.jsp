@@ -60,7 +60,10 @@
                             <th scope="col">Prix</th>
                             <th scope="col">Heure début</th>
                             <th scope="col">Date début</th>
-                            <th scope="col">Thème</th>
+                            <th scope="col">#Hashtag</th>
+                            <th scope="col">Nom Organisateur</th>
+                            <th scope="col">Résumé</th>
+                            <th scope="col">CashPrize</th>
                             <th scope="col">Nom Contact</th>
                             <th scope="col">Numéro contact</th>
                             <th scope="col">Mail contact</th>
@@ -88,7 +91,15 @@
                                         <c:out value="${ competition.getDateDebut() }" />
                                     </td>
                                     <td scope="row">
+                                        <c:out value="${ competition.getHashtag()}" />
+                                    </td>
+                                    <td scope="row">
+                                        <c:out value="${ competition.getNomOrganisateur()}" />
+                                    </td>
+                                    <td scope="row">
                                         <c:out value="${ competition.getResume()}" />
+                                    <td scope="row">
+                                        <c:out value="${ competition.getCashPrize()}" />
                                     </td>
                                     <td scope="row">
                                         <c:out value="" />
