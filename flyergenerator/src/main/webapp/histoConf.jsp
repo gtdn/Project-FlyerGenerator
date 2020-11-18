@@ -3,6 +3,7 @@
 <%@ page import="java.io.*" %>
 <%@ page import="modele.Conference" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.lang.String" %>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
@@ -60,7 +61,8 @@
                             <th scope="col">Prix</th>
                             <th scope="col">Heure début</th>
                             <th scope="col">Date début</th>
-                            <th scope="col">Thème</th>
+                            <th scope="col">Liste d'intervenants</th>
+                            <th scope="col">Résumé</th>
                             <th scope="col">Nom Contact</th>
                             <th scope="col">Numéro contact</th>
                             <th scope="col">Mail contact</th>
@@ -88,16 +90,18 @@
                                         <c:out value="${ conference.getDateDebut() }" />
                                     </td>
                                     <td scope="row">
+                                        <c:out value="${String.join(\", \",conference.getListeIntervenants())}" />
+                                    </td>
+                                    <td scope="row">
                                         <c:out value="${ conference.getResume()}" />
+                                    <td scope="row">
+                                        <c:out value="${ conference.getContacts().getNom()}" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="" />
+                                        <c:out value="${ conference.getContacts().getNumero()}" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="" />
+                                        <c:out value="${ conference.getContacts().getMail()}" />
                                     </td>
                                 </tr>
                             </c:forEach>

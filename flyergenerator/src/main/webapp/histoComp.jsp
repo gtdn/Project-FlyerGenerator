@@ -3,6 +3,7 @@
 <%@ page import="java.io.*" %>
 <%@ page import="modele.Competition" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.lang.String" %>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
@@ -60,6 +61,7 @@
                             <th scope="col">Prix</th>
                             <th scope="col">Heure début</th>
                             <th scope="col">Date début</th>
+                            <th scope="col">Liste d'intervenants</th>
                             <th scope="col">#Hashtag</th>
                             <th scope="col">Nom Organisateur</th>
                             <th scope="col">Résumé</th>
@@ -91,6 +93,9 @@
                                         <c:out value="${ competition.getDateDebut() }" />
                                     </td>
                                     <td scope="row">
+                                        <c:out value="${String.join(\", \",competition.getListeIntervenants())}" />
+                                    </td>
+                                    <td scope="row">
                                         <c:out value="${ competition.getHashtag()}" />
                                     </td>
                                     <td scope="row">
@@ -102,13 +107,13 @@
                                         <c:out value="${ competition.getCashPrize()}" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="" />
+                                        <c:out value="${ competition.getContacts().getNom()}" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="" />
+                                        <c:out value="${ competition.getContacts().getNumero()}" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="" />
+                                        <c:out value="${ competition.getContacts().getMail()}" />
                                     </td>
                                 </tr>
                             </c:forEach>

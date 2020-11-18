@@ -79,9 +79,9 @@ public class Spectacle extends Event {
     }
 
     /**
-     * @param nomAssociation de l'association organisatrice.
+     * @param newnomAssociation de l'association organisatrice.
      */
-    public void setNomAssociation(final String nomAssociation) {
-        this.nomAssociation = nomAssociation;
+    public void setNomAssociation(final String newnomAssociation) {
+        this.nomAssociation = newnomAssociation;
     }
 }
