@@ -28,7 +28,7 @@
     <body>
 
         <!-- Navigation -->
-        <jsp:include page="composants/menu.html"/>
+        <jsp:include page="../composants/menu.html"/>
 
         <!-- Page Content -->
         <div class="container" style="margin-top : 100px; margin-bottom: 100px;">
@@ -76,7 +76,7 @@
                                         <c:out value="${ spectacle.getLieu() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="" />
+                                        <c:out value="${ spectacle.getVille() }" />
                                     </td>
                                     <td scope="row">
                                         <c:out value="${ spectacle.getPrix() }" />
@@ -91,50 +91,24 @@
                                         <c:out value="${ spectacle.getNomAssociation()}" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="" />
+                                        <c:out value="${ spectacle.getContacts().getNom() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="" />
+                                        <c:out value="${ spectacle.getContacts().getNumero() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="" />
+                                        <c:out value="${ spectacle.getContacts().getMail() }" />
                                     </td>
                                 </tr>
                             </c:forEach>
                         </tbody>
-                    </table>
-                    <!-- <c:choose>
-                        <c:when test="${param.contenu == 'home'}">
-                            <jsp:include page="home.jsp"/>
-                        </c:when>
-                        <c:when test = "${param.contenu == 'compet'}">
-                            <jsp:include page="form/formCompet.jsp"/>
-                        </c:when>
-                        <c:when test = "${param.contenu == 'conf'}">
-                            <jsp:include page="form/formConf.jsp" />
-                        </c:when>
-                        <c:when test = "${param.contenu == 'expo'}">
-                            <jsp:include page="form/formExpo.jsp" />
-                        </c:when>
-                        <c:when test = "${param.contenu == 'validation'}">
-                            <jsp:include page="validation.jsp" />
-                        </c:when>
-                        <c:when test = "${param.contenu == 'spect'}">
-                            <jsp:include page="form/formSpect.jsp" />
-                        </c:when>
-                    </c:choose> -->
-                    
-                    <div class="row">
-                        <div style="text-align: center;">
-                            
-                        </div>
-                    </div>  
+                    </table> 
                 </div>             
             </div>
         </div>
 
         <!-- Footer -->
-        <jsp:include page="composants/footer.html"/>
+        <jsp:include page="../composants/footer.html"/>
         <!-- Bootstrap core JavaScript -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>

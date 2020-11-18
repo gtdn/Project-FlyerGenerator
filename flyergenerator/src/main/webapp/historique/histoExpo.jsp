@@ -99,13 +99,13 @@
                                         <c:out value="${ exposition.getTheme() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ exposition.getContacts().getNom()}" />
+                                        <c:out value="${ exposition.getContacts().getNom() }" />
                                     </td>
                                     <td scope="row">
                                         <c:out value="${ exposition.getContacts().getNumero() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ exposition.getContacts().getnom() }" />
+                                        <c:out value="${ exposition.getContacts().getMail() }" />
                                     </td>
                                 </tr>
                             </c:forEach>
