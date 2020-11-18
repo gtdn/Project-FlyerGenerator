@@ -82,7 +82,7 @@ public class FormEvent extends HttpServlet {
         if (eventType.equals("exposition")) {
             String current = new java.io.File(".").getCanonicalPath();
             String htmlString = new String(Files.readAllBytes(Paths.get(
-                current + "/flyergenerator/html/flyer_exposition.html")),
+                current + "/../webapps/flyergenerator/html/flyer_exposition.html")),
             StandardCharsets.UTF_8);
 
             if (request.getParameter("eventPrice") == "") {
@@ -120,7 +120,7 @@ public class FormEvent extends HttpServlet {
 
             byte[] pdfData = getPdf(htmlString);
             FileUtils.writeByteArrayToFile(new File(
-                current + "/flyergenerator/pdf/output.pdf"), pdfData);
+                current + "/../webapps/flyergenerator/pdf/output.pdf"), pdfData);
         }
 
 
