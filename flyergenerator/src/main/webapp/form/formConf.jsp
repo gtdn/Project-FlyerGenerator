@@ -47,7 +47,7 @@
 
     <div class="form-group">
         <label for="eventSpeaker1">Intervenant 1(JS à faire pour ajouter des intervenants avec un bouton "+", 5 max)</label>
-        <input type="email" name="eventSpeaker1" placeholder="Greta Thunberg" class="form-control" id="eventSpeaker1" required>
+        <input type="text" name="eventSpeaker1" placeholder="Greta Thunberg" class="form-control" id="eventSpeaker1" required>
     </div>
 
     <div class="form-group">
@@ -62,7 +62,7 @@
 
     <div class="form-group">
         <label for="eventDescription">Description de l'évènement</label>
-        <input type="text" name="eventDescription" placeholder="Conférence sur le climat et les enjeux des années à venir..." class="form-control" id="eventDescription" maxlength="120">
+        <input type="text" name="eventDescription" placeholder="Conférence sur le climat et les enjeux des années à venir..." class="form-control" id="eventDescription" maxlength="120" required>
     </div>
 
     <div class="form-group">
