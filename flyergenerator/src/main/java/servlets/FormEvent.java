@@ -21,11 +21,12 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+//import javax.persistence.EntityManagerFactory;
+//import javax.persistence.Persistence;
 
 
 import org.apache.commons.io.FileUtils;
@@ -81,9 +82,11 @@ public class FormEvent extends HttpServlet {
         Event e = new Event();
 
         fillEvent(e, session, request);
-        final EntityManagerFactory factory;
+        /*final EntityManagerFactory factory;
         factory = Persistence.createEntityManagerFactory("flyergenerator");
-        this.em =  factory.createEntityManager();
+        this.em =  factory.createEntityManager();*/
+        ServletContext context = getServletContext();
+        this.em = (EntityManager) context.getAttribute("em");
 
         /* treating those Data in the appropriate Daughter Class
         and adding the specifiques data to this Class*/
