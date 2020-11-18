@@ -13,6 +13,7 @@ import java.sql.Time;
 import modele.Exposition;
 import modele.Competition;
 import modele.Conference;
+import modele.Spectacle;
 import modele.User;
 import modele.Event;
 import modele.Contacts;
@@ -32,6 +33,7 @@ import org.apache.commons.io.FileUtils;
 import dao.ExpositionDAO;
 import dao.CompetitionDAO;
 import dao.ConferenceDAO;
+import dao.SpectacleDAO;
 /**
  * Define webServelt.
  */
@@ -83,30 +85,11 @@ public class FormEvent extends HttpServlet {
         factory = Persistence.createEntityManagerFactory("flyergenerator");
         this.em =  factory.createEntityManager();
 
-
-
         /* treating those Data in the appropriate Daughter Class
         and adding the specifiques data to this Class*/
         if (eventType.equals("exposition")) {
-            /* create an exposition from general Events data */
-            Exposition expo = new Exposition();
-            expo.copieEvent(e);
 
-            /* add specifics data */
-            String theme = request.getParameter("eventTheme");
-            expo.setTheme(theme);
-
-            String eventHourEnd = request.getParameter("eventHourEnd") + ":00";
-            Time heurEnd = Time.valueOf(eventHourEnd);
-            expo.setHeureFin(heurEnd);
-
-            String eventDateEnd = request.getParameter("eventDateEnd");
-            Date dateEnd = Date.valueOf(eventDateEnd);
-            expo.setDateFin(dateEnd);
-
-            /* Save the complete exposition data into our DataBase */
-            ExpositionDAO expositionDAO = new ExpositionDAO(em);
-            expositionDAO.updateExposition(expo);
+            fillAndSaveExpo(e, request);
 
         } else if (eventType.equals("competition")) {
             /* create a competition from general Events data */
@@ -131,10 +114,20 @@ public class FormEvent extends HttpServlet {
             /* add specifics data */
             conf.setResume(request.getParameter("eventDescription"));
 
-
             /* Save the complete competition data into our DataBase */
             ConferenceDAO confDAO = new ConferenceDAO(em);
             confDAO.updateConference(conf);
+        } else if (eventType.equals("spectacle")) {
+            /* create a spectacle from general Events data */
+            Spectacle spec = new Spectacle();
+            spec.copieEvent(e);
+
+            /* add specifics data */
+            spec.setNomAssociation(request.getParameter("eventOrganizer"));
+
+            /* Save the complete competition data into our DataBase */
+            SpectacleDAO specDAO = new SpectacleDAO(em);
+            specDAO.updateSpectacle(spec);
 
         }
 
@@ -230,6 +223,35 @@ public class FormEvent extends HttpServlet {
         e.setContacts(contacts);
 
     }
+
+    /**
+     * This fonction create, fill and save in DataBase an Expo.
+     * @param e the Event to copy from.
+     * @param request the HttpServlet to request parameters from.
+     */
+    public void fillAndSaveExpo(final Event e, final HttpServletRequest request) {
+        /* create an exposition from general Events data */
+        Exposition expo = new Exposition();
+        expo.copieEvent(e);
+
+        /* add specifics data */
+        String theme = request.getParameter("eventTheme");
+        expo.setTheme(theme);
+
+        String eventHourEnd = request.getParameter("eventHourEnd") + ":00";
+        Time heurEnd = Time.valueOf(eventHourEnd);
+        expo.setHeureFin(heurEnd);
+
+        String eventDateEnd = request.getParameter("eventDateEnd");
+        Date dateEnd = Date.valueOf(eventDateEnd);
+        expo.setDateFin(dateEnd);
+
+        /* Save the complete exposition data into our DataBase */
+        ExpositionDAO expositionDAO = new ExpositionDAO(em);
+        expositionDAO.updateExposition(expo);
+
+    }
+
     /**
      * function to getPDF.
      * @param html link to getPDF
