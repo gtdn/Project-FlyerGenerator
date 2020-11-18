@@ -77,6 +77,55 @@ public class FormEvent extends HttpServlet {
 
 
 
+        // Generate the PDF
+
+        if (eventType.equals("exposition")) {
+            String current = new java.io.File(".").getCanonicalPath();
+            String htmlString = new String(Files.readAllBytes(Paths.get(
+                current + "/flyergenerator/html/flyer_exposition.html")),
+            StandardCharsets.UTF_8);
+
+            if (request.getParameter("eventPrice") == "") {
+                eventPrice = "0€";
+            } else {
+                eventPrice += " €";
+            }
+
+            String[] eventDateBegSplitted = eventDateBeg.split("-");
+            eventDateBeg = eventDateBegSplitted[2];
+            String eventDateEnd = request.getParameter("eventDateEnd");
+            String[] eventDateEndSplitted = eventDateEnd.split("-");
+            eventDateEnd = eventDateEndSplitted[2];
+            String eventYear = eventDateBegSplitted[0];
+            String[] months = {"None", "Janvier", "Février", "Mars", "Avril",
+            "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre",
+            "Novembre", "Décembre"};
+            String eventMonth = months[(Integer.parseInt(
+                eventDateBegSplitted[1]))];
+            htmlString = htmlString.replace("$eventTitle$", eventTitle);
+            htmlString = htmlString.replace("$urlApplication$", urlApplication);
+            htmlString = htmlString.replace("$eventCity$", eventCity);
+            htmlString = htmlString.replace("$eventLocation$", eventLocation);
+            htmlString = htmlString.replace("$eventPrice$", eventPrice);
+            htmlString = htmlString.replace("$eventDateBeg$", eventDateBeg);
+            htmlString = htmlString.replace("$eventDateEnd$", eventDateEnd);
+            htmlString = htmlString.replace("$eventYear$", eventYear);
+            htmlString = htmlString.replace("$eventMonth$", eventMonth);
+            htmlString = htmlString.replace("$eventContactName$",
+            eventContactName);
+            htmlString = htmlString.replace("$eventContactNumber$",
+            eventContactNumber);
+            htmlString = htmlString.replace("$eventContactEmail$",
+            eventContactEmail);
+
+            byte[] pdfData = getPdf(htmlString);
+            FileUtils.writeByteArrayToFile(new File(
+                current + "/flyergenerator/pdf/output.pdf"), pdfData);
+        }
+
+
+
+
         // Saving those common data in mother Class Event
         Event e = new Event();
 
@@ -130,58 +179,7 @@ public class FormEvent extends HttpServlet {
             specDAO.updateSpectacle(spec);
 
         }
-
-
-
-        if (eventType.equals("exposition")) {
-            String current = new java.io.File(".").getCanonicalPath();
-            String htmlString = new String(Files.readAllBytes(Paths.get(
-                current + "/html/flyer_exposition.html")),
-            StandardCharsets.UTF_8);
-
-            if (request.getParameter("eventPrice") == "") {
-                eventPrice = "0€";
-            } else {
-                eventPrice += " €";
-            }
-
-            String[] eventDateBegSplitted = eventDateBeg.split("-");
-            eventDateBeg = eventDateBegSplitted[2];
-            String eventDateEnd = request.getParameter("eventDateEnd");
-            String[] eventDateEndSplitted = eventDateEnd.split("-");
-            eventDateEnd = eventDateEndSplitted[2];
-            String eventYear = eventDateBegSplitted[0];
-            String[] months = {"None", "Janvier", "Février", "Mars", "Avril",
-            "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre",
-            "Novembre", "Décembre"};
-            String eventMonth = months[(Integer.parseInt(
-                eventDateBegSplitted[1]))];
-            htmlString = htmlString.replace("$eventTitle$", eventTitle);
-            htmlString = htmlString.replace("$urlApplication$", urlApplication);
-            htmlString = htmlString.replace("$eventCity$", eventCity);
-            htmlString = htmlString.replace("$eventLocation$", eventLocation);
-            htmlString = htmlString.replace("$eventPrice$", eventPrice);
-            htmlString = htmlString.replace("$eventDateBeg$", eventDateBeg);
-            htmlString = htmlString.replace("$eventDateEnd$", eventDateEnd);
-            htmlString = htmlString.replace("$eventYear$", eventYear);
-            htmlString = htmlString.replace("$eventMonth$", eventMonth);
-            htmlString = htmlString.replace("$eventContactName$",
-            eventContactName);
-            htmlString = htmlString.replace("$eventContactNumber$",
-            eventContactNumber);
-            htmlString = htmlString.replace("$eventContactEmail$",
-            eventContactEmail);
-
-            byte[] pdfData = getPdf(htmlString);
-            FileUtils.writeByteArrayToFile(new File(
-                current + "/pdf/output.pdf"), pdfData);
-        }
         response.sendRedirect("validation.jsp");
-
-
-
-
-
     }
 
     /**
