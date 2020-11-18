@@ -31,13 +31,13 @@
     </div>
 
     <div class="form-group">
-        <label for="eventDate">Date</label>
-        <input type="date" name="eventDate" value="2020-12-29" class="form-control" id="eventDate" required>
+        <label for="eventDateBeg">Date</label>
+        <input type="date" name="eventDateBeg" value="2020-12-09" class="form-control" id="eventDateBeg" required>
     </div>
 
     <div class="form-group">
-        <label for="eventHour">Horaire</label>
-        <input type="time" name="eventHour" class="form-control" id="eventHour" required>
+        <label for="eventHourBeg">Horaire</label>
+        <input type="time" name="eventHourBeg" class="form-control" id="eventHourBeg" required>
     </div>
 
     <div class="form-group">
@@ -47,7 +47,7 @@
 
     <div class="form-group">
         <label for="eventSpeaker1">Intervenant 1(JS à faire pour ajouter des intervenants avec un bouton "+", 5 max)</label>
-        <input type="email" name="eventSpeaker1" placeholder="Greta Thunberg" class="form-control" id="eventSpeaker1" required>
+        <input type="text" name="eventSpeaker1" placeholder="Greta Thunberg" class="form-control" id="eventSpeaker1" required>
     </div>
 
     <div class="form-group">

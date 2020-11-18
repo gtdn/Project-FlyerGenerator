@@ -36,13 +36,13 @@
     </div>
 
     <div class="form-group">
-        <label for="eventDate">Date</label>
-        <input type="date" name="eventDate" value="2020-12-29" class="form-control" id="eventDate" required>
+        <label for="eventDateBeg">Date</label>
+        <input type="date" name="eventDateBeg" value="2020-12-29" class="form-control" id="eventDateBeg" required>
     </div>
 
     <div class="form-group">
-        <label for="eventHour">Horaire</label>
-        <input type="time" name="eventHour" class="form-control" id="eventHour" required>
+        <label for="eventHourBeg">Horaire</label>
+        <input type="time" name="eventHourBeg" class="form-control" id="eventHourBeg" required>
     </div>
 
     <div class="form-group">
@@ -62,7 +62,7 @@
 
     <div class="form-group">
         <label for="eventHashtag">Hashtag de l'évènement</label>
-        <input type="text" name="eventHashtag" placeholder="bucheronnageCompetition" class="form-control" id="eventPrice" min="0" pattern="[A-Za-z]">
+        <input type="text" name="eventHashtag" placeholder="bucheronnageCompetition" class="form-control" id="eventPrice" required>
     </div>
 
     <div class="form-group">

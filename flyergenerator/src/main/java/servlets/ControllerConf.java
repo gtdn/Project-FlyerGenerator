@@ -29,13 +29,14 @@ public class ControllerConf extends HttpServlet {
         HttpSession session = request.getSession(true);
 
         List<Conference> conferences = (List<Conference>) getServletContext().
-        getAttribute("conferences");
+            getAttribute("conferences");
         ConferenceDAO confDao = new ConferenceDAO(
             (EntityManager) getServletContext().getAttribute("em"));
         final int i = ((User) session.getAttribute("user")).getID();
         conferences = confDao.getConferenceByIdUser(i);
         request.setAttribute("conferences", conferences);
-        RequestDispatcher rd = request.getRequestDispatcher("histoConf.jsp");
+        RequestDispatcher rd = request.
+            getRequestDispatcher("historique/histoConf.jsp");
         rd.forward(request, response);
     }
 

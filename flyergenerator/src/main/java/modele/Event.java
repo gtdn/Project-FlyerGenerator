@@ -325,10 +325,13 @@ public class Event {
     public final void copieEvent(final Event e) {
         this.idUtilisateur = e.getIdutilisateur();
         this.nom = e.getNom();
+        this.ville = e.getVille();
         this.lieu = e.getLieu();
-        //this.ville = e.getVille();
+        this.prix = e.getPrix();
         this.heureDebut = e.getHeureDebut();
         this.dateDebut = e.getDateDebut();
+        //missing Personne
+        this.contacts = e.getContacts();
     }
 
     /*public ArrayList<Personne> getListeIntervenants() {

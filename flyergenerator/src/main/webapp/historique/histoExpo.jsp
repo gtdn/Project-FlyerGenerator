@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.io.*" %>
-<%@ page import="modele.Competition" %>
+<%@ page import="modele.Exposition" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.lang.String" %>
 
@@ -29,7 +29,7 @@
     <body>
 
         <!-- Navigation -->
-        <jsp:include page="composants/menu.html"/>
+        <jsp:include page="../composants/menu.html"/>
 
         <!-- Page Content -->
         <div class="container" style="margin-top : 100px; margin-bottom: 100px;">
@@ -60,97 +60,68 @@
                             <th scope="col">Ville</th>
                             <th scope="col">Prix</th>
                             <th scope="col">Heure début</th>
+                            <th scope="col">Heure de fin</th>
                             <th scope="col">Date début</th>
+                            <th scope="col">Date de fin</th>
                             <th scope="col">Liste d'intervenants</th>
-                            <th scope="col">#Hashtag</th>
-                            <th scope="col">Nom Organisateur</th>
-                            <th scope="col">Résumé</th>
-                            <th scope="col">CashPrize</th>
+                            <th scope="col">Thème</th>
                             <th scope="col">Nom Contact</th>
                             <th scope="col">Numéro contact</th>
                             <th scope="col">Mail contact</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${requestScope.competitions}" var="competition">
+                            <c:forEach items="${requestScope.expositions}" var="exposition">
                                 <tr>
                                     <td scope="row">
-                                        <c:out value="${ competition.getNom() }" />
+                                        <c:out value="${ exposition.getNom() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ competition.getLieu() }" />
+                                        <c:out value="${ exposition.getLieu() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="" />
+                                        <c:out value="${ exposition.getVille() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ competition.getPrix() }" />
+                                        <c:out value="${ exposition.getPrix() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ competition.getHeureDebut() }" />
+                                        <c:out value="${ exposition.getHeureDebut() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ competition.getDateDebut() }" />
+                                        <c:out value="${ exposition.getHeureFin() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${String.join(\", \",competition.getListeIntervenants())}" />
+                                        <c:out value="${ exposition.getDateDebut() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ competition.getHashtag()}" />
+                                        <c:out value="${ exposition.getDateFin() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ competition.getNomOrganisateur()}" />
+                                        <c:out value="${String.join(\", \",exposition.getListeIntervenants())}" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ competition.getResume()}" />
-                                    <td scope="row">
-                                        <c:out value="${ competition.getCashPrize()}" />
+                                        <c:out value="${ exposition.getTheme() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ competition.getContacts().getNom()}" />
+                                        <c:out value="${ exposition.getContacts().getNom()}" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ competition.getContacts().getNumero()}" />
+                                        <c:out value="${ exposition.getContacts().getNumero()}" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ competition.getContacts().getMail()}" />
+                                        <c:out value="${ exposition.getContacts().getMail()}" />
                                     </td>
                                 </tr>
                             </c:forEach>
                         </tbody>
-                    </table>
-                    <!-- <c:choose>
-                        <c:when test="${param.contenu == 'home'}">
-                            <jsp:include page="home.jsp"/>
-                        </c:when>
-                        <c:when test = "${param.contenu == 'compet'}">
-                            <jsp:include page="form/formCompet.jsp"/>
-                        </c:when>
-                        <c:when test = "${param.contenu == 'conf'}">
-                            <jsp:include page="form/formConf.jsp" />
-                        </c:when>
-                        <c:when test = "${param.contenu == 'expo'}">
-                            <jsp:include page="form/formExpo.jsp" />
-                        </c:when>
-                        <c:when test = "${param.contenu == 'validation'}">
-                            <jsp:include page="validation.jsp" />
-                        </c:when>
-                        <c:when test = "${param.contenu == 'spect'}">
-                            <jsp:include page="form/formSpect.jsp" />
-                        </c:when>
-                    </c:choose> -->
-                    
-                    <div class="row">
-                        <div style="text-align: center;">
-                            
-                        </div>
-                    </div>  
+                    </table> 
                 </div>             
             </div>
         </div>
 
         <!-- Footer -->
-        <jsp:include page="composants/footer.html"/>
+        <jsp:include page="../composants/footer.html"/>
         <!-- Bootstrap core JavaScript -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
