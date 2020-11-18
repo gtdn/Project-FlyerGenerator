@@ -92,20 +92,9 @@ public class FormEvent extends HttpServlet {
             fillAndSaveExpo(e, request);
 
         } else if (eventType.equals("competition")) {
-            /* create a competition from general Events data */
-            Competition compet = new Competition();
-            compet.copieEvent(e);
 
-            /* add specifics data */
-            compet.setHashtag(request.getParameter("eventHashtag"));
-            compet.setNomOrganisateur(request.getParameter("eventOrganizer"));
-            compet.setResume(request.getParameter("eventDescription"));
-            compet.setCashPrize(request.getParameter("eventCashPrize"));
+            fillAndSaveExpo(e, request);
 
-
-            /* Save the complete competition data into our DataBase */
-            CompetitionDAO competDAO = new CompetitionDAO(em);
-            competDAO.updateCompetition(compet);
         } else if (eventType.equals("conference")) {
             /* create a conferance from general Events data */
             Conference conf = new Conference();
@@ -225,7 +214,7 @@ public class FormEvent extends HttpServlet {
     }
 
     /**
-     * This fonction create, fill and save in DataBase an Expo.
+     * This fonction create, fill and save in DataBase an Exposition.
      * @param e the Event to copy from.
      * @param request the HttpServlet to request parameters from.
      */
@@ -252,6 +241,28 @@ public class FormEvent extends HttpServlet {
         expositionDAO.updateExposition(expo);
 
     }
+    /**
+     * This fonction create, fill and save in DataBase an Competition.
+     * @param e the Event to copy from.
+     * @param request the HttpServlet to request parameters from.
+     */
+    public void fillAndSaveCompet(final Event e, final HttpServletRequest request) {
+    /* create a competition from general Events data */
+    Competition compet = new Competition();
+    compet.copieEvent(e);
+
+    /* add specifics data */
+    compet.setHashtag(request.getParameter("eventHashtag"));
+    compet.setNomOrganisateur(request.getParameter("eventOrganizer"));
+    compet.setResume(request.getParameter("eventDescription"));
+    compet.setCashPrize(request.getParameter("eventCashPrize"));
+
+
+    /* Save the complete competition data into our DataBase */
+    CompetitionDAO competDAO = new CompetitionDAO(em);
+    competDAO.updateCompetition(compet);
+    }
+
 
     /**
      * function to getPDF.
