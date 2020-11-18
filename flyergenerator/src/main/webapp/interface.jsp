@@ -38,7 +38,7 @@
 
                 <div class="col-lg-3">
 
-                    <h3 class="my-4">Choisissez votre type d'évènement</h3>
+                    <h3 class="my-4">Historique de vos événements</h3>
                     <div class="list-group">
                         <a href="Competition" class="list-group-item">Compétition</a>
                         <a href="Conference" class="list-group-item">Conférence</a>

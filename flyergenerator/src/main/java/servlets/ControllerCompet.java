@@ -32,13 +32,14 @@ public class ControllerCompet extends HttpServlet {
 
         List<Competition> competitions =
         (List<Competition>) getServletContext().
-        getAttribute("competitions");
+            getAttribute("competitions");
         CompetitionDAO compDao = new CompetitionDAO(
             (EntityManager) getServletContext().getAttribute("em"));
         final int i = ((User) session.getAttribute("user")).getID();
         competitions = compDao.getCompetitionByIdUser(i);
         request.setAttribute("competitions", competitions);
-        RequestDispatcher rd = request.getRequestDispatcher("histoComp.jsp");
+        RequestDispatcher rd = request.
+            getRequestDispatcher("historique/histoComp.jsp");
         rd.forward(request, response);
     }
 

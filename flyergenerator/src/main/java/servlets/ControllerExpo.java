@@ -31,13 +31,14 @@ public class ControllerExpo extends HttpServlet {
         HttpSession session = request.getSession(true);
 
         List<Exposition> expositions = (List<Exposition>) getServletContext().
-        getAttribute("expositions");
+            getAttribute("expositions");
         ExpositionDAO expoDao = new ExpositionDAO(
             (EntityManager) getServletContext().getAttribute("em"));
         final int i = ((User) session.getAttribute("user")).getID();
         expositions = expoDao.getExpositionByIdUser(i);
         request.setAttribute("expositions", expositions);
-        RequestDispatcher rd = request.getRequestDispatcher("histoExpo.jsp");
+        RequestDispatcher rd = request.
+            getRequestDispatcher("historique/histoExpo.jsp");
         rd.forward(request, response);
     }
 

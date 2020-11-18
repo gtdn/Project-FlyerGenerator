@@ -29,14 +29,14 @@ public class ControllerSpect extends HttpServlet {
         HttpSession session = request.getSession(true);
 
         List<Spectacle> spectacles = (List<Spectacle>) getServletContext().
-        getAttribute("spectacles");
+            getAttribute("spectacles");
         SpectacleDAO specDao = new SpectacleDAO(
             (EntityManager) getServletContext().getAttribute("em"));
         final int i = ((User) session.getAttribute("user")).getID();
         spectacles = specDao.getSpectacleByIdUser(i);
         request.setAttribute("spectacles", spectacles);
-
-        RequestDispatcher rd = request.getRequestDispatcher("histoSpec.jsp");
+        RequestDispatcher rd = request.
+            getRequestDispatcher("historique/histoSpec.jsp");
         rd.forward(request, response);
     }
 
