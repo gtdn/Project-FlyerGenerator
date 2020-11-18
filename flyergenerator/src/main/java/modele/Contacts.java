@@ -67,20 +67,32 @@ public class Contacts {
      *
     public final int getIDEvent() {
         return idEvent;
-    }
-*
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+    }*/
 
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
+    /**
+     * set le nom du contacts.
+     * @param newNom valeur du nom a set.
      */
+    public void setNom(final String newNom) {
+        this.nom = newNom;
+    }
+
+    /**
+     * set le numero du Contacts.
+     * @param newNumero valeur du numero de tel a set.
+     */
+    public void setNumero(final int newNumero) {
+        this.numero = newNumero;
+    }
+
+    /**
+     * set le mail du Contacts.
+     * @param newMail valeur du mail a set.
+     */
+    public void setMail(final String newMail) {
+        this.mail = newMail;
+    }
+
     /**
      * @return id du contact.
      */

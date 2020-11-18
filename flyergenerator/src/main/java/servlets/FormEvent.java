@@ -12,8 +12,11 @@ import java.sql.Time;
 
 import modele.Exposition;
 import modele.Competition;
+import modele.Conference;
+import modele.Spectacle;
 import modele.User;
 import modele.Event;
+import modele.Contacts;
 import javax.servlet.http.HttpSession;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,6 +32,8 @@ import org.apache.commons.io.FileUtils;
 
 import dao.ExpositionDAO;
 import dao.CompetitionDAO;
+import dao.ConferenceDAO;
+import dao.SpectacleDAO;
 /**
  * Define webServelt.
  */
@@ -57,12 +62,14 @@ public class FormEvent extends HttpServlet {
 
 
 
-
+        // requests saved in a var cause used multiple times
         String eventTitle = request.getParameter("eventTitle");
         String eventCity = request.getParameter("eventCity");
         String eventLocation = request.getParameter("eventLocation");
         String eventPrice = request.getParameter("eventPrice");
+        String eventHourBeg = request.getParameter("eventHourBeg") + ":00";
         String eventDateBeg = request.getParameter("eventDateBeg");
+        // PersonneList missing yet
         String eventContactName = request.getParameter(
             "eventContactName");
         String eventContactNumber = request.getParameter("eventContactNumber");
@@ -70,52 +77,63 @@ public class FormEvent extends HttpServlet {
 
 
 
-        //Save Commun
+        // Saving those common data in mother Class Event
         Event e = new Event();
-        /* Save in BDD */
+
+        fillEvent(e, session, request);
         final EntityManagerFactory factory;
         factory = Persistence.createEntityManagerFactory("flyergenerator");
         this.em =  factory.createEntityManager();
 
-        e.setNom(request.getParameter("eventTitle"));
-        final int i = ((User) session.getAttribute("user")).getID();
-        e.setIdutilisateur(i);
-        e.setLieu(eventCity);
-        /*e.setLocation(eventLocation)*/ // quand le champ Location sera en BDD
-        Time heurBeg = new Time(0);
-        e.setHeureDebut(heurBeg);
-        Date dateBeg = Date.valueOf(request.getParameter("eventDateBeg"));
-        e.setDateDebut(dateBeg);
-
-
+        /* treating those Data in the appropriate Daughter Class
+        and adding the specifiques data to this Class*/
         if (eventType.equals("exposition")) {
 
-            Exposition expo = new Exposition();
-            expo.copieEvent(e);
-            ExpositionDAO expositionDAO = new ExpositionDAO(em);
+            fillAndSaveExpo(e, request);
 
-            String theme = "theme";
-            expo.setTheme(theme);
-            String[] eventDateBegSplitted = eventDateBeg.split("-");
-            expositionDAO.updateExposition(expo);
-
-        }
-        if (eventType.equals("competition")) {
-
+        } else if (eventType.equals("competition")) {
+            /* create a competition from general Events data */
             Competition compet = new Competition();
             compet.copieEvent(e);
-            CompetitionDAO competDAO = new CompetitionDAO(em);
 
-            /* Add in BDD */
+            /* add specifics data */
+            compet.setHashtag(request.getParameter("eventHashtag"));
+            compet.setNomOrganisateur(request.getParameter("eventOrganizer"));
+            compet.setResume(request.getParameter("eventDescription"));
+            compet.setCashPrize(request.getParameter("eventCashPrize"));
+
+
+            /* Save the complete competition data into our DataBase */
+            CompetitionDAO competDAO = new CompetitionDAO(em);
             competDAO.updateCompetition(compet);
+        } else if (eventType.equals("conference")) {
+            /* create a conferance from general Events data */
+            Conference conf = new Conference();
+            conf.copieEvent(e);
+
+            /* add specifics data */
+            conf.setResume(request.getParameter("eventDescription"));
+
+            /* Save the complete competition data into our DataBase */
+            ConferenceDAO confDAO = new ConferenceDAO(em);
+            confDAO.updateConference(conf);
+        } else if (eventType.equals("spectacle")) {
+            /* create a spectacle from general Events data */
+            Spectacle spec = new Spectacle();
+            spec.copieEvent(e);
+
+            /* add specifics data */
+            spec.setNomAssociation(request.getParameter("eventOrganizer"));
+
+            /* Save the complete competition data into our DataBase */
+            SpectacleDAO specDAO = new SpectacleDAO(em);
+            specDAO.updateSpectacle(spec);
 
         }
 
 
 
         if (eventType.equals("exposition")) {
-            System.out.println("test");
-            System.out.println(eventTitle);
             String current = new java.io.File(".").getCanonicalPath();
             String htmlString = new String(Files.readAllBytes(Paths.get(
                 current + "/html/flyer_exposition.html")),
@@ -165,6 +183,75 @@ public class FormEvent extends HttpServlet {
 
 
     }
+
+    /**
+     * This fonction fill an given Event with commons Data.
+     * @param e the Event to fill.
+     * @param session the actual session.
+     * @param request the HttpServlet to request parameters from.
+     */
+    public void fillEvent(final Event e, final HttpSession session,
+        final HttpServletRequest request) {
+
+        String eventTitle = request.getParameter("eventTitle");
+        String eventCity = request.getParameter("eventCity");
+        String eventLocation = request.getParameter("eventLocation");
+        String eventPrice = request.getParameter("eventPrice");
+        String eventHourBeg = request.getParameter("eventHourBeg") + ":00";
+        String eventDateBeg = request.getParameter("eventDateBeg");
+        // PersonneList missing yet
+        String eventContactName = request.getParameter(
+            "eventContactName");
+        String eventContactNumber = request.getParameter("eventContactNumber");
+        String eventContactEmail = request.getParameter("eventContactEmail");
+
+        e.setIdutilisateur(((User) session.getAttribute("user")).getID());
+        e.setNom(eventTitle);
+        e.setVille(eventCity);
+        e.setLieu(eventLocation);
+        int prix = Integer.valueOf(eventPrice);
+        e.setPrix(prix);
+        Time heurBeg = Time.valueOf(eventHourBeg);
+        e.setHeureDebut(heurBeg);
+        Date dateBeg = Date.valueOf(eventDateBeg);
+        e.setDateDebut(dateBeg);
+        Contacts contacts = new Contacts();
+        contacts.setNom(eventContactName);
+        int numeroTel = Integer.valueOf(eventContactNumber);
+        contacts.setNumero(numeroTel);
+        contacts.setMail(eventContactEmail);
+        e.setContacts(contacts);
+
+    }
+
+    /**
+     * This fonction create, fill and save in DataBase an Expo.
+     * @param e the Event to copy from.
+     * @param request the HttpServlet to request parameters from.
+     */
+    public void fillAndSaveExpo(final Event e, final HttpServletRequest request) {
+        /* create an exposition from general Events data */
+        Exposition expo = new Exposition();
+        expo.copieEvent(e);
+
+        /* add specifics data */
+        String theme = request.getParameter("eventTheme");
+        expo.setTheme(theme);
+
+        String eventHourEnd = request.getParameter("eventHourEnd") + ":00";
+        Time heurEnd = Time.valueOf(eventHourEnd);
+        expo.setHeureFin(heurEnd);
+
+        String eventDateEnd = request.getParameter("eventDateEnd");
+        Date dateEnd = Date.valueOf(eventDateEnd);
+        expo.setDateFin(dateEnd);
+
+        /* Save the complete exposition data into our DataBase */
+        ExpositionDAO expositionDAO = new ExpositionDAO(em);
+        expositionDAO.updateExposition(expo);
+
+    }
+
     /**
      * function to getPDF.
      * @param html link to getPDF
