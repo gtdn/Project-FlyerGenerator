@@ -120,10 +120,7 @@ public class FormEvent extends HttpServlet {
             htmlString = htmlString.replace("$eventContactEmail$",
             eventContactEmail);
 
-            byte[] utfConverter = htmlString.getBytes("UTF8");
-            String htmlString2 = new String(utfConverter,
-            StandardCharsets.UTF_8);
-            byte[] pdfData = getPdf(htmlString2);
+            byte[] pdfData = getPdf(htmlString);
             FileUtils.writeByteArrayToFile(new File(
                 current + "/../webapps/flyergenerator/pdf/output.pdf"),
                 pdfData);
