@@ -27,9 +27,6 @@
         <!-- Navigation -->
         <jsp:include page="composants/menu.html"/>
 
-        
-        <img src="img/Expo/Expo_2.jpg" alt="img2" width="108" height="192" class="img-thumbnail">
-        <img src="Expo_1.jpg" alt="img2" width="108" height="192" class="img-thumbnail">
         <!-- Page Content -->
         <div class="container" style="margin-top : 100px; margin-bottom: 100px;">
             <div class="row">

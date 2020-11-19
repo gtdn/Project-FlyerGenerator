@@ -119,7 +119,7 @@ public class FormEvent extends HttpServlet {
             eventContactNumber);
             htmlString = htmlString.replace("$eventContactEmail$",
             eventContactEmail);
-
+            System.out.println(htmlString);
             byte[] pdfData = getPdf(htmlString);
             FileUtils.writeByteArrayToFile(new File(
                 current + "/../webapps/flyergenerator/pdf/output.pdf"),
