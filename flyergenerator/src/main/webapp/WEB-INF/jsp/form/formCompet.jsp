@@ -84,7 +84,7 @@
                         <input type="radio" name="Compet" id="Compet_1">
                         <label>Première image</label>
                         <div>
-                            <img src="img/Compet/Compet_1.jpg" alt="img1" width="108" height="192">
+                            <img src="../../img/Compet/Compet_1.jpg" alt="img1" width="108" height="192">
                         </div>
                     </div>
                 </td>
@@ -93,7 +93,7 @@
                         <input type="radio" name="Compet" id="Compet_2">
                         <label>Deuxième image</label>
                         <div>
-                            <img src="img/Compet/Compet_2.jpg" alt="img2" width="108" height="192">
+                            <img src="../../img/Compet/Compet_2.jpg" alt="img2" width="108" height="192">
                         </div>
                     </div>
                 </td><td>
@@ -101,7 +101,7 @@
                         <input type="radio" name="Compet" id="Compet_3">
                         <label>Troisième image</label>
                         <div>
-                            <img src="img/Compet/Compet_3.jpg" alt="img3" width="108" height="192">
+                            <img src="../../img/Compet/Compet_3.jpg" alt="img3" width="108" height="192">
                         </div>
                     </div>
                 </td><td>
@@ -109,7 +109,7 @@
                         <input type="radio" name="Compet" id="Compet_4">
                         <label>Quatrième image</label>
                         <div>
-                            <img src="img/Compet/Compet_4.jpg" alt="img4" width="108" height="192">
+                            <img src="../../img/Compet/Compet_4.jpg" alt="img4" width="108" height="192">
                         </div>
                     </div>
                 </td>

@@ -79,7 +79,7 @@
                         <input type="radio" name="Conf" id="Conf_1">
                         <label>Première image</label>
                         <div>
-                            <img src="img/Conf/Conf_1.jpg" alt="img1" width="108" height="192">
+                            <img src="../../img/Conf/Conf_1.jpg" alt="img1" width="108" height="192">
                         </div>
                     </div>
                 </td>
@@ -88,7 +88,7 @@
                         <input type="radio" name="Conf" id="Conf_2">
                         <label>Deuxième image</label>
                         <div>
-                            <img src="img/Conf/Conf_2.jpg" alt="img2" width="108" height="192">
+                            <img src="../../img/Conf/Conf_2.jpg" alt="img2" width="108" height="192">
                         </div>
                     </div>
                 </td><td>
