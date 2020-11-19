@@ -21,11 +21,12 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+//import javax.persistence.EntityManagerFactory;
+//import javax.persistence.Persistence;
 
 
 import org.apache.commons.io.FileUtils;
@@ -132,53 +133,29 @@ public class FormEvent extends HttpServlet {
         Event e = new Event();
 
         fillEvent(e, session, request);
-        final EntityManagerFactory factory;
+        /*final EntityManagerFactory factory;
         factory = Persistence.createEntityManagerFactory("flyergenerator");
-        this.em =  factory.createEntityManager();
+        this.em =  factory.createEntityManager();*/
+        ServletContext context = getServletContext();
+        this.em = (EntityManager) context.getAttribute("em");
 
         /* treating those Data in the appropriate Daughter Class
         and adding the specifiques data to this Class*/
         if (eventType.equals("exposition")) {
 
-            fillAndSaveExpo(e, request);
+            fillAndSaveExposition(e, request);
 
         } else if (eventType.equals("competition")) {
-            /* create a competition from general Events data */
-            Competition compet = new Competition();
-            compet.copieEvent(e);
 
-            /* add specifics data */
-            compet.setHashtag(request.getParameter("eventHashtag"));
-            compet.setNomOrganisateur(request.getParameter("eventOrganizer"));
-            compet.setResume(request.getParameter("eventDescription"));
-            compet.setCashPrize(request.getParameter("eventCashPrize"));
+            fillAndSaveCompetition(e, request);
 
-
-            /* Save the complete competition data into our DataBase */
-            CompetitionDAO competDAO = new CompetitionDAO(em);
-            competDAO.updateCompetition(compet);
         } else if (eventType.equals("conference")) {
-            /* create a conferance from general Events data */
-            Conference conf = new Conference();
-            conf.copieEvent(e);
 
-            /* add specifics data */
-            conf.setResume(request.getParameter("eventDescription"));
+            fillAndSaveConference(e, request);
 
-            /* Save the complete competition data into our DataBase */
-            ConferenceDAO confDAO = new ConferenceDAO(em);
-            confDAO.updateConference(conf);
         } else if (eventType.equals("spectacle")) {
-            /* create a spectacle from general Events data */
-            Spectacle spec = new Spectacle();
-            spec.copieEvent(e);
 
-            /* add specifics data */
-            spec.setNomAssociation(request.getParameter("eventOrganizer"));
-
-            /* Save the complete competition data into our DataBase */
-            SpectacleDAO specDAO = new SpectacleDAO(em);
-            specDAO.updateSpectacle(spec);
+            fillAndSaveSpectacle(e, request);
 
         }
         response.sendRedirect("validation.jsp");
@@ -225,11 +202,11 @@ public class FormEvent extends HttpServlet {
     }
 
     /**
-     * This fonction create, fill and save in DataBase an Expo.
+     * This fonction create, fill and save in DataBase an Exposition.
      * @param e the Event to copy from.
      * @param request the HttpServlet to request parameters from.
      */
-    public void fillAndSaveExpo(final Event e,
+    public void fillAndSaveExposition(final Event e,
      final HttpServletRequest request) {
         /* create an exposition from general Events data */
         Exposition expo = new Exposition();
@@ -252,6 +229,69 @@ public class FormEvent extends HttpServlet {
         expositionDAO.updateExposition(expo);
 
     }
+    /**
+     * This fonction create, fill and save in DataBase a Competition.
+     * @param e the Event to copy from.
+     * @param request the HttpServlet to request parameters from.
+     */
+    public void fillAndSaveCompetition(final Event e,
+        final HttpServletRequest request) {
+
+    /* create a competition from general Events data */
+    Competition compet = new Competition();
+    compet.copieEvent(e);
+
+    /* add specifics data */
+    compet.setHashtag(request.getParameter("eventHashtag"));
+    compet.setNomOrganisateur(request.getParameter("eventOrganizer"));
+    compet.setResume(request.getParameter("eventDescription"));
+    compet.setCashPrize(request.getParameter("eventCashPrize"));
+
+
+    /* Save the complete competition data into our DataBase */
+    CompetitionDAO competDAO = new CompetitionDAO(em);
+    competDAO.updateCompetition(compet);
+    }
+
+    /**
+     * This fonction create, fill and save in DataBase a Conference.
+     * @param e the Event to copy from.
+     * @param request the HttpServlet to request parameters from.
+     */
+    public void fillAndSaveConference(final Event e,
+        final HttpServletRequest request) {
+
+        /* create a conferance from general Events data */
+        Conference conf = new Conference();
+        conf.copieEvent(e);
+
+        /* add specifics data */
+        conf.setResume(request.getParameter("eventDescription"));
+
+        /* Save the complete competition data into our DataBase */
+        ConferenceDAO confDAO = new ConferenceDAO(em);
+        confDAO.updateConference(conf);
+    }
+    /**
+     * This fonction create, fill and save in DataBase a Spectacle.
+     * @param e the Event to copy from.
+     * @param request the HttpServlet to request parameters from.
+     */
+    public void fillAndSaveSpectacle(final Event e,
+        final HttpServletRequest request) {
+
+        /* create a spectacle from general Events data */
+        Spectacle spec = new Spectacle();
+        spec.copieEvent(e);
+
+        /* add specifics data */
+        spec.setNomAssociation(request.getParameter("eventOrganizer"));
+
+        /* Save the complete competition data into our DataBase */
+        SpectacleDAO specDAO = new SpectacleDAO(em);
+        specDAO.updateSpectacle(spec);
+    }
+
 
     /**
      * function to getPDF.

@@ -3,6 +3,7 @@
 <%@ page import="java.io.*" %>
 <%@ page import="modele.Spectacle" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.lang.String" %>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
@@ -60,7 +61,8 @@
                             <th scope="col">Prix</th>
                             <th scope="col">Heure début</th>
                             <th scope="col">Date début</th>
-                            <th scope="col">Nom Association</th>
+                            <th scope="col">Liste d'intervenants</th>
+                            <th scope="col">Nom Organisateur</th>
                             <th scope="col">Nom Contact</th>
                             <th scope="col">Numéro contact</th>
                             <th scope="col">Mail contact</th>
@@ -87,17 +89,20 @@
                                     <td scope="row">
                                         <c:out value="${ spectacle.getDateDebut() }" />
                                     </td>
+                                   <td scope="row">
+                                        <c:out value="${String.join(\", \",spectacle.getListeIntervenants())}" />
+                                    </td>
                                     <td scope="row">
                                         <c:out value="${ spectacle.getNomAssociation()}" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ spectacle.getContacts().getNom() }" />
+                                        <c:out value="${ spectacle.getContacts().getNom()}" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ spectacle.getContacts().getNumero() }" />
+                                        <c:out value="${ spectacle.getContacts().getNumero()}" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${ spectacle.getContacts().getMail() }" />
+                                        <c:out value="${ spectacle.getContacts().getMail()}" />
                                     </td>
                                 </tr>
                             </c:forEach>
