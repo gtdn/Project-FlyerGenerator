@@ -84,7 +84,7 @@ public class FormEvent extends HttpServlet {
             String current = new java.io.File(".").getCanonicalPath();
             String htmlString = new String(Files.readAllBytes(Paths.get(
                 current
-                + "/../webapps/flyergenerator/html/flyer_exposition.html")),
+                + "/../webapps/flyergenerator/flyers/flyer_exposition.html")),
             StandardCharsets.UTF_8);
 
             if (request.getParameter("eventPrice") == "") {

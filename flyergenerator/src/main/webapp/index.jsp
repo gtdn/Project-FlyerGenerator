@@ -11,8 +11,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Flyer Generator</title>
-        <script type="text/javascript" src="../../js/connexion.js"></script>
-        <link rel="stylesheet" href="../../css/style.css">
+        <script type="text/javascript" src="js/connexion.js"></script>
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body class="custombody">
         <jsp:include page="composants/nav.html"/>
