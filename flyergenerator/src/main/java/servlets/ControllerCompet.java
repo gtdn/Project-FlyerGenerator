@@ -19,6 +19,10 @@ import java.io.IOException;
 @WebServlet(name = "Competition", urlPatterns = "/Competition")
 public class ControllerCompet extends HttpServlet {
     /**
+     * path.
+     */
+    private static String path = "WEB-INF/jsp/";
+    /**
      * doGet.
      * @param request
      * @param response
@@ -39,7 +43,7 @@ public class ControllerCompet extends HttpServlet {
         competitions = compDao.getCompetitionByIdUser(i);
         request.setAttribute("competitions", competitions);
         RequestDispatcher rd = request.
-            getRequestDispatcher("historique/histoComp.jsp");
+            getRequestDispatcher(path + "historique/histoComp.jsp");
         rd.forward(request, response);
     }
 

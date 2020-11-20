@@ -27,8 +27,6 @@
         <!-- Navigation -->
         <jsp:include page="composants/menu.html"/>
 
-        
-
         <!-- Page Content -->
         <div class="container" style="margin-top : 100px; margin-bottom: 100px;">
             <div class="row">

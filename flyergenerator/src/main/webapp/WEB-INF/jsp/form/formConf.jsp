@@ -62,7 +62,7 @@
 
     <div class="form-group">
         <label for="eventDescription">Description de l'évènement</label>
-        <input type="text" name="eventDescription" placeholder="Conférence sur le climat et les enjeux des années à venir..." class="form-control" id="eventDescription" maxlength="120">
+        <input type="text" name="eventDescription" placeholder="Conférence sur le climat et les enjeux des années à venir..." class="form-control" id="eventDescription" maxlength="120" required>
     </div>
 
     <div class="form-group">
@@ -70,33 +70,47 @@
     </div>
 
     <div class="form-group">
-        <label for="price">Choisissez le graphisme de votre flyer</label>
-        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-            <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
-            </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-            </a>
-        </div>
+        <label for="img">Choississez son background</label>
+        <table class="table">
+            <tbody>
+              <tr>
+                <td>
+                    <div>
+                        <input type="radio" name="Conf" id="Conf_1">
+                        <label>Première image</label>
+                        <div>
+                            <img src="../../img/Conf/Conf_1.jpg" alt="img1" width="108" height="192">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <input type="radio" name="Conf" id="Conf_2">
+                        <label>Deuxième image</label>
+                        <div>
+                            <img src="../../img/Conf/Conf_2.jpg" alt="img2" width="108" height="192">
+                        </div>
+                    </div>
+                </td><td>
+                    <div>
+                        <input type="radio" name="Conf" id="Conf_3">
+                        <label>Troisième image</label>
+                        <div>
+                            <img src="img/Conf/Conf_3.jpg" alt="img3" width="108" height="192">
+                        </div>
+                    </div>
+                </td><td>
+                    <div>
+                        <input type="radio" name="Conf" id="Conf_4">
+                        <label>Quatrième image</label>
+                        <div>
+                            <img src="img/Conf/Conf_4.jpg" alt="img4" width="108" height="192">
+                        </div>
+                    </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
     </div>
     <button id="button-form" type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -78,42 +78,13 @@ public class FormEvent extends HttpServlet {
 
 
 
-        // Saving those common data in mother Class Event
-        Event e = new Event();
-
-        fillEvent(e, session, request);
-        /*final EntityManagerFactory factory;
-        factory = Persistence.createEntityManagerFactory("flyergenerator");
-        this.em =  factory.createEntityManager();*/
-        ServletContext context = getServletContext();
-        this.em = (EntityManager) context.getAttribute("em");
-
-        /* treating those Data in the appropriate Daughter Class
-        and adding the specifiques data to this Class*/
-        if (eventType.equals("exposition")) {
-
-            fillAndSaveExposition(e, request);
-
-        } else if (eventType.equals("competition")) {
-
-            fillAndSaveCompetition(e, request);
-
-        } else if (eventType.equals("conference")) {
-
-            fillAndSaveConference(e, request);
-
-        } else if (eventType.equals("spectacle")) {
-
-            fillAndSaveSpectacle(e, request);
-
-        }
-
-
+        // Generate the PDF
 
         if (eventType.equals("exposition")) {
             String current = new java.io.File(".").getCanonicalPath();
             String htmlString = new String(Files.readAllBytes(Paths.get(
-                current + "/html/flyer_exposition.html")),
+                current
+                + "/../webapps/flyergenerator/html/flyer_exposition.html")),
             StandardCharsets.UTF_8);
 
             if (request.getParameter("eventPrice") == "") {
@@ -151,14 +122,43 @@ public class FormEvent extends HttpServlet {
 
             byte[] pdfData = getPdf(htmlString);
             FileUtils.writeByteArrayToFile(new File(
-                current + "/pdf/output.pdf"), pdfData);
+                current + "/../webapps/flyergenerator/pdf/output.pdf"),
+                pdfData);
+        }
+
+
+
+
+        // Saving those common data in mother Class Event
+        Event e = new Event();
+
+        fillEvent(e, session, request);
+        /*final EntityManagerFactory factory;
+        factory = Persistence.createEntityManagerFactory("flyergenerator");
+        this.em =  factory.createEntityManager();*/
+        ServletContext context = getServletContext();
+        this.em = (EntityManager) context.getAttribute("em");
+
+        /* treating those Data in the appropriate Daughter Class
+        and adding the specifiques data to this Class*/
+        if (eventType.equals("exposition")) {
+
+            fillAndSaveExposition(e, request);
+
+        } else if (eventType.equals("competition")) {
+
+            fillAndSaveCompetition(e, request);
+
+        } else if (eventType.equals("conference")) {
+
+            fillAndSaveConference(e, request);
+
+        } else if (eventType.equals("spectacle")) {
+
+            fillAndSaveSpectacle(e, request);
+
         }
         response.sendRedirect("validation.jsp");
-
-
-
-
-
     }
 
     /**
