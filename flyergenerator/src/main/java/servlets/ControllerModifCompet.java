@@ -5,17 +5,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modele.Conference;
-import dao.ConferenceDAO;
-//import modele.User;
-//import javax.servlet.http.HttpSession;
-//import java.util.List;
+import modele.Competition;
+import dao.CompetitionDAO;
 import javax.persistence.EntityManager;
-
 import java.io.IOException;
 
-@WebServlet(name = "ModifConference", urlPatterns = "/ModifConference")
-public class ControllerModifConf extends HttpServlet {
+@WebServlet(name = "ModifCompetition", urlPatterns = "/ModifCompetition")
+public class ControllerModifCompet extends HttpServlet {
     /**
      * doGet.
      * @param request
@@ -38,23 +34,23 @@ public class ControllerModifConf extends HttpServlet {
     final HttpServletResponse response) throws ServletException, IOException {
         String idString = request.getParameter("id");
         int id = Integer.parseInt(idString);
-        Conference conf = new Conference();
+        Competition compet = new Competition();
         ServletContext context = getServletContext();
-        ConferenceDAO confdao = new ConferenceDAO(
+        CompetitionDAO competdao = new CompetitionDAO(
             (EntityManager) context.getAttribute("em"));
-        conf = confdao.getConferenceByIdEvent(id);
-        request.setAttribute("nom", conf.getNom());
-        request.setAttribute("ville", conf.getVille());
-        request.setAttribute("lieu", conf.getLieu());
-        request.setAttribute("prix", conf.getPrix());
-        request.setAttribute("date", conf.getDateDebut());
-        request.setAttribute("horaire", conf.getHeureDebut());
-        request.setAttribute("nom_orga", conf.getContacts().getNom());
-        request.setAttribute("intervenants",
-            String.join(", ", conf.getListeIntervenants()));
-        request.setAttribute("numeroContact", conf.getContacts().getNumero());
-        request.setAttribute("mail", conf.getContacts().getMail());
-        request.setAttribute("description", conf.getResume());
+        compet = competdao.getCompetitionByIdEvent(id);
+        request.setAttribute("nom", compet.getNom());
+        request.setAttribute("ville", compet.getVille());
+        request.setAttribute("lieu", compet.getLieu());
+        request.setAttribute("prix", compet.getPrix());
+        request.setAttribute("cashPrize", compet.getCashPrize());
+        request.setAttribute("date", compet.getDateDebut());
+        request.setAttribute("horaire", compet.getHeureDebut());
+        // request.setAttribute("nom_orga", compet.getContacts().getNom());
+        // request.setAttribute("numeroContact", compet.getContacts().getNumero());
+        // request.setAttribute("mail", compet.getContacts().getMail());
+        request.setAttribute("hashtag", compet.getHashtag());
+        request.setAttribute("description", compet.getResume());
         RequestDispatcher dispatcher =
         request.getRequestDispatcher("interface.jsp?contenu=conf");
         dispatcher.forward(request, response);

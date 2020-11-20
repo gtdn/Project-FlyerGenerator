@@ -17,12 +17,12 @@
 
     <div class="form-group">
         <label for="eventLocation">Lieu</label>
-        <input type="text" name="eventLocation" placeholder="Salons de l'Aveyron" class="form-control" id="eventLocation" maxlength="30" required>
+        <input type="text" name="eventLocation" value="${lieu}" placeholder="Salons de l'Aveyron" class="form-control" id="eventLocation" maxlength="30" required>
     </div>
 
     <div class="form-group">
         <label for="eventPrice">Prix d'entrée</label>
-        <input type="number" name="eventPrice" placeholder="10" class="form-control" id="eventPrice" min="0">
+        <input type="number" name="eventPrice" value="${prix}" placeholder="10" class="form-control" id="eventPrice" min="0">
     </div>
 
     <div class="form-group">
@@ -32,37 +32,37 @@
 
     <div class="form-group">
         <label for="eventDateBeg">Date</label>
-        <input type="date" name="eventDateBeg" value="2020-12-09" class="form-control" id="eventDateBeg" required>
+        <input type="date" name="eventDateBeg" value="${date}" class="form-control" id="eventDateBeg" required>
     </div>
 
     <div class="form-group">
         <label for="eventHourBeg">Horaire</label>
-        <input type="time" name="eventHourBeg" class="form-control" id="eventHourBeg" required>
+        <input type="time" name="eventHourBeg" value="${horaire}" class="form-control" id="eventHourBeg" required>
     </div>
 
     <div class="form-group">
         <label for="eventOrganizer">Nom de l'organisateur</label>
-        <input type="text" name="eventOrganizer" placeholder="Frydays for Future" class="form-control" id="eventOrganizer">
+        <input type="text" name="eventOrganizer" value="${nom_orga}" placeholder="Frydays for Future" class="form-control" id="eventOrganizer">
     </div>
 
     <div class="form-group">
         <label for="eventSpeaker1">Intervenant 1(JS à faire pour ajouter des intervenants avec un bouton "+", 5 max)</label>
-        <input type="text" name="eventSpeaker1" placeholder="Greta Thunberg" class="form-control" id="eventSpeaker1" required>
+        <input type="text" name="eventSpeaker1" value="${intervenants}" placeholder="Greta Thunberg" class="form-control" id="eventSpeaker1" required>
     </div>
 
     <div class="form-group">
         <label for="eventContactNumber">Numero contact</label>
-        <input type="number" name="eventContactNumber" placeholder="0619527182" class="form-control" id="eventContactNumber" required>
+        <input type="number" name="eventContactNumber" value="${numeroContact}" placeholder="0619527182" class="form-control" id="eventContactNumber" required>
     </div>
 
     <div class="form-group">
         <label for="eventContactEmail">Email contact</label>
-        <input type="email" name="eventContactEmail" placeholder="fridaysforfuture@outlook.com" class="form-control" id="eventContactEmail" required>
+        <input type="email" name="eventContactEmail" value="${mail}" placeholder="fridaysforfuture@outlook.com" class="form-control" id="eventContactEmail" required>
     </div>
 
     <div class="form-group">
         <label for="eventDescription">Description de l'évènement</label>
-        <input type="text" name="eventDescription" placeholder="Conférence sur le climat et les enjeux des années à venir..." class="form-control" id="eventDescription" maxlength="120" required>
+        <input type="text" name="eventDescription" value="${description}" placeholder="Conférence sur le climat et les enjeux des années à venir..." class="form-control" id="eventDescription" maxlength="120" required>
     </div>
 
     <div class="form-group">

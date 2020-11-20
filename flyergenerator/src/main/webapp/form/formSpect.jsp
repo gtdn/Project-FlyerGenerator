@@ -7,22 +7,22 @@
 
     <div class="form-group">
       <label for="eventTitle">Nom de l'évènement</label>
-      <input type="text" name="eventTitle" placeholder="The 8 Mile Show" class="form-control" id="eventTitle" minlength="15" maxlength="45" required>
+      <input type="text" name="eventTitle" value="${nom}" placeholder="The 8 Mile Show" class="form-control" id="eventTitle" minlength="15" maxlength="45" required>
     </div>
 
     <div class="form-group">
         <label for="eventCity">Ville</label>
-        <input type="text" name="eventCity" placeholder="Detroit" class="form-control" id="eventCity" minlength="2" maxlength="25" required>
+        <input type="text" name="eventCity" value="${ville}" placeholder="Detroit" class="form-control" id="eventCity" minlength="2" maxlength="25" required>
     </div>
 
     <div class="form-group">
         <label for="eventLocation">Lieu</label>
-        <input type="text" name="eventLocation" placeholder="Bar Shelter" class="form-control" id="eventLocation" maxlength="30" required>
+        <input type="text" name="eventLocation" value="${lieu}" placeholder="Bar Shelter" class="form-control" id="eventLocation" maxlength="30" required>
     </div>
 
     <div class="form-group">
         <label for="eventPrice">Prix d'entrée</label>
-        <input type="number" name="eventPrice" placeholder="10" class="form-control" id="eventPrice" min="0">
+        <input type="number" name="eventPrice" value="${prix}" placeholder="10" class="form-control" id="eventPrice" min="0">
     </div>
 
     <div class="form-group">
@@ -32,17 +32,17 @@
 
     <div class="form-group">
         <label for="eventDateBeg">Date</label>
-        <input type="date" name="eventDateBeg" value="2020-12-29" class="form-control" id="eventDateBeg" required>
+        <input type="date" name="eventDateBeg" value="${date}" class="form-control" id="eventDateBeg" required>
     </div>
 
     <div class="form-group">
         <label for="eventHourBeg">Horaire</label>
-        <input type="time" name="eventHourBeg" class="form-control" id="eventHourBeg" required>
+        <input type="time" name="eventHourBeg" value="${horaire}" class="form-control" id="eventHourBeg" required>
     </div>
 
     <div class="form-group">
         <label for="eventOrganizer">Nom de l'organisateur</label>
-        <input type="text" name="eventOrganizer" placeholder="Shady Records" class="form-control" id="eventOrganizer">
+        <input type="text" name="eventOrganizer" value="${nom_orga}" placeholder="Shady Records" class="form-control" id="eventOrganizer">
     </div>
 
     <div class="form-group">
@@ -52,12 +52,12 @@
 
     <div class="form-group">
         <label for="eventContactNumber">Numero contact</label>
-        <input type="number" name="eventContactNumber" placeholder="0617283971" class="form-control" id="eventContactNumber" required>
+        <input type="number" name="eventContactNumber" value="${numeroContact}" placeholder="0617283971" class="form-control" id="eventContactNumber" required>
     </div>
 
     <div class="form-group">
         <label for="eventContactEmail">Email contact</label>
-        <input type="email" name="eventContactEmail" placeholder="shady.records@gmail.com" class="form-control" id="eventContactEmail" required>
+        <input type="email" name="eventContactEmail" value="${mail}" placeholder="shady.records@gmail.com" class="form-control" id="eventContactEmail" required>
     </div>
 
     <div class="form-group">

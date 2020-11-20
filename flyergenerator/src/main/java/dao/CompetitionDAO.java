@@ -44,6 +44,16 @@ public class CompetitionDAO {
         }
     }
     /**
+     * @param idEvent Competition donné en parametre.
+     * @return toutes les Competitions de l'utilisateur
+     */
+    public final Competition getCompetitionByIdEvent(final int idEvent) {
+
+        Competition compet = new Competition();
+        compet = em.find(Competition.class, idEvent);
+        return compet;
+    }
+    /**
      * modifie ou crée une Competition.
      * dans la data base
      * @param conf Competition donné en parametre

@@ -5,17 +5,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modele.Conference;
-import dao.ConferenceDAO;
-//import modele.User;
-//import javax.servlet.http.HttpSession;
-//import java.util.List;
+import modele.Spectacle;
+import dao.SpectacleDAO;
 import javax.persistence.EntityManager;
 
 import java.io.IOException;
 
-@WebServlet(name = "ModifConference", urlPatterns = "/ModifConference")
-public class ControllerModifConf extends HttpServlet {
+@WebServlet(name = "ModifSpectacle", urlPatterns = "/ModifSpectacle")
+public class ControllerModifSpect extends HttpServlet {
     /**
      * doGet.
      * @param request
@@ -38,26 +35,24 @@ public class ControllerModifConf extends HttpServlet {
     final HttpServletResponse response) throws ServletException, IOException {
         String idString = request.getParameter("id");
         int id = Integer.parseInt(idString);
-        Conference conf = new Conference();
+        Spectacle spect = new Spectacle();
         ServletContext context = getServletContext();
-        ConferenceDAO confdao = new ConferenceDAO(
+        SpectacleDAO spectdao = new SpectacleDAO(
             (EntityManager) context.getAttribute("em"));
-        conf = confdao.getConferenceByIdEvent(id);
-        request.setAttribute("nom", conf.getNom());
-        request.setAttribute("ville", conf.getVille());
-        request.setAttribute("lieu", conf.getLieu());
-        request.setAttribute("prix", conf.getPrix());
-        request.setAttribute("date", conf.getDateDebut());
-        request.setAttribute("horaire", conf.getHeureDebut());
-        request.setAttribute("nom_orga", conf.getContacts().getNom());
-        request.setAttribute("intervenants",
-            String.join(", ", conf.getListeIntervenants()));
-        request.setAttribute("numeroContact", conf.getContacts().getNumero());
-        request.setAttribute("mail", conf.getContacts().getMail());
-        request.setAttribute("description", conf.getResume());
+        spect = spectdao.getSpectacleByIdEvent(id);
+        request.setAttribute("nom", spect.getNom());
+        request.setAttribute("ville", spect.getVille());
+        request.setAttribute("lieu", spect.getLieu());
+        request.setAttribute("prix", spect.getPrix());
+        request.setAttribute("date", spect.getDateDebut());
+        request.setAttribute("horaire", spect.getHeureDebut());
+        // request.setAttribute("nom_orga", spect.getContacts().getNom());
+        // request.setAttribute("intervenants",
+        //     String.join(", ", spect.getListeIntervenants()));
+        // request.setAttribute("numeroContact", spect.getContacts().getNumero());
+        // request.setAttribute("mail", spect.getContacts().getMail());
         RequestDispatcher dispatcher =
-        request.getRequestDispatcher("interface.jsp?contenu=conf");
+        request.getRequestDispatcher("interface.jsp?contenu=spect");
         dispatcher.forward(request, response);
-
     }
 }

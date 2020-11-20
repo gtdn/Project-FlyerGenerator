@@ -42,9 +42,18 @@ public class ExpositionDAO {
             return null;
         }
     }
+    /**
+     * @param idEvent Exposition donné en parametre.
+     * @return toutes les Expositions de l'utilisateur
+     */
+    public final Exposition getExpositionByIdEvent(final int idEvent) {
+        Exposition expo = new Exposition();
+        expo = em.find(Exposition.class, idEvent);
+        return expo;
+    }
 
     /**
-     * modifie ou crée une conference.
+     * modifie ou crée une Exposition.
      * dans la data base
      * @param exp exposition donné en parametre
      */

@@ -55,6 +55,7 @@
                     <table class="table">
                         <thead>
                             <tr>
+                            <th scope="col"></th>
                             <th scope="col">Nom</th>
                             <th scope="col">Lieu</th>
                             <th scope="col">Ville</th>
@@ -73,6 +74,13 @@
                         <tbody>
                             <c:forEach items="${requestScope.expositions}" var="exposition">
                                 <tr>
+                                    <td scope="row">
+                                        <form method="post" action="ModifExposition">
+                                        <p>
+                                            <input type="hidden" name="id" value="${ exposition.getId() }" />
+                                            <button type="submit" class="btn btn-primary">Modifier</button>
+                                        </p>
+                                    </td>
                                     <td scope="row">
                                         <c:out value="${ exposition.getNom() }" />
                                     </td>

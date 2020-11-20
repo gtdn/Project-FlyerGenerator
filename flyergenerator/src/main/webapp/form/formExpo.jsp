@@ -7,62 +7,62 @@
 
     <div class="form-group">
       <label for="eventTitle">Nom de l'évènement</label>
-      <input type="text" name="eventTitle" placeholder="Salon Mondial de l'Automobile" class="form-control" id="eventTitle" minlength="15" maxlength="45" required>
+      <input type="text" name="eventTitle" value="${nom}" placeholder="Salon Mondial de l'Automobile" class="form-control" id="eventTitle" minlength="15" maxlength="45" required>
     </div>
 
     <div class="form-group">
         <label for="eventCity">Ville</label>
-        <input type="text" name="eventCity" placeholder="Genève" class="form-control" id="eventCity" minlength="2" maxlength="25" required>
+        <input type="text" name="eventCity" value="${ville}" placeholder="Genève" class="form-control" id="eventCity" minlength="2" maxlength="25" required>
     </div>
 
     <div class="form-group">
         <label for="eventLocation">Lieu</label>
-        <input type="text" name="eventLocation" placeholder="Palais des Expositions" class="form-control" id="eventLocation" maxlength="30" required>
+        <input type="text" name="eventLocation" value="${lieu}" placeholder="Palais des Expositions" class="form-control" id="eventLocation" maxlength="30" required>
     </div>
 
     <div class="form-group">
         <label for="eventPrice">Prix d'entrée</label>
-        <input type="number" name="eventPrice" placeholder="10" class="form-control" id="eventPrice" min="0">
+        <input type="number" name="eventPrice" value="${prix}" placeholder="10" class="form-control" id="eventPrice" min="0">
     </div>
 
     <div class="form-group">
         <label for="eventDateBeg">Date de début</label>
-        <input type="date" name="eventDateBeg" value="2020-12-29" class="form-control" id="eventDateBeg" required>
+        <input type="date" name="eventDateBeg" value="${dateDeb}" value="2020-12-29" class="form-control" id="eventDateBeg" required>
     </div>
 
     <div class="form-group">
         <label for="eventDateEnd">Date de fin</label>
-        <input type="date" name="eventDateEnd" value="2020-12-31" class="form-control" id="eventDateEnd" required>
+        <input type="date" name="eventDateEnd" value="${dateFin}" value="2020-12-31" class="form-control" id="eventDateEnd" required>
     </div>
 
     <div class="form-group">
         <label for="eventHourBeg">Horaire de début (pas encore mis en place sur le flyer)</label>
-        <input type="time" name="eventHourBeg" class="form-control" id="eventHourBeg" required>
+        <input type="time" name="eventHourBeg" value="${horaireDeb}" class="form-control" id="eventHourBeg" required>
     </div>
 
     <div class="form-group">
         <label for="eventHourEnd">Horaire de fin (pas encore mis en place sur le flyer)</label>
-        <input type="time" name="eventHourEnd" class="form-control" id="eventHourEnd" required>
+        <input type="time" name="eventHourEnd" value="${horaireFin}" class="form-control" id="eventHourEnd" required>
     </div>
 
     <div class="form-group">
         <label for="eventContactName">Nom contact (facultatif)</label>
-        <input type="text" name="eventContactName" placeholder="Office du tourisme de Genève" class="form-control" id="eventContactName">
+        <input type="text" name="eventContactName" value="${nom_orga}" placeholder="Office du tourisme de Genève" class="form-control" id="eventContactName">
     </div>
 
     <div class="form-group">
         <label for="eventContactNumber">Numero contact</label>
-        <input type="number" name="eventContactNumber" placeholder="0619527182" class="form-control" id="eventContactNumber" required>
+        <input type="number" name="eventContactNumber" value="${numeroContact}" placeholder="0619527182" class="form-control" id="eventContactNumber" required>
     </div>
 
     <div class="form-group">
         <label for="eventContactEmail">Email contact</label>
-        <input type="email" name="eventContactEmail" placeholder="palexpo@geneve.ch" class="form-control" id="eventContactEmail" required>
+        <input type="email" name="eventContactEmail" value="${mail}" placeholder="palexpo@geneve.ch" class="form-control" id="eventContactEmail" required>
     </div>
 
     <div class="form-group">
         <label for="eventTheme">Thème de l'évènement</label>
-        <input type="text" name="eventTheme" placeholder="Automobile" class="form-control" id="eventTheme" required>
+        <input type="text" name="eventTheme" value="${theme}" placeholder="Automobile" class="form-control" id="eventTheme" required>
     </div>
 
     <div class="form-group">

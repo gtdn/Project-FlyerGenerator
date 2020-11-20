@@ -47,6 +47,16 @@ public class SpectacleDAO {
         }
     }
 
+     /**
+     * @param idEvent Spectacle donné en parametre.
+     * @return toutes les Spectacles de l'utilisateur
+     */
+    public final Spectacle getSpectacleByIdEvent(final int idEvent) {
+        Spectacle expo = new Spectacle();
+        expo = em.find(Spectacle.class, idEvent);
+        return expo;
+    }
+
     /**
      * modifie ou crée une spectacle.
      * dans la data base

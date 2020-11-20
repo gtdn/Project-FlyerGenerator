@@ -55,6 +55,7 @@
                     <table class="table">
                         <thead>
                             <tr>
+                            <th scope="col"></th>
                             <th scope="col">Nom</th>
                             <th scope="col">Lieu</th>
                             <th scope="col">Ville</th>
@@ -71,6 +72,13 @@
                         <tbody>
                             <c:forEach items="${requestScope.spectacles}" var="spectacle">
                                 <tr>
+                                    <td scope="row">
+                                        <form method="post" action="ModifSpectacle">
+                                        <p>
+                                            <input type="hidden" name="id" value="${ spectacle.getId() }" />
+                                            <button type="submit" class="btn btn-primary">Modifier</button>
+                                        </p>
+                                    </td>
                                     <td scope="row">
                                         <c:out value="${ spectacle.getNom() }" />
                                     </td>
