@@ -48,12 +48,12 @@ public class ControllerModifConf extends HttpServlet {
      */
     protected void doPost(final HttpServletRequest request,
     final HttpServletResponse response) throws ServletException, IOException {
-        System.out.print("VOILAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         String idString = request.getParameter("id");
         int id = Integer.parseInt(idString);
         Conference conf = new Conference();
         ServletContext context = getServletContext();
-        ConferenceDAO confdao = new ConferenceDAO((EntityManager) context.getAttribute("em"));
+        ConferenceDAO confdao = new ConferenceDAO(
+            (EntityManager) context.getAttribute("em"));
         conf = confdao.getConferenceByIdEvent(id);
         request.setAttribute("nom", conf.getNom());
         request.setAttribute("ville", conf.getVille());
@@ -62,7 +62,8 @@ public class ControllerModifConf extends HttpServlet {
         request.setAttribute("date", conf.getDateDebut());
         request.setAttribute("horaire", conf.getHeureDebut());
         request.setAttribute("nom_orga", conf.getContacts().getNom());
-        request.setAttribute("intervenants", String.join(", ", conf.getListeIntervenants()));
+        request.setAttribute("intervenants",
+            String.join(", ", conf.getListeIntervenants()));
         request.setAttribute("numeroContact", conf.getContacts().getNumero());
         request.setAttribute("mail", conf.getContacts().getMail());
         request.setAttribute("description", conf.getResume());
