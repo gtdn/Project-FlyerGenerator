@@ -34,7 +34,7 @@ public class JPATest {
 
     @Test
     public void setupEMTest() {
-       EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
+      /* EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
         Competition compet = new Competition();
         UserDAO userdao = new UserDAO(em);
         User test = userdao.ajouterUser("pseudo", "motdepasse");

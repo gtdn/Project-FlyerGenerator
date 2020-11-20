@@ -44,6 +44,16 @@ public class ConferenceDAO {
         }
     }
     /**
+     * @param idEvent conference donné en parametre.
+     * @return toutes les conferences de l'utilisateur
+     */
+    public final Conference getConferenceByIdEvent(final int idEvent) {
+
+        Conference conf = new Conference();
+        conf = em.find(Conference.class, idEvent);
+        return conf;
+    }
+    /**
      * modifie ou crée une conference.
      * dans la data base
      * @param spec Conference donné en parametre

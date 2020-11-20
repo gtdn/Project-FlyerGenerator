@@ -56,6 +56,7 @@
                         <thead>
                             <tr>
                             <th scope="col">Nom</th>
+                            <th scope="col">Nom</th>
                             <th scope="col">Lieu</th>
                             <th scope="col">Ville</th>
                             <th scope="col">Prix</th>
@@ -71,6 +72,13 @@
                         <tbody>
                             <c:forEach items="${requestScope.conferences}" var="conference">
                                 <tr>
+                                    <td scope="row">
+                                        <form method="post" action="ModifConference">
+                                        <p>
+                                        <input type="hidden" name="id" value="${ conference.getId() }" />
+                                        <button type="submit" class="btn btn-primary">Modifier</button>
+                                         </p>
+                                    </td>
                                     <td scope="row">
                                         <c:out value="${ conference.getNom() }" />
                                     </td>
