@@ -19,10 +19,6 @@ import java.io.IOException;
 @WebServlet(name = "Exposition", urlPatterns = "/Exposition")
 public class ControllerExpo extends HttpServlet {
     /**
-     * path.
-     */
-    private static String path = "WEB-INF/jsp/";
-    /**
      * doGet.
      * @param request
      * @param response
@@ -42,7 +38,7 @@ public class ControllerExpo extends HttpServlet {
         expositions = expoDao.getExpositionByIdUser(i);
         request.setAttribute("expositions", expositions);
         RequestDispatcher rd = request.
-            getRequestDispatcher(path + "historique/histoExpo.jsp");
+            getRequestDispatcher("historique/histoExpo.jsp");
         rd.forward(request, response);
     }
 

@@ -18,10 +18,6 @@ import java.io.IOException;
 @WebServlet(name = "Conference", urlPatterns = "/Conference")
 public class ControllerConf extends HttpServlet {
     /**
-     * path.
-     */
-    private static String path = "WEB-INF/jsp/";
-    /**
      * doGet.
      * @param request
      * @param response
@@ -40,7 +36,7 @@ public class ControllerConf extends HttpServlet {
         conferences = confDao.getConferenceByIdUser(i);
         request.setAttribute("conferences", conferences);
         RequestDispatcher rd = request.
-            getRequestDispatcher(path + "historique/histoConf.jsp");
+            getRequestDispatcher("historique/histoConf.jsp");
         rd.forward(request, response);
     }
 

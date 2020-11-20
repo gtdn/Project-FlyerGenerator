@@ -18,10 +18,6 @@ import java.io.IOException;
 @WebServlet(name = "Spectacle", urlPatterns = "/Spectacle")
 public class ControllerSpect extends HttpServlet {
     /**
-     * path.
-     */
-    private static String path = "WEB-INF/jsp/";
-    /**
      * doGet.
      * @param request
      * @param response
@@ -40,7 +36,7 @@ public class ControllerSpect extends HttpServlet {
         spectacles = specDao.getSpectacleByIdUser(i);
         request.setAttribute("spectacles", spectacles);
         RequestDispatcher rd = request.
-            getRequestDispatcher(path + "historique/histoSpec.jsp");
+            getRequestDispatcher("historique/histoSpec.jsp");
         rd.forward(request, response);
     }
 
