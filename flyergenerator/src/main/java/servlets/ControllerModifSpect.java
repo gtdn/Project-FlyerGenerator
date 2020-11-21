@@ -46,6 +46,13 @@ public class ControllerModifSpect extends HttpServlet {
         request.setAttribute("prix", spect.getPrix());
         request.setAttribute("date", spect.getDateDebut());
         request.setAttribute("horaire", spect.getHeureDebut());
+        if (spect.getContacts().getNom() != null) {
+            request.setAttribute("nom_orga", spect.getContacts().getNom());
+        } else {
+            request.setAttribute("nom_orga", "");
+        }
+        request.setAttribute("numeroContact", spect.getContacts().getNumero());
+        request.setAttribute("mail", spect.getContacts().getMail());
         RequestDispatcher dispatcher = request.getRequestDispatcher(
             "interface.jsp?contenu=spect");
         dispatcher.forward(request, response);

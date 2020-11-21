@@ -26,11 +26,6 @@
     </div>
 
     <div class="form-group">
-        <label for="img">Background Flyer (à voir plus tard)</label>
-        <input type="image" class="form-control" id="img">
-    </div>
-
-    <div class="form-group">
         <label for="eventDateBeg">Date</label>
         <input type="date" name="eventDateBeg" value="${date}" class="form-control" id="eventDateBeg" required>
     </div>

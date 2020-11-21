@@ -193,7 +193,11 @@ public class FormEvent extends HttpServlet {
         Date dateBeg = Date.valueOf(eventDateBeg);
         e.setDateDebut(dateBeg);
         Contacts contacts = new Contacts();
-        contacts.setNom(eventContactName);
+        if (eventContactName != null) {
+            contacts.setNom(eventContactName);
+        } else {
+            contacts.setNom("");
+        }
         int numeroTel = Integer.valueOf(eventContactNumber);
         contacts.setNumero(numeroTel);
         contacts.setMail(eventContactEmail);

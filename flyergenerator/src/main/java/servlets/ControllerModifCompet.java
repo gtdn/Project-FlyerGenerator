@@ -48,8 +48,15 @@ public class ControllerModifCompet extends HttpServlet {
         request.setAttribute("horaire", compet.getHeureDebut());
         request.setAttribute("hashtag", compet.getHashtag());
         request.setAttribute("description", compet.getResume());
+        if (compet.getContacts().getNom() != null) {
+            request.setAttribute("nom_orga", compet.getContacts().getNom());
+        } else {
+            request.setAttribute("nom_orga", "");
+        }
+        request.setAttribute("numeroContact", compet.getContacts().getNumero());
+        request.setAttribute("mail", compet.getContacts().getMail());
         RequestDispatcher dispatcher =
-        request.getRequestDispatcher("interface.jsp?contenu=conf");
+        request.getRequestDispatcher("interface.jsp?contenu=compet");
         dispatcher.forward(request, response);
 
     }
