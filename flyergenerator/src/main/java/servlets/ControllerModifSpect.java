@@ -46,13 +46,8 @@ public class ControllerModifSpect extends HttpServlet {
         request.setAttribute("prix", spect.getPrix());
         request.setAttribute("date", spect.getDateDebut());
         request.setAttribute("horaire", spect.getHeureDebut());
-        // request.setAttribute("nom_orga", spect.getContacts().getNom());
-        // request.setAttribute("intervenants",
-        //     String.join(", ", spect.getListeIntervenants()));
-        // request.setAttribute("numeroContact", spect.getContacts().getNumero());
-        // request.setAttribute("mail", spect.getContacts().getMail());
-        RequestDispatcher dispatcher =
-        request.getRequestDispatcher("interface.jsp?contenu=spect");
+        RequestDispatcher dispatcher = request.getRequestDispatcher(
+            "interface.jsp?contenu=spect");
         dispatcher.forward(request, response);
     }
 }

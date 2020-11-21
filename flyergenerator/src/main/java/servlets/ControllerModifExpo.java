@@ -48,11 +48,6 @@ public class ControllerModifExpo extends HttpServlet {
         request.setAttribute("dateFin", expo.getDateFin());
         request.setAttribute("horaireDeb", expo.getHeureDebut());
         request.setAttribute("horaireDeb", expo.getHeureFin());
-        // request.setAttribute("nom_orga", expo.getContacts().getNom());
-        // request.setAttribute("intervenants",
-        //     String.join(", ", expo.getListeIntervenants()));
-        // request.setAttribute("numeroContact", expo.getContacts().getNumero());
-        // request.setAttribute("mail", expo.getContacts().getMail());
         request.setAttribute("theme", expo.getTheme());
         RequestDispatcher dispatcher =
         request.getRequestDispatcher("interface.jsp?contenu=expo");
