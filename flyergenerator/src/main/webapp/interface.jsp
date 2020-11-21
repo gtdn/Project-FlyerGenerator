@@ -58,7 +58,7 @@
                     </div>
                     <c:choose>
                         <c:when test="${param.contenu == null || param.contenu == 'home'}">
-                            <jsp:include page="home.jsp"/>
+                            <jsp:include page="composants/home.html"/>
                         </c:when>
                         <c:when test = "${param.contenu == 'compet'}">
                             <jsp:include page="form/formCompet.jsp"/>
