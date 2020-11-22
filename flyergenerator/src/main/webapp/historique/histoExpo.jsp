@@ -65,7 +65,7 @@
                             <th scope="col">Date début</th>
                             <th scope="col">Date de fin</th>
                             <th scope="col">Thème</th>
-                            <th scope="col">Nom Contact</th>
+                            <th scope="col">Nom organisateur</th>
                             <th scope="col">Numéro contact</th>
                             <th scope="col">Mail contact</th>
                             </tr>

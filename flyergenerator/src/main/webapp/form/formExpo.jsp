@@ -46,8 +46,8 @@
     </div>
 
     <div class="form-group">
-        <label for="eventContactName">Nom contact (facultatif)</label>
-        <input type="text" name="eventContactName" value="${nom_orga}" placeholder="Office du tourisme de Genève" class="form-control" id="eventContactName">
+        <label for="eventOrganizer">Nom organisateur</label>
+        <input type="text" name="eventOrganizer" value="${nom_contact}" placeholder="Office du tourisme de Genève" class="form-control" id="eventOrganizer" required>
     </div>
 
     <div class="form-group">
@@ -113,5 +113,5 @@
           </table>
     </div>
 
-    <button id="button-form" type="submit" class="btn btn-primary">Submit</button>
+    <button id="button-form" type="submit" class="btn btn-primary">Créer</button>
 </form>

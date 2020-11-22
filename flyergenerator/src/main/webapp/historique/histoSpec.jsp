@@ -62,9 +62,9 @@
                             <th scope="col">Prix</th>
                             <th scope="col">Heure début</th>
                             <th scope="col">Date début</th>
-                            <th scope="col">Liste d'Artistes</th>
+                            <th scope="col">Artistes</th>
+                            <th scope="col">Association</th>
                             <th scope="col">Nom Organisateur</th>
-                            <th scope="col">Nom Contact</th>
                             <th scope="col">Numéro contact</th>
                             <th scope="col">Mail contact</th>
                             </tr>
