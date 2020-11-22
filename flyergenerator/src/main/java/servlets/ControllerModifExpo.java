@@ -46,11 +46,7 @@ public class ControllerModifExpo extends HttpServlet {
         request.setAttribute("prix", expo.getPrix());
         request.setAttribute("dateDeb", expo.getDateDebut());
         request.setAttribute("dateFin", expo.getDateFin());
-        if (expo.getContacts().getNom() != null) {
-            request.setAttribute("nom_orga", expo.getContacts().getNom());
-        } else {
-            request.setAttribute("nom_orga", "");
-        }
+        request.setAttribute("nom_contact", expo.getContacts().getNom());
         request.setAttribute("numeroContact", expo.getContacts().getNumero());
         request.setAttribute("mail", expo.getContacts().getMail());
         request.setAttribute("horaireDeb", expo.getHeureDebut());

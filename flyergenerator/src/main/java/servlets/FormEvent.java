@@ -71,10 +71,11 @@ public class FormEvent extends HttpServlet {
         String eventHourBeg = request.getParameter("eventHourBeg") + ":00";
         String eventDateBeg = request.getParameter("eventDateBeg");
         // PersonneList missing yet
-        String eventContactName = request.getParameter(
-            "eventContactName");
+        String eventOrganizer = request.getParameter(
+            "eventOrganizer");
         String eventContactNumber = request.getParameter("eventContactNumber");
         String eventContactEmail = request.getParameter("eventContactEmail");
+
 
 
 
@@ -114,7 +115,7 @@ public class FormEvent extends HttpServlet {
             htmlString = htmlString.replace("$eventYear$", eventYear);
             htmlString = htmlString.replace("$eventMonth$", eventMonth);
             htmlString = htmlString.replace("$eventContactName$",
-            eventContactName);
+            eventOrganizer);
             htmlString = htmlString.replace("$eventContactNumber$",
             eventContactNumber);
             htmlString = htmlString.replace("$eventContactEmail$",
@@ -178,7 +179,7 @@ public class FormEvent extends HttpServlet {
         String eventDateBeg = request.getParameter("eventDateBeg");
         // PersonneList missing yet
         String eventContactName = request.getParameter(
-            "eventContactName");
+            "eventOrganizer");
         String eventContactNumber = request.getParameter("eventContactNumber");
         String eventContactEmail = request.getParameter("eventContactEmail");
 
@@ -193,11 +194,7 @@ public class FormEvent extends HttpServlet {
         Date dateBeg = Date.valueOf(eventDateBeg);
         e.setDateDebut(dateBeg);
         Contacts contacts = new Contacts();
-        if (eventContactName != null) {
-            contacts.setNom(eventContactName);
-        } else {
-            contacts.setNom("");
-        }
+        contacts.setNom(eventContactName);
         int numeroTel = Integer.valueOf(eventContactNumber);
         contacts.setNumero(numeroTel);
         contacts.setMail(eventContactEmail);
@@ -247,7 +244,6 @@ public class FormEvent extends HttpServlet {
 
     /* add specifics data */
     compet.setHashtag(request.getParameter("eventHashtag"));
-    compet.setNomOrganisateur(request.getParameter("eventOrganizer"));
     compet.setResume(request.getParameter("eventDescription"));
     compet.setCashPrize(request.getParameter("eventCashPrize"));
 
@@ -289,7 +285,7 @@ public class FormEvent extends HttpServlet {
         spec.copieEvent(e);
 
         /* add specifics data */
-        spec.setNomAssociation(request.getParameter("eventOrganizer"));
+        spec.setNomAssociation(request.getParameter("eventAsso"));
 
         /* Save the complete competition data into our DataBase */
         SpectacleDAO specDAO = new SpectacleDAO(em);

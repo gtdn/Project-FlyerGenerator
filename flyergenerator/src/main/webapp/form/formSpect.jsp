@@ -36,8 +36,13 @@
     </div>
 
     <div class="form-group">
+        <label for="eventAsso">Nom de l'association</label>
+        <input type="text" name="eventAsso" value="${nom_asso}" placeholder="Shady Records" class="form-control" id="eventAsso" required>
+    </div>
+
+    <div class="form-group">
         <label for="eventOrganizer">Nom de l'organisateur</label>
-        <input type="text" name="eventOrganizer" value="${nom_orga}" placeholder="Shady Records" class="form-control" id="eventOrganizer">
+        <input type="text" name="eventOrganizer" value="${nom_orga}" placeholder="Shady Records" class="form-control" id="eventOrganizer" required>
     </div>
 
     <div class="form-group">

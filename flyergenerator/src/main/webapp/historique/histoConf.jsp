@@ -64,7 +64,7 @@
                             <th scope="col">Date début</th>
                             <th scope="col">Liste d'intervenants</th>
                             <th scope="col">Résumé</th>
-                            <th scope="col">Nom Contact</th>
+                            <th scope="col">Nom Organisateur</th>
                             <th scope="col">Numéro contact</th>
                             <th scope="col">Mail contact</th>
                             </tr>
