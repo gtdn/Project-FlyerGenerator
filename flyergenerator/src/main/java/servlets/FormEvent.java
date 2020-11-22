@@ -239,9 +239,9 @@ public class FormEvent extends HttpServlet {
         String[] eventDateSplitted = eventDate.split("-");
         eventDate = eventDateSplitted[2];
         String eventYear = eventDateSplitted[0];
-        String[] months = {"None", "Janvier", "Février", "Mars", "Avril",
-        "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre",
-        "Novembre", "Décembre"};
+        String[] months = {"None", "Jan", "Fév", "Mars", "Avr",
+        "Mai", "Juin", "Juil", "Août", "Sept", "Oct",
+        "Nov", "Déc"};
         String eventMonth = months[(Integer.parseInt(
             eventDateSplitted[1]))];
         String eventDay = eventDateSplitted[1];
@@ -267,8 +267,6 @@ public class FormEvent extends HttpServlet {
         htmlString = htmlString.replace("$eventHashtag$", eventHashtag);
         htmlString = htmlString.replace("$eventDescription$", eventDescription);
         htmlString = htmlString.replace("$eventOrganizer$", eventOrganizer);
-
-        System.out.println(htmlString);
 
         byte[] pdfData = getPdf(htmlString);
         FileUtils.writeByteArrayToFile(new File(
@@ -415,10 +413,11 @@ public class FormEvent extends HttpServlet {
     public final byte[] getPdf(final String html) {
         byte[] results = null;
         try {
-          String[] command = {"wkhtmltopdf", "--disable-smart-shrinking",
-          "--enable-local-file-access",
-          "--page-size", "A5", "-L", "0",
-          "-B", "0", "-R", "0", "-T", "0", "-", "-"};
+          String[] command = {"wkhtmltopdf", "--encoding", "utf-8",
+            "--disable-smart-shrinking",
+            "--enable-local-file-access",
+            "--page-size", "A5", "-L", "0",
+            "-B", "0", "-R", "0", "-T", "0", "-", "-"};
           ProcessBuilder builder = new ProcessBuilder(command);
           builder.redirectErrorStream(false);
           Process process = builder.start();
