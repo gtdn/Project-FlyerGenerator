@@ -154,8 +154,8 @@ public class FormEvent extends HttpServlet {
         String eventCity = request.getParameter("eventCity");
         String eventLocation = request.getParameter("eventLocation");
         String eventPrice = request.getParameter("eventPrice");
-        String eventHourBeg = request.getParameter("eventHourBeg");
-        String eventHourEnd = request.getParameter("eventHourEnd");
+        String eventHourBeg = request.getParameter("eventHourBeg").substring(0,5);
+        String eventHourEnd = request.getParameter("eventHourEnd").substring(0,5);
         String eventDateBeg = request.getParameter("eventDateBeg");
         String eventDateEnd = request.getParameter("eventDateEnd");
         String eventOrganizer = request.getParameter(
@@ -229,7 +229,7 @@ public class FormEvent extends HttpServlet {
         String eventCity = request.getParameter("eventCity");
         String eventLocation = request.getParameter("eventLocation");
         String eventPrice = request.getParameter("eventPrice");
-        String eventHour = request.getParameter("eventHourBeg");
+        String eventHour = request.getParameter("eventHourBeg").substring(0,5);
         String eventDate = request.getParameter("eventDateBeg");
         String eventOrganizer = request.getParameter(
             "eventOrganizer");
@@ -307,7 +307,7 @@ public class FormEvent extends HttpServlet {
         String eventCity = request.getParameter("eventCity");
         String eventLocation = request.getParameter("eventLocation");
         String eventPrice = request.getParameter("eventPrice");
-        String eventHour = request.getParameter("eventHourBeg");
+        String eventHour = request.getParameter("eventHourBeg").substring(0,5);
         String eventDate = request.getParameter("eventDateBeg");
         String eventOrganizer = request.getParameter(
             "eventOrganizer");
@@ -386,7 +386,7 @@ public class FormEvent extends HttpServlet {
         String eventCity = request.getParameter("eventCity");
         String eventLocation = request.getParameter("eventLocation");
         String eventPrice = request.getParameter("eventPrice");
-        String eventHour = request.getParameter("eventHourBeg");
+        String eventHour = request.getParameter("eventHourBeg").substring(0,5);
         String eventDate = request.getParameter("eventDateBeg");
         String eventOrganizer = request.getParameter(
             "eventOrganizer");
