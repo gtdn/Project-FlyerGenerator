@@ -42,7 +42,7 @@ public class JPATest {
         ConferenceDAO conferencedao = new ConferenceDAO(em);
         CompetitionDAO competitiondao = new CompetitionDAO(em);
         ExpositionDAO expodao = new ExpositionDAO(em);
-        List<Conference> liste_spectacle = conferencedao.getConferenceByIdUser(732);
+        //List<Conference> liste_spectacle = conferencedao.getConferenceByIdUser(732);
         //Conference spec = liste_spectacle.get(0);
         Spectacle spec = new Spectacle();
         Exposition expo = new Exposition();
