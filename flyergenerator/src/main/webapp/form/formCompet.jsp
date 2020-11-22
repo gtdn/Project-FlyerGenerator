@@ -12,7 +12,7 @@
 
     <div class="form-group">
         <label for="eventCity">Ville</label>
-        <input type="text" name="eventCity" value="${ville}" placeholder="La Rochelle" class="form-control" id="eventCity" minlength="2" maxlength="25" accept-charset="utf-8" required>
+        <input type="text" name="eventCity" value="${ville}" placeholder="La Rochelle" class="form-control" id="eventCity" minlength="2" maxlength="25" enctype="multipart/form-data" required>
     </div>
 
     <div class="form-group">
