@@ -2,12 +2,7 @@ package modele;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.util.Collection;
-import java.util.ArrayList;
-//import java.util.List;
 
-
-//import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -15,9 +10,6 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-//import javax.persistence.OneToMany;
-import javax.persistence.ElementCollection;
-import javax.persistence.CollectionTable;
 import javax.persistence.JoinColumn;
 //import javax.persistence.JoinColumns;
 import javax.persistence.OneToOne;
@@ -44,7 +36,6 @@ public class Event {
         this.prix = 0;
         this.heureDebut = new Time(0);
         this.dateDebut = new Date(0);
-        this.listeIntervenants = null;
 
     }
     /*
@@ -93,7 +84,6 @@ public class Event {
         this.lieu = newlieu;
         this.heureDebut = newheureDebut;
         this.dateDebut = newdateDebut;
-        this.listeIntervenants = null;
     }
     /**
      * identifiant de l'evenement.
@@ -139,32 +129,6 @@ public class Event {
      */
     @Column(name = "datedeb")
     private Date dateDebut;
-    /**
-     * liste des intervenants de l'evenenement.
-     */
-    @ElementCollection
-    @CollectionTable(
-        name = "INTERVENANT",
-        joinColumns = @JoinColumn(name = "ID_EVENT")
-    )
-    //@OneToMany(cascade = CascadeType.ALL)
-    @Column(name = "nom")
-    private Collection<String> listeIntervenants = new ArrayList<>();
-
-    /**
-     * @return listeIntervenants.
-     */
-    public final Collection<String> getListeIntervenants() {
-        return this.listeIntervenants;
-    }
-
-    /**
-     * @param newlisteIntervenants nouvelle liste d'intervenants.
-     */
-    public final void setListeIntervenants(
-        final Collection<String> newlisteIntervenants) {
-        this.listeIntervenants = newlisteIntervenants;
-    }
     /**
      * moyen de contacter les organisateur de l'evenement.
      */

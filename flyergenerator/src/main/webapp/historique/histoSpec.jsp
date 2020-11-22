@@ -98,7 +98,7 @@
                                         <c:out value="${ spectacle.getDateDebut() }" />
                                     </td>
                                    <td scope="row">
-                                        <c:out value="${String.join(\", \",spectacle.getListeIntervenants())}" />
+                                        <c:out value="${competition.getListeIntervenants()}" />
                                     </td>
                                     <td scope="row">
                                         <c:out value="${ spectacle.getNomAssociation()}" />

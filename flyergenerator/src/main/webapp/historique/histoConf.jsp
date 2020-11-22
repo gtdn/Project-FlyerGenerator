@@ -98,7 +98,7 @@
                                         <c:out value="${ conference.getDateDebut() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${String.join(\", \",conference.getListeIntervenants())}" />
+                                        <c:out value="${competition.getListeIntervenants()}" />
                                     </td>
                                     <td scope="row">
                                         <c:out value="${ conference.getResume()}" />

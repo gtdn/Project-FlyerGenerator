@@ -106,7 +106,7 @@
                                         <c:out value="${ exposition.getDateFin() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${String.join(\", \",exposition.getListeIntervenants())}" />
+                                        <c:out value="${competition.getListeIntervenants()}" />
                                     </td>
                                     <td scope="row">
                                         <c:out value="${ exposition.getTheme() }" />

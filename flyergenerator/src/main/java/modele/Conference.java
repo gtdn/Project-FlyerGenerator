@@ -19,6 +19,7 @@ public class Conference extends Event {
     public Conference() {
         super();
         this.resume = "resume_de_base";
+        this.listeIntervenants = "";
     }
 
     /**
@@ -79,6 +80,26 @@ public class Conference extends Event {
      */
     public final String getResume() {
         return this.resume;
+    }
+    /**
+     * liste des intervenants de l'evenenement.
+     */
+    @Column(name = "Intervenants")
+    private String listeIntervenants;
+
+    /**
+     * @return listeIntervenants.
+     */
+    public final String getListeIntervenants() {
+        return this.listeIntervenants;
+    }
+
+    /**
+     * @param newlisteIntervenants nouvelle liste d'intervenants.
+     */
+    public final void setListeIntervenants(
+        final String newlisteIntervenants) {
+        this.listeIntervenants = newlisteIntervenants;
     }
 
     /**

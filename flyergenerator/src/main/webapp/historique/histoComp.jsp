@@ -101,9 +101,6 @@
                                         <c:out value="${ competition.getDateDebut() }" />
                                     </td>
                                     <td scope="row">
-                                        <c:out value="${String.join(\", \",competition.getListeIntervenants())}" />
-                                    </td>
-                                    <td scope="row">
                                         <c:out value="${ competition.getHashtag()}" />
                                     </td>
                                     <td scope="row">

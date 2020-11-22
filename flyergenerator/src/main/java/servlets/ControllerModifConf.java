@@ -54,8 +54,6 @@ public class ControllerModifConf extends HttpServlet {
         } else {
             request.setAttribute("nom_orga", "");
         }
-        // request.setAttribute("intervenants",
-        //     String.join(", ", conf.getListeIntervenants()));
         request.setAttribute("numeroContact", conf.getContacts().getNumero());
         request.setAttribute("mail", conf.getContacts().getMail());
         request.setAttribute("description", conf.getResume());
