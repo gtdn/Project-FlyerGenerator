@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Flyer Compétition</title>
+
+    <style type="text/css">
+
+        @font-face {
+            font-family: Play;
+            src: url("$urlApplication$/font/Play-Regular.ttf");
+        }
+
+        @font-face {
+            font-family: Great Vibes;
+            src: url("$urlApplication$/font/GreatVibes-Regular.ttf");
+        }
+
+        html {
+                font-family: 'Play', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            max-height: 210mm;
+            max-width: 148mm;
+            color: #fff;
+        }
+
+        #flyer {
+            height: 210mm;
+            width: 148mm;
+            margin: 0;
+            padding: 0;
+            background-color: #000; 
+            background-position: center center;
+            background-repeat: no-repeat; 
+            background-size: contain; 
+            background-image: url("$urlApplication$/img/Compet/flyer_competition_background_$eventBackground$.jpg");
+        }
+
+        #eventOrganizer {
+            width: 140px;
+            height: 70px;
+            position: absolute;
+            left: 15px;
+            top: 15px;
+        }
+
+        #eventTitleContainer {
+            position: absolute;
+            display: table;
+            overflow: hidden;
+            top: 153px;
+            left: 75px;
+            width: 410px;
+            height: 197px;
+            font-size: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        #eventTitle {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        #eventMonthContainer {
+            border: solid;
+            border-width: 2px;
+            border-color: #fff;
+            position: absolute;
+            display: table;
+            top: 360px;
+            left: 125px;
+            width: 65px;
+            height: 65px;
+        }
+
+        #eventMonth {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventDayContainer {
+            border: solid;
+            border-width: 2px;
+            border-color: #fff;
+            position: absolute;
+            display: table;
+            top: 360px;
+            left: 245px;
+            width: 65px;
+            height: 65px;
+        }
+
+        #eventDay {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventHourContainer {
+            border: solid;
+            border-width: 2px;
+            border-color: #fff;
+            position: absolute;
+            display: table;
+            top: 360px;
+            left: 365px;
+            width: 65px;
+            height: 65px;
+        }
+
+        #eventHour {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventHashtagContainer {
+            display: table;
+            overflow: hidden;
+            position: absolute;
+            color: #16f3d5!important;
+            top: 444px;
+            height: 30px;
+            width: 559px;
+            text-transform: uppercase;
+            font-size: 23px;
+        }
+
+        #eventHashtag {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventDescriptionContainer {
+            display: table;
+            overflow: hidden;
+            position: absolute;
+            top: 485px;
+            left: 77px;
+            height: 85px;
+            width: 405px;
+        }
+
+        #eventDescription {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventCashPrizeContainer {
+            position: absolute;
+            top: 577px;
+            left: 77px;
+            height: 125px;
+            width: 405px;
+        }
+
+        #eventCashPrizeTextContainer {
+            position: absolute;
+            display: table;
+            overflow: hidden;
+            height: 100%;
+            width: 50%;
+            font-family: 'Great Vibes', cursive;
+            font-size: 50px;
+            color: #16f3d5!important;
+        }
+
+        #eventCashPrizeText {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventCashPrizePrizeContainer {
+            position: absolute;
+            display: table;
+            overflow: hidden;
+            height: 100%;
+            width: 50%;
+            left: 50%;
+            font-size: 40px;
+        }
+
+        #eventCashPrizePrize {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventLocationContainer {
+            position: absolute;
+            width: 400px;
+            height: 56px;
+            top: 710px;
+            left: 79px;
+        }
+
+        #eventLocationCityContainer {
+            position: absolute;
+            display: table;
+            overflow: hidden;
+            width: 100%;
+            height: 50%;
+            text-transform: uppercase;
+            font-size: 21px;
+        }
+
+        #eventLocationCity {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventLocationCity img {
+            height: 18px;
+        }
+
+        #eventLocationPlaceContainer {
+            position: absolute;
+            display: table;
+            overflow: hidden;
+            width: 100%;
+            height: 25%;
+            top: 50%;
+            text-transform: uppercase;
+            font-size: 11px;
+        }
+
+        #eventLocationPlace {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventPriceContainer {
+            position: absolute;
+            display: table;
+            overflow: hidden;
+            width: 559px;
+            height: 19px;
+            top: 759px;
+            font-size: 12px; 
+        }
+
+        #eventPrice {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventContactContainer {
+            position: absolute;
+            width: 179px;
+            height: 31px;
+            top: 746px;
+            left: 372px;
+            font-size: 12px;
+        }
+
+        #eventContactEmailContainer {
+            width: 100%;
+            height: 50%;
+            display: table;
+            overflow: hidden;
+        }
+
+        #eventContactEmail {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right;
+        }
+
+        #eventContactNumberContainer {
+            width: 100%;
+            height: 50%;
+            position: absolute;
+            top: 50%;
+            display: table;
+            overflow: hidden;
+        }
+
+        #eventContactNumber {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right;
+        }
+
+    </style>
+
+  </head>
+  <body>
+
+    <div id="flyer">
+        
+        <div id="eventOrganizer">
+            <span style="font-weight: bold; color: #A7A7A7;">$eventOrganizer$</span></br>
+            présente
+        </div>
+
+        <div id="eventTitleContainer">
+            <div id="eventTitle">
+                <div id="eventTitle">
+                        $eventTitle$ <span style="color: #16f3d5!important">$eventYear$</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="eventMonthContainer">
+            <div id="eventMonth">
+                $eventMonth$
+            </div>
+        </div>
+
+        <div id="eventDayContainer">
+            <div id="eventDay">
+                $eventDay$
+            </div>
+        </div>
+
+        <div id="eventHourContainer">
+            <div id="eventHour">
+                $eventHour$
+            </div>
+        </div>
+
+        <div id="eventHashtagContainer">
+            <div id="eventHashtag">
+                $eventHashtag$
+            </div>
+        </div>
+
+        <div id="eventDescriptionContainer">
+            <div id="eventDescription">
+                $eventDescription$
+            </div>
+        </div>
+
+        <div id="eventCashPrizeContainer">
+            <div id="eventCashPrizeTextContainer">
+                <div id="eventCashPrizeText">CashPrize</div>
+            </div>
+            <div id="eventCashPrizePrizeContainer">
+                <div id="eventCashPrizePrize">
+                    $eventCashPrize$
+                </div>
+            </div>
+        </div>
+
+        <div id="eventLocationContainer">
+            <div id="eventLocationCityContainer">
+                <div id="eventLocationCity">
+                    <img src="$urlApplication$/img/icons/placeholder.png"> $eventCity$
+                </div>
+            </div>
+
+            <div id="eventLocationPlaceContainer">
+                <div id="eventLocationPlace">
+                    $eventLocation$
+                </div>
+            </div>
+        </div>
+
+        <div id="eventPriceContainer">
+            <div id="eventPrice">
+                Prix d'entrée : $eventPrice$
+            </div>
+        </div>
+
+        <div id="eventContactContainer">
+            <div id="eventContactEmailContainer">
+                <div id="eventContactEmail">$eventContactEmail$</div>
+            </div>
+            <div id="eventContactNumberContainer">
+                <div id="eventContactNumber">$eventContactNumber$</div>
+            </div>
+        </div>
+
+    </div>
+
+  </body>
+</html>
