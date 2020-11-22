@@ -42,7 +42,7 @@
 
     <div class="form-group">
         <label for="eventSpeaker1">Intervenant 1(JS à faire pour ajouter des intervenants avec un bouton "+", 5 max)</label>
-        <input type="text" name="eventSpeaker1" placeholder="Slim Shady" class="form-control" id="eventSpeaker1" required>
+        <input type="text" name="eventSpeaker1" value="${artistes}" placeholder="Slim Shady" class="form-control" id="eventSpeaker1" required>
     </div>
 
     <div class="form-group">

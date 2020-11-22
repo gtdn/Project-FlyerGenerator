@@ -48,6 +48,7 @@ public class ControllerModifConf extends HttpServlet {
         request.setAttribute("lieu", conf.getLieu());
         request.setAttribute("prix", conf.getPrix());
         request.setAttribute("date", conf.getDateDebut());
+        request.setAttribute("intervenants", conf.getListeIntervenants());
         request.setAttribute("horaire", conf.getHeureDebut());
         if (conf.getContacts().getNom() != null) {
             request.setAttribute("nom_orga", conf.getContacts().getNom());

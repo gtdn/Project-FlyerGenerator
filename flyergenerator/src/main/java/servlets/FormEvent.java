@@ -271,6 +271,7 @@ public class FormEvent extends HttpServlet {
 
         /* add specifics data */
         conf.setResume(request.getParameter("eventDescription"));
+        conf.setListeIntervenants(request.getParameter("eventSpeaker1"));
 
         /* Save the complete competition data into our DataBase */
         ConferenceDAO confDAO = new ConferenceDAO(em);
@@ -290,6 +291,7 @@ public class FormEvent extends HttpServlet {
 
         /* add specifics data */
         spec.setNomAssociation(request.getParameter("eventOrganizer"));
+        spec.setListeArtistes(request.getParameter("eventSpeaker1"));
 
         /* Save the complete competition data into our DataBase */
         SpectacleDAO specDAO = new SpectacleDAO(em);

@@ -62,7 +62,6 @@
                             <th scope="col">Prix</th>
                             <th scope="col">Heure début</th>
                             <th scope="col">Date début</th>
-                            <th scope="col">Liste d'intervenants</th>
                             <th scope="col">#Hashtag</th>
                             <th scope="col">Nom Organisateur</th>
                             <th scope="col">Résumé</th>

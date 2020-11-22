@@ -64,7 +64,6 @@
                             <th scope="col">Heure de fin</th>
                             <th scope="col">Date début</th>
                             <th scope="col">Date de fin</th>
-                            <th scope="col">Liste d'intervenants</th>
                             <th scope="col">Thème</th>
                             <th scope="col">Nom Contact</th>
                             <th scope="col">Numéro contact</th>
@@ -104,9 +103,6 @@
                                     </td>
                                     <td scope="row">
                                         <c:out value="${ exposition.getDateFin() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${competition.getListeIntervenants()}" />
                                     </td>
                                     <td scope="row">
                                         <c:out value="${ exposition.getTheme() }" />
