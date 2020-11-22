@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@page pageEncoding="UTF-8"%>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
@@ -12,7 +12,7 @@
 
     <div class="form-group">
         <label for="eventCity">Ville</label>
-        <input type="text" name="eventCity" value="${ville}" placeholder="La Rochelle" class="form-control" id="eventCity" minlength="2" maxlength="25" enctype="multipart/form-data" required>
+        <input type="text" name="eventCity" value="${ville}" placeholder="La Rochelle" class="form-control" id="eventCity" minlength="2" maxlength="25" required>
     </div>
 
     <div class="form-group">
