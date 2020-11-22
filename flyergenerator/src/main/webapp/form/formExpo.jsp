@@ -113,5 +113,5 @@
           </table>
     </div>
 
-    <button id="button-form" type="submit" class="btn btn-primary">Submit</button>
+    <button id="button-form" type="submit" class="btn btn-primary">Créer</button>
 </form>

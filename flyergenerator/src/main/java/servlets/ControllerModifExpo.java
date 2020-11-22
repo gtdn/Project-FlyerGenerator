@@ -54,7 +54,7 @@ public class ControllerModifExpo extends HttpServlet {
         request.setAttribute("numeroContact", expo.getContacts().getNumero());
         request.setAttribute("mail", expo.getContacts().getMail());
         request.setAttribute("horaireDeb", expo.getHeureDebut());
-        request.setAttribute("horaireDeb", expo.getHeureFin());
+        request.setAttribute("horaireFin", expo.getHeureFin());
         request.setAttribute("theme", expo.getTheme());
         RequestDispatcher dispatcher =
         request.getRequestDispatcher("interface.jsp?contenu=expo");

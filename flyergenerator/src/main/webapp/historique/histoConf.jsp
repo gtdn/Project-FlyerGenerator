@@ -71,47 +71,46 @@
                         </thead>
                         <tbody>
                             <c:forEach items="${requestScope.conferences}" var="conference">
-                                <tr>
-                                    <td scope="row">
-                                        <form method="post" action="ModifConference">
-                                        <p>
+                                <form method="post" action="ModifConference">
+                                    <tr>
+                                        <td scope="row">
                                             <input type="hidden" name="id" value="${ conference.getId() }" />
                                             <button type="submit" class="btn btn-primary">Modifier</button>
-                                        </p>
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ conference.getNom() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ conference.getLieu() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ conference.getVille() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ conference.getPrix() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ conference.getHeureDebut() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ conference.getDateDebut() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${String.join(\", \",conference.getListeIntervenants())}" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ conference.getResume()}" />
-                                    <td scope="row">
-                                        <c:out value="${ conference.getContacts().getNom()}" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ conference.getContacts().getNumero()}" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ conference.getContacts().getMail()}" />
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ conference.getNom() }" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ conference.getLieu() }" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ conference.getVille() }" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ conference.getPrix() }" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ conference.getHeureDebut() }" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ conference.getDateDebut() }" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${String.join(\", \",conference.getListeIntervenants())}" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ conference.getResume()}" />
+                                        <td scope="row">
+                                            <c:out value="${ conference.getContacts().getNom()}" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ conference.getContacts().getNumero()}" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ conference.getContacts().getMail()}" />
+                                        </td>
+                                    </tr>
+                                </form>
                             </c:forEach>
                         </tbody>
                     </table> 
