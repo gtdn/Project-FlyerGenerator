@@ -91,10 +91,10 @@
                                             <c:out value="${ exposition.getPrix() }" />
                                         </td>
                                         <td scope="row">
-                                            <c:out value="${ exposition.getHeureDebut().toString.substring(0,5) }" />
+                                            <c:out value="${ exposition.getHeureDebut() }" />
                                         </td>
                                         <td scope="row">
-                                            <c:out value="${ exposition.getHeureFin().toString.substring(0,5) }" />
+                                            <c:out value="${ exposition.getHeureFin() }" />
                                         </td>
                                         <td scope="row">
                                             <c:out value="${ exposition.getDateDebut() }" />
