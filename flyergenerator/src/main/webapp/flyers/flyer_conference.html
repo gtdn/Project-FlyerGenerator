@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Flyer Conférence</title>
+
+    <style type="text/css">
+
+        @font-face {
+            font-family: Arvo;
+            src: url("$urlApplication$/font/Arvo-Regular.ttf");
+        }
+
+        html {
+            font-family: 'Arvo', serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            max-height: 210mm;
+            max-width: 148mm;
+            color: #fff;
+        }
+
+        #flyer {
+            height: 210mm;
+            width: 148mm;
+            margin: 0;
+            padding: 0;
+            background-color: #000; 
+            background-position: center center;
+            background-repeat: no-repeat; 
+            background-size: contain; 
+            background-image: url("$urlApplication$/img/Conf/flyer_conference_background_$eventBackground$.jpg"); 
+        }
+
+        #eventOrganizer {
+            font-size: 12px;
+            position: absolute;
+            left: 5px;
+            top: 5px;
+        }
+
+        #eventYear {
+            height: 20px;
+            width: 45px;
+            position: absolute;
+            left: 472px;
+            top: 8px;
+            font-size: 30px;
+        }
+
+        #eventTitleContainer {
+            display: table;
+            overflow: hidden;
+            width: 400px;
+            height: 139px;
+            position: absolute;
+            left: 80px;
+            top: 82px;
+            font-size: 40px;
+            line-height: 38px;
+        }
+
+        #eventTitleSubcontainer {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventSpeakersContainer {
+            background-color: rgba(33, 62, 102, 0.5);
+            height: 171px;
+            width: 559px;
+            position: absolute;
+            top: 278px;
+        }
+
+        #eventSpeakersMiddleLine {
+            background-color: white;
+            height: 115px;
+            width: 2px;
+            position: absolute;
+            left: 50%;
+            top: 28px;
+        }
+        #eventSpeakersTextContainer {
+            display: table;
+            overflow: hidden;
+            width: 188px;
+            height: 100px;
+            position: absolute;
+            left: 56px;
+            top: 36px;
+            font-size: 24px;
+            line-height: 31px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        #eventSpeakersListContainer {
+            display: table;
+            overflow: hidden;
+            width: 229px;
+            height: 100px;
+            position: absolute;
+            left: 305px;
+            top: 37px;
+            font-size: 15px;
+            line-height: 31px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        #eventSpeakersTextSubcontainer {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventSpeakersListSubcontainer {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: left;
+        }
+
+        #eventInfosContainer {
+            background-color: rgba(33, 62, 102, 0.5);
+            height: 90px;
+            width: 559px;
+            position: absolute;
+            top: 480px;
+            font-size: 21px;
+            text-transform: uppercase;
+        }
+
+        #eventInfosSubcontainer1 {
+            width: 33%;
+            height: 100%;
+            display: table;
+            overflow: hidden;
+        }
+
+        #eventInfosSubcontainer2 {
+            width: 33%;
+            height: 100%;
+            position: absolute;
+            left: 33%;
+            top: 0%;
+            display: table;
+            overflow: hidden;
+        }
+
+        #eventInfosSubcontainer3 {
+            width: 33%;
+            height: 100%;
+            position: absolute;
+            left: 66%;
+            top: 0%;
+            display: table;
+            overflow: hidden;
+            line-height: 22px;
+        }
+
+        #eventInfosSubsubcontainer1 {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventInfosSubsubcontainer2 {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventInfosSubsubcontainer3 {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventInfosLocation2 {
+            font-size: 9px;
+        }
+
+        #eventInfosMiddleLine1 {
+            background-color: white;
+            height: 72px;
+            width: 2px;
+            position: absolute;
+            left: 33%;
+            top: 10px;
+        }
+
+        #eventInfosMiddleLine2 {
+            background-color: white;
+            height: 72px;
+            width: 2px;
+            position: absolute;
+            left: 66%;
+            top: 10px;
+        }
+
+        #eventDescriptionContainer {
+            display: table;
+            overflow: hidden;
+            position: absolute;
+            width: 425px;
+            height: 132px;
+            top: 582px;
+            left: 67px;
+            line-height: 22px;
+        }
+
+        #eventDescriptionSubcontainer {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventContactContainer {
+            width: 559px;
+            height: 40px;
+            position: absolute;
+            top: 747px;
+        }
+
+        #eventContactEmail {
+            width: 33%;
+            height: 100%;
+        }
+
+        #eventContactEmailLogo {
+            height: 100%;
+            position: absolute;
+            left: 5px;
+        }
+
+        #eventContactEmailLogo img {
+            height: 100%;
+        }
+
+        #eventContactEmailTextContainer {
+            display: table;
+            overflow: hidden;
+            position: absolute;
+            width: 75%;
+            height: 100%;
+            left: 9%;
+            font-size: 11px;
+        }
+
+        #eventContactEmailTextSubcontainer {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: left;
+        }
+
+        #eventContactNumber {
+            width: 33%;
+            height: 100%;
+            position: absolute;
+            left: 70%;
+            top: 0%;
+        }
+
+        #eventContactNumberLogo {
+            height: 100%;
+            position: absolute;
+            left: 5px;
+        }
+
+        #eventContactNumberLogo img {
+            height: 100%;
+        }
+
+        #eventContactNumberTextContainer {
+            display: table;
+            overflow: hidden;
+            position: absolute;
+            width: 75%;
+            height: 100%;
+            left: 26%;
+            font-size: 11px;
+        }
+
+        #eventContactNumberTextSubcontainer {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: left;
+        }
+
+    </style>
+
+  </head>
+  <body>
+
+    <div id="flyer">
+        <div id="eventOrganizer">$eventOrganizer$</div>
+        <div id="eventYear">$eventYear$</div>
+
+        <div id="eventTitleContainer">
+            <div id="eventTitleSubcontainer">
+                <div id="eventTitle">
+                    $eventTitle$
+                </div>
+            </div>
+        </div>
+
+        <div id="eventSpeakersContainer">
+            <div id="eventSpeakersTextContainer">
+                <div id="eventSpeakersTextSubcontainer">
+                    <div id="eventSpeakersText">
+                        Nos meilleurs intervenants
+                    </div>
+                </div>
+            </div>
+
+            <div id="eventSpeakersListContainer">
+                <div id="eventSpeakersListSubcontainer">
+                    <div id="eventSpeakersList">
+                        $eventSpeakers$
+                    </div>
+                </div>
+            </div>
+
+            <div id="eventSpeakersMiddleLine"></div>
+        </div>
+
+        <div id="eventInfosContainer">
+
+            <div id="eventInfosSubcontainer1">
+                <div id="eventInfosSubsubcontainer1">
+                    <div id="eventInfos1">
+                        15</br><span style="font-weight: bold;">$eventMonth$</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="eventInfosMiddleLine1"></div>
+
+            <div id="eventInfosSubcontainer2">
+                <div id="eventInfosSubsubcontainer2">
+                    <div id="eventInfos2">
+                        Commence à</br><span style="font-weight: bold;">$eventHour$</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="eventInfosMiddleLine2"></div>
+
+
+            <div id="eventInfosSubcontainer3">
+                <div id="eventInfosSubsubcontainer3">
+                    <div id="eventInfos3">
+                        Lieu</br><span><span style="font-weight: bold; font-size: 16px">$eventCity$</span></br><span id="eventInfosLocation2">$eventLocation$</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="eventDescriptionContainer">
+            <div id="eventDescriptionSubcontainer">
+                <div id="eventDescription">
+                    $eventDescription$
+                </div>
+            </div>
+        </div>
+
+        <div id="eventContactContainer">
+            <div id="eventContactEmail">
+                <div id="eventContactEmailLogo">
+                    <img src="../resources/icons/email.png">
+                </div>
+                <div id="eventContactEmailTextContainer">
+                    <div id="eventContactEmailTextSubcontainer">
+                        <div id="eventContactEmailText">
+                            $eventContactEmail$
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="eventContactName">
+                <div id="eventContactNameLogo">
+                    <img src="$urlApplication$/img/icons/contact.png">
+                </div>
+            </div>
+            <div id="eventContactNumber">
+                <div id="eventContactNumberLogo">
+                    <img src="$urlApplication$/img/icons/call.png">
+                </div>
+                <div id="eventContactNumberTextContainer">
+                    <div id="eventContactNumberTextSubcontainer">
+                        <div id="eventContactNumberText">
+                            $eventContactNumber$
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+  </body>
+</html>

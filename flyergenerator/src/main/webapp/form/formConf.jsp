@@ -65,41 +65,41 @@
     </div>
 
     <div class="form-group">
-        <label for="img">Choississez son background</label>
+        <label for="img">Choisissez son background</label>
         <table class="table">
             <tbody>
               <tr>
                 <td>
                     <div>
-                        <input type="radio" name="Conf" id="Conf_1">
-                        <label>Première image</label>
+                        <label for="Conf_1">Première image</label>
+                        <input type="radio" name="eventBackground" id="Conf_1" value="1" required>
                         <div>
-                            <img src="img/Conf/Conf_1.jpg" alt="img1" width="108" height="192">
+                            <img src="img/Conf/flyer_conference_background_1.jpg" alt="img1" width="108" height="192">
                         </div>
                     </div>
                 </td>
                 <td>
                     <div>
-                        <input type="radio" name="Conf" id="Conf_2">
-                        <label>Deuxième image</label>
+                        <label for="Conf_2">Deuxième image</label>
+                        <input type="radio" name="eventBackground" id="Conf_2" value="2">
                         <div>
-                            <img src="img/Conf/Conf_2.jpg" alt="img2" width="108" height="192">
+                            <img src="img/Conf/flyer_conference_background_2.jpg" alt="img2" width="108" height="192">
                         </div>
                     </div>
                 </td><td>
                     <div>
-                        <input type="radio" name="Conf" id="Conf_3">
-                        <label>Troisième image</label>
+                        <label for="Conf_3">Troisième image</label>
+                        <input type="radio" name="eventBackground" id="Conf_3" value="3">
                         <div>
-                            <img src="img/Conf/Conf_3.jpg" alt="img3" width="108" height="192">
+                            <img src="img/Conf/flyer_conference_background_3.jpg" alt="img3" width="108" height="192">
                         </div>
                     </div>
                 </td><td>
                     <div>
-                        <input type="radio" name="Conf" id="Conf_4">
-                        <label>Quatrième image</label>
+                        <label for="Conf_4">Quatrième image</label>
+                        <input type="radio" name="eventBackground" id="Conf_4" value="4">
                         <div>
-                            <img src="img/Conf/Conf_4.jpg" alt="img4" width="108" height="192">
+                            <img src="img/Conf/flyer_conference_background_4.jpg" alt="img4" width="108" height="192">
                         </div>
                     </div>
                 </td>
