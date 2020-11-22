@@ -94,7 +94,7 @@
                                             <c:out value="${ competition.getHeureDebut() }" />
                                         </td>
                                         <td scope="row">
-                                            <c:out value="${ competition.getDateDebut() }" />
+                                            <c:out value="${ competition.getDateDebut().toString().substring(0,5) }" />
                                         </td>
                                         <td scope="row">
                                             <c:out value="${ competition.getHashtag()}" />
