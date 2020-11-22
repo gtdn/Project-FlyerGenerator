@@ -38,11 +38,17 @@ public class ControllerModifConf extends HttpServlet {
     final HttpServletResponse response) throws ServletException, IOException {
         String idString = request.getParameter("id");
         int id = Integer.parseInt(idString);
+        System.out.print("ID----------------->");
+        System.out.print(id);
+        System.out.print("<-----------------ID");
         Conference conf = new Conference();
         ServletContext context = getServletContext();
         ConferenceDAO confdao = new ConferenceDAO(
             (EntityManager) context.getAttribute("em"));
         conf = confdao.getConferenceByIdEvent(id);
+        System.out.print("NOM----------------->");
+        System.out.print(conf.getNom());
+        System.out.print("<-----------------NOM");
         request.setAttribute("nom", conf.getNom());
         request.setAttribute("ville", conf.getVille());
         request.setAttribute("lieu", conf.getLieu());

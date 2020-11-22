@@ -78,6 +78,7 @@
                                             <input type="hidden" name="id" value="${ spectacle.getId() }" />
                                             <button type="submit" class="btn btn-primary">Modifier</button>
                                         </p>
+                                        </form>
                                     </td>
                                     <td scope="row">
                                         <c:out value="${ spectacle.getNom() }" />
@@ -98,7 +99,7 @@
                                         <c:out value="${ spectacle.getDateDebut() }" />
                                     </td>
                                    <td scope="row">
-                                        <c:out value="${spectacle.getArtistes()}" />
+                                        <c:out value="${spectacle.getListeArtistes()}" />
                                     </td>
                                     <td scope="row">
                                         <c:out value="${ spectacle.getNomAssociation()}" />

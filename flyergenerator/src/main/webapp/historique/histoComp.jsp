@@ -79,6 +79,7 @@
                                             <input type="hidden" name="id" value="${ competition.getId() }" />
                                             <button type="submit" class="btn btn-primary">Modifier</button>
                                         </p>
+                                        </form>
                                     </td>
                                     <td scope="row">
                                         <c:out value="${ competition.getNom() }" />
