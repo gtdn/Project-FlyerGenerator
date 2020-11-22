@@ -34,7 +34,7 @@ public class JPATest {
 
     @Test
     public void setupEMTest() {
-      /* EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
+       EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
         Competition compet = new Competition();
         UserDAO userdao = new UserDAO(em);
         User test = userdao.ajouterUser("pseudo", "motdepasse");
@@ -51,19 +51,9 @@ public class JPATest {
         expo.setIdutilisateur(732);
         compet.setIdutilisateur(732);
         conf.setIdutilisateur(732);
-        List<String> intervenants = new ArrayList<String>();
-        intervenants.add("Booba");
-        intervenants.add("Lacrim");
-        intervenants.add("Andy");
-        spec.setListeIntervenants(intervenants);
-        System.out.println(String.join(", ",spec.getListeIntervenants()));
         System.out.println("<--------------------");
         Contacts cont = new Contacts();
         //spec.setContacts(cont);
-        spec.setListeIntervenants(intervenants);
-        conf.setListeIntervenants(intervenants);
-        expo.setListeIntervenants(intervenants);
-        compet.setListeIntervenants(intervenants);
         spec.setContacts(cont);
         conf.setContacts(cont);
         expo.setContacts(cont);
@@ -103,15 +93,13 @@ public class JPATest {
 
 
         expositiondao.updateExposition(exp);
-        /*List<Spectacle> liste_spectacle = spectacledao.getSpectacleByIdUser(test.getID());
+        List<Spectacle> liste_spectacle = spectacledao.getSpectacleByIdUser(test.getID());
         
         //Spectacle test_2 = liste_spectacle.get(0);
         Collection<String> testintervenant = new ArrayList<String>();
-       
-        }*/
-        //em.close();
+       */
+      em.close();
+        }
 
     }
    
-
-}

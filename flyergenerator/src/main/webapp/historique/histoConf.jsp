@@ -73,7 +73,7 @@
                             <c:forEach items="${requestScope.conferences}" var="conference">
                                 <form method="post" action="ModifConference">
                                     <tr>
-                                        <td scope="row">
+                                        <td scope="row">                                    
                                             <input type="hidden" name="id" value="${ conference.getId() }" />
                                             <button type="submit" class="btn btn-primary">Modifier</button>
                                         </td>
@@ -96,7 +96,7 @@
                                             <c:out value="${ conference.getDateDebut() }" />
                                         </td>
                                         <td scope="row">
-                                            <c:out value="${String.join(\", \",conference.getListeIntervenants())}" />
+                                            <c:out value="${conference.getListeIntervenants()}" />
                                         </td>
                                         <td scope="row">
                                             <c:out value="${ conference.getResume()}" />

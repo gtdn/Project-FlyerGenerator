@@ -72,51 +72,50 @@
                         </thead>
                         <tbody>
                             <c:forEach items="${requestScope.expositions}" var="exposition">
-                                <tr>
-                                    <td scope="row">
-                                        <form method="post" action="ModifExposition">
-                                        <p>
+                                <form method="post" action="ModifExposition">
+                                    <tr>
+                                        <td scope="row">
                                             <input type="hidden" name="id" value="${ exposition.getId() }" />
                                             <button type="submit" class="btn btn-primary">Modifier</button>
-                                        </p>
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ exposition.getNom() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ exposition.getLieu() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ exposition.getVille() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ exposition.getPrix() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ exposition.getHeureDebut() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ exposition.getHeureFin() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ exposition.getDateDebut() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ exposition.getDateFin() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ exposition.getTheme() }" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ exposition.getContacts().getNom()}" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ exposition.getContacts().getNumero()}" />
-                                    </td>
-                                    <td scope="row">
-                                        <c:out value="${ exposition.getContacts().getMail()}" />
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ exposition.getNom() }" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ exposition.getLieu() }" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ exposition.getVille() }" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ exposition.getPrix() }" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ exposition.getHeureDebut() }" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ exposition.getHeureFin() }" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ exposition.getDateDebut() }" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ exposition.getDateFin() }" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ exposition.getTheme() }" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ exposition.getContacts().getNom()}" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ exposition.getContacts().getNumero()}" />
+                                        </td>
+                                        <td scope="row">
+                                            <c:out value="${ exposition.getContacts().getMail()}" />
+                                        </td>
+                                    </tr>
+                                </form>
                             </c:forEach>
                         </tbody>
                     </table> 

@@ -362,20 +362,27 @@ public class FormEvent extends HttpServlet {
      */
     public void fillEvent(final Event e, final HttpSession session,
         final HttpServletRequest request) {
-
         String eventTitle = request.getParameter("eventTitle");
         String eventCity = request.getParameter("eventCity");
+        System.out.print("LA     9A    VA");
         String eventLocation = request.getParameter("eventLocation");
+        System.out.print("LA     2A    VA");
         String eventPrice = request.getParameter("eventPrice");
+        System.out.print("LA     3A    VA");
         String eventHourBeg = request.getParameter("eventHourBeg") + ":00";
+        System.out.print("LA     4A    VA");
         String eventDateBeg = request.getParameter("eventDateBeg");
         // PersonneList missing yet
+        System.out.print("LA     5A    VA");
         String eventContactName = request.getParameter(
             "eventOrganizer");
+            System.out.print("LA     6A    VA");
         String eventContactNumber = request.getParameter("eventContactNumber");
+        System.out.print("LA     7A    VA");
         String eventContactEmail = request.getParameter("eventContactEmail");
 
         e.setIdutilisateur(((User) session.getAttribute("user")).getID());
+        System.out.print("LA     4A    VA");
         e.setNom(eventTitle);
         e.setVille(eventCity);
         e.setLieu(eventLocation);
@@ -459,6 +466,7 @@ public class FormEvent extends HttpServlet {
 
         /* add specifics data */
         conf.setResume(request.getParameter("eventDescription"));
+        conf.setListeIntervenants(request.getParameter("eventSpeaker1"));
 
         /* Save the complete competition data into our DataBase */
         ConferenceDAO confDAO = new ConferenceDAO(em);
@@ -477,6 +485,7 @@ public class FormEvent extends HttpServlet {
         spec.copieEvent(e);
 
         /* add specifics data */
+        spec.setListeArtistes(request.getParameter("eventSpeaker1"));
         spec.setNomAssociation(request.getParameter("eventAsso"));
 
         /* Save the complete competition data into our DataBase */

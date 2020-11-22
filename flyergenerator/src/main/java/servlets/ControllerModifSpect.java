@@ -45,6 +45,7 @@ public class ControllerModifSpect extends HttpServlet {
         request.setAttribute("lieu", spect.getLieu());
         request.setAttribute("prix", spect.getPrix());
         request.setAttribute("date", spect.getDateDebut());
+        request.setAttribute("artistes", spect.getListeArtistes());
         request.setAttribute("horaire", spect.getHeureDebut());
         request.setAttribute("nom_asso", spect.getNomAssociation());
         request.setAttribute("nom_orga", spect.getContacts().getNom());

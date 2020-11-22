@@ -63,6 +63,7 @@ public class Spectacle extends Event {
     public Spectacle() {
         super();
         this.nomAssociation = "association_de_base";
+        this.listeArtistes = "";
     }
 
     /**
@@ -70,6 +71,26 @@ public class Spectacle extends Event {
      */
     @Column(name = "nom_asso")
     private String nomAssociation;
+    /**
+     * liste des intervenants de l'evenenement.
+     */
+    @Column(name = "Artistes")
+    private String listeArtistes;
+
+    /**
+     * @return listeArtistes.
+     */
+    public final String getListeArtistes() {
+        return this.listeArtistes;
+    }
+
+    /**
+     * @param newlisteArtistes nouvelle liste d'intervenants.
+     */
+    public final void setListeArtistes(
+        final String newlisteArtistes) {
+        this.listeArtistes = newlisteArtistes;
+    }
 
     /**
      * @return nom de l'association organisatrice.
