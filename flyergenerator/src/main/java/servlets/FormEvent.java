@@ -190,7 +190,6 @@ public class FormEvent extends HttpServlet {
         htmlString = htmlString.replace("$eventBackground$",
             eventBackground);
 
-        System.out.println(htmlString);
         byte[] pdfData = getPdf(htmlString);
         FileUtils.writeByteArrayToFile(new File(
             current + "/../webapps/flyergenerator/pdf/output.pdf"),
@@ -268,6 +267,8 @@ public class FormEvent extends HttpServlet {
         htmlString = htmlString.replace("$eventHashtag$", eventHashtag);
         htmlString = htmlString.replace("$eventDescription$", eventDescription);
         htmlString = htmlString.replace("$eventOrganizer$", eventOrganizer);
+
+        System.out.println(htmlString);
 
         byte[] pdfData = getPdf(htmlString);
         FileUtils.writeByteArrayToFile(new File(
