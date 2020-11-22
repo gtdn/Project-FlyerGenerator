@@ -41,7 +41,7 @@
     </div>
 
     <div class="form-group">
-        <label for="eventSpeaker1">Intervenant 1(JS à faire pour ajouter des intervenants avec un bouton "+", 5 max)</label>
+        <label for="eventSpeaker1">Intervenants (Séparer les intervanants avec des virgules, 3 max)</label>
         <input type="text" name="eventSpeaker1" value="${intervenants}" placeholder="Greta Thunberg" class="form-control" id="eventSpeaker1" required>
     </div>
 

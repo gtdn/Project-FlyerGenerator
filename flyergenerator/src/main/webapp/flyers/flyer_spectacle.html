@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Flyer Spectacle</title>
+
+
+    <style type="text/css">
+
+        @font-face {
+            font-family: Lobster Two;
+            src: url("$urlApplication$/font/LobsterTwo-Regular.ttf");
+        }
+
+        html {
+            font-family: 'Lobster Two', cursive;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            max-height: 210mm;
+            max-width: 148mm;
+            color: #fff;
+        }
+
+        #flyer {
+            height: 210mm;
+            width: 148mm;
+            margin: 0;
+            padding: 0;
+            background-color: #000; 
+            background-position: center center;
+            background-repeat: no-repeat; 
+            background-size: contain; 
+            background-image: url("$urlApplication$/img/Spectacle/flyer_spectacle_background_$eventBackground$.jpg"); 
+        }
+
+        #eventAssoContainer {
+            position: absolute;
+            display: table;
+            overflow: hidden;
+            width: 127px;
+            height: 28px;
+        }
+
+        #eventAsso {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventOrganizerContainer {
+            position: absolute;
+            display: table;
+            overflow: hidden;
+            width: 187px;
+            height: 46px;
+            left: 186px;
+            top: 117px;
+        }
+
+        #eventOrganizer {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventTitleContainer {
+            position: absolute;
+            display: table;
+            overflow: hidden;
+            height: 124px;
+            width: 231px;
+            top: 166px;
+            left: 164px;
+            font-size: 40px;
+            line-height: 34px;
+            font-weight: bold;
+        }
+
+        #eventTitle {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventDateContainer {
+            position: absolute;
+            display: table;
+            overflow: hidden;
+            width: 170px;
+            height: 38px;
+            font-size: 20px;
+            left: 194px;
+            top: 302px;
+        }
+
+        #eventDate {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventHourContainer {
+            position: absolute;
+            display: table;
+            overflow: hidden;
+            width: 85px;
+            height: 25px;
+            font-size: 20px;
+            left: 237px;
+            top: 344px;
+        }
+
+        #eventHour {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #horizontalBar1 {
+            position: absolute;
+            height: 1px;
+            width: 151px;
+            background-color: #fff;
+            top: 306px;
+            left: 204px;
+        }
+
+        #horizontalBar2 {
+            position: absolute;
+            height: 1px;
+            width: 151px;
+            background-color: #fff;
+            top: 336px;
+            left: 204px;
+        }
+
+        #horizontalBar3 {
+            position: absolute;
+            height: 1px;
+            width: 215px;
+            background-color: #fff;
+            top: 686px;
+            left: 172px;
+        }
+
+        #horizontalBar4 {
+            position: absolute;
+            height: 1px;
+            width: 215px;
+            background-color: #fff;
+            top: 714px;
+            left: 172px;
+        }
+
+        #eventFeaturingContainer {
+            position: absolute;
+            display: table;
+            overflow: hidden;
+            background-color: #d0d07f;
+            color: #000;
+            width: 74px;
+            left: 242px;
+            top: 602px;
+        }
+
+        #eventFeaturing {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventArtistsContainer {
+            position: absolute;
+            display: table;
+            overflow: hidden;
+            width: 559px;
+            height: 30px;
+            top: 629px;
+            font-size: 22px;
+        }
+
+        #eventArtists {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventPriceContainer {
+            position: absolute;
+            display: table;
+            overflow: hidden;
+            width: 257px;
+            height: 27px;
+            font-size: 18px;
+            left: 151px;
+            top: 687px;
+        }
+
+        #eventPrice {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventLocationContactContainer {
+            position: absolute;
+            width: 559px;
+            height: 55px;
+            top: 726px;
+        }
+
+        #eventLocationContainer {
+            width: 100%;
+            height: 50%;
+            display: table;
+            overflow: hidden;
+            font-size: 20px;
+        }
+
+        #eventLocation {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #eventContactContainer {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            height: 50%;
+            display: table;
+            overflow: hidden;
+            font-size: 16px;
+        }
+
+        #eventContact {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+    </style>
+
+  </head>
+  <body>
+
+    <div id="flyer">
+        <div id="eventAssoContainer">
+            <div id="eventAsso">
+                $eventAsso$
+            </div>
+        </div>
+        <div id="eventOrganizerContainer">
+            <div id="eventOrganizer">
+                $eventOrganizer$</br>présente
+            </div>
+        </div>
+        <div id="eventTitleContainer">
+            <div id="eventTitle">
+                $eventTitle$
+            </div>
+        </div>
+        <div id="horizontalBar1"></div>
+        <div id="eventDateContainer">
+            <div id="eventDate">
+                $eventDay$ $eventMonth$ $eventYear$
+            </div>
+        </div>
+        <div id="eventHourContainer">
+            <div id="eventHour">21H00</div>
+        </div>
+        <div id="horizontalBar2"></div>
+        <div id="eventFeaturingContainer">
+            <div id="eventFeaturing">
+                Featuring
+            </div>
+        </div>
+        <div id="eventArtistsContainer">
+            <div id="eventArtists">
+                $eventArtists$
+            </div>
+        </div>
+        <div id="horizontalBar3"></div>
+        <div id="eventPriceContainer">
+            <div id="eventPrice">
+                Prix d'entrée sur place : $eventPrice$
+            </div>
+        </div>
+        <div id="horizontalBar4"></div>
+        <div id="eventLocationContactContainer">
+            <div id="eventLocationContainer">
+                <div id="eventLocation">
+                    $eventLocation$, $eventCity$
+                </div>
+            </div>
+            <div id="eventContactContainer">
+                <div id="eventContact">
+                    $eventContactEmail$ / $eventContactNumber$
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+</html>

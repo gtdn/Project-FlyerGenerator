@@ -220,6 +220,23 @@
             text-align: center;
         }
 
+        #eventPriceContainer {
+            display: table;
+            overflow: hidden;
+            position: absolute;
+            width: 160px;
+            height: 22px;
+            top: 716px;
+            left: 200px;
+            font-size: 13px;
+        }
+
+        #eventPrice {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
         #eventContactContainer {
             width: 559px;
             height: 40px;
@@ -370,10 +387,14 @@
             </div>
         </div>
 
+        <div id="eventPriceContainer">
+            <div id="eventPrice">Prix d'entrée : $eventPrice$</div>
+        </div>
+
         <div id="eventContactContainer">
             <div id="eventContactEmail">
                 <div id="eventContactEmailLogo">
-                    <img src="../resources/icons/email.png">
+                    <img src="$urlApplication$/img/icons/email.png">
                 </div>
                 <div id="eventContactEmailTextContainer">
                     <div id="eventContactEmailTextSubcontainer">
@@ -381,11 +402,6 @@
                             $eventContactEmail$
                         </div>
                     </div>
-                </div>
-            </div>
-            <div id="eventContactName">
-                <div id="eventContactNameLogo">
-                    <img src="$urlApplication$/img/icons/contact.png">
                 </div>
             </div>
             <div id="eventContactNumber">

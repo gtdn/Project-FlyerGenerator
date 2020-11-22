@@ -86,9 +86,11 @@ public class FormEvent extends HttpServlet {
             generateExpositionFlyer(session, request);
         } else if (eventType.equals("competition")) {
             generateCompetitionFlyer(session, request);
-        } /*else if (eventType.equals("conference")) {
+        } else if (eventType.equals("conference")) {
             generateConferenceFlyer(session, request);
-        }*/
+        } else if (eventType.equals("spectacle")) {
+            generateSpectacleFlyer(session, request);
+        }
 
 
 
@@ -307,25 +309,28 @@ public class FormEvent extends HttpServlet {
         String eventContactNumber = request.getParameter("eventContactNumber");
         String eventContactEmail = request.getParameter("eventContactEmail");
         String eventBackground = request.getParameter("eventBackground");
-        String eventHashtag = request.getParameter("eventHashtag");
         String eventDescription = request.getParameter("eventDescription");
+        String eventSpeakers = request.getParameter("eventSpeaker1");
 
         // Formating the hour to have the format we want
-        eventHour = eventHour.replace(":", "h");
+        eventHour = eventHour.replace(":", "H");
 
         eventPrice += " €";
-
-        eventHashtag = "#" + eventHashtag;
 
         String[] eventDateSplitted = eventDate.split("-");
         eventDate = eventDateSplitted[2];
         String eventYear = eventDateSplitted[0];
-        String[] months = {"None", "Jan", "Fév", "Mars", "Avr",
-        "Mai", "Juin", "Juil", "Août", "Sept", "Oct",
-        "Nov", "Déc"};
+        String[] months = {"None", "Janvier", "Février", "Mars", "Avril",
+        "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre",
+        "Novembre", "Décembre"};
         String eventMonth = months[(Integer.parseInt(
             eventDateSplitted[1]))];
         String eventDay = eventDateSplitted[1];
+
+        eventSpeakers = eventSpeakers.replace(" , ", ",");
+        eventSpeakers = eventSpeakers.replace(" ,", ",");
+        eventSpeakers = eventSpeakers.replace(", ", ",");
+        eventSpeakers = eventSpeakers.replace(",", "</br>");
 
         htmlString = htmlString.replace("$eventTitle$", eventTitle);
         htmlString = htmlString.replace("$urlApplication$", urlApplication);
@@ -344,9 +349,88 @@ public class FormEvent extends HttpServlet {
         htmlString = htmlString.replace("$eventBackground$",
             eventBackground);
         htmlString = htmlString.replace("$eventDay$", eventDay);
-        htmlString = htmlString.replace("$eventHashtag$", eventHashtag);
         htmlString = htmlString.replace("$eventDescription$", eventDescription);
         htmlString = htmlString.replace("$eventOrganizer$", eventOrganizer);
+        htmlString = htmlString.replace("$eventSpeakers$", eventSpeakers);
+
+        byte[] pdfData = getPdf(htmlString);
+        FileUtils.writeByteArrayToFile(new File(
+            current + "/../webapps/flyergenerator/pdf/output.pdf"),
+            pdfData);
+    }
+
+    /**
+     *
+     * @param session session
+     * @param request request
+     * @throws ServletException
+     * @throws IOException
+     */
+    public void generateSpectacleFlyer(final HttpSession session,
+    final HttpServletRequest request) throws ServletException, IOException {
+        String current = new java.io.File(".").getCanonicalPath();
+        String htmlString = new String(Files.readAllBytes(Paths.get(
+            current
+            + "/../webapps/flyergenerator/flyers/flyer_spectacle.html")),
+        StandardCharsets.UTF_8);
+
+        String urlApplication = request.getRequestURL().toString();
+        urlApplication = urlApplication.replace("/formEvent", "");
+
+        String eventTitle = request.getParameter("eventTitle");
+        String eventCity = request.getParameter("eventCity");
+        String eventLocation = request.getParameter("eventLocation");
+        String eventPrice = request.getParameter("eventPrice");
+        String eventHour = request.getParameter("eventHourBeg");
+        String eventDate = request.getParameter("eventDateBeg");
+        String eventOrganizer = request.getParameter(
+            "eventOrganizer");
+        String eventAsso = request.getParameter("eventAsso");
+        String eventContactNumber = request.getParameter("eventContactNumber");
+        String eventContactEmail = request.getParameter("eventContactEmail");
+        String eventBackground = request.getParameter("eventBackground");
+        String eventArtists = request.getParameter("eventSpeaker1");
+
+        // Formating the hour to have the format we want
+        eventHour = eventHour.replace(":", "h");
+
+        eventPrice += " €";
+
+        String[] eventDateSplitted = eventDate.split("-");
+        eventDate = eventDateSplitted[2];
+        String eventYear = eventDateSplitted[0];
+        String[] months = {"None", "Janvier", "Février", "Mars", "Avril",
+        "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre",
+        "Novembre", "Décembre"};
+        String eventMonth = months[(Integer.parseInt(
+            eventDateSplitted[1]))];
+        String eventDay = eventDateSplitted[1];
+
+        eventArtists = eventArtists.replace(" , ", ",");
+        eventArtists = eventArtists.replace(" ,", ",");
+        eventArtists = eventArtists.replace(", ", ",");
+        eventArtists = eventArtists.replace(",", " // ");
+
+        htmlString = htmlString.replace("$eventTitle$", eventTitle);
+        htmlString = htmlString.replace("$urlApplication$", urlApplication);
+        htmlString = htmlString.replace("$eventCity$", eventCity);
+        htmlString = htmlString.replace("$eventLocation$", eventLocation);
+        htmlString = htmlString.replace("$eventPrice$", eventPrice);
+        htmlString = htmlString.replace("$eventYear$", eventYear);
+        htmlString = htmlString.replace("$eventMonth$", eventMonth);
+        htmlString = htmlString.replace("$eventContactName$",
+            eventOrganizer);
+        htmlString = htmlString.replace("$eventContactNumber$",
+            eventContactNumber);
+        htmlString = htmlString.replace("$eventContactEmail$",
+            eventContactEmail);
+        htmlString = htmlString.replace("$eventHour$", eventHour);
+        htmlString = htmlString.replace("$eventBackground$",
+            eventBackground);
+        htmlString = htmlString.replace("$eventDay$", eventDay);
+        htmlString = htmlString.replace("$eventOrganizer$", eventOrganizer);
+        htmlString = htmlString.replace("$eventArtists$", eventArtists);
+        htmlString = htmlString.replace("$eventAsso$", eventAsso);
 
         byte[] pdfData = getPdf(htmlString);
         FileUtils.writeByteArrayToFile(new File(

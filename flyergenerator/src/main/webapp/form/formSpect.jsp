@@ -46,7 +46,7 @@
     </div>
 
     <div class="form-group">
-        <label for="eventSpeaker1">Intervenant 1(JS à faire pour ajouter des intervenants avec un bouton "+", 5 max)</label>
+        <label for="eventSpeaker1">Artistes (Séparer les intervanants avec des virgules, 3 max)</label>
         <input type="text" name="eventSpeaker1" value="${artistes}" placeholder="Slim Shady" class="form-control" id="eventSpeaker1" required>
     </div>
 
@@ -66,41 +66,41 @@
 
 
     <div class="form-group">
-        <label for="img">Choississez son background</label>
+        <label for="img">Choisissez son background</label>
         <table class="table">
             <tbody>
               <tr>
                 <td>
                     <div>
-                        <input type="radio" name="Spectacle" id="Spec_1">
-                        <label>Première image</label>
+                        <label for="Spec_1">Première image</label>
+                        <input type="radio" name="eventBackground" id="Spec_1" value="1" required>
                         <div>
-                            <img src="img/Spectacle/Spec_1.jpg" alt="img1" width="108" height="192">
+                            <img src="img/Spectacle/flyer_spectacle_background_1.jpg" alt="img1" width="108" height="192">
                         </div>
                     </div>
                 </td>
                 <td>
                     <div>
-                        <input type="radio" name="Spectacle" id="Spec_2">
-                        <label>Deuxième image</label>
+                        <label for="Spec_2">Deuxième image</label>
+                        <input type="radio" name="eventBackground" id="Spec_2" value="2">
                         <div>
-                            <img src="img/Spectacle/Spec_2.jpg" alt="img2" width="108" height="192">
+                            <img src="img/Spectacle/flyer_spectacle_background_2.jpg" alt="img2" width="108" height="192">
                         </div>
                     </div>
                 </td><td>
                     <div>
-                        <input type="radio" name="Spectacle" id="Spec_3">
-                        <label>Troisième image</label>
+                        <label for="Spec_3">Troisième image</label>
+                        <input type="radio" name="eventBackground" id="Spec_3" value="3">
                         <div>
-                            <img src="img/Spectacle/Spec_3.jpg" alt="img3" width="108" height="192">
+                            <img src="img/Spectacle/flyer_spectacle_background_3.jpg" alt="img3" width="108" height="192">
                         </div>
                     </div>
                 </td><td>
                     <div>
-                        <input type="radio" name="Spectacle" id="Spec_4">
-                        <label>Quatrième image</label>
+                        <label for="Spec_4">Quatrième image</label>
+                        <input type="radio" name="eventBackground" id="Spec_4" value="4">
                         <div>
-                            <img src="img/Spectacle/Spec_4.jpg" alt="img4" width="108" height="192">
+                            <img src="img/Spectacle/flyer_spectacle_background_4.jpg" alt="img4" width="108" height="192">
                         </div>
                     </div>
                 </td>
