@@ -49,6 +49,10 @@ public class FormEvent extends HttpServlet {
     */
     private static final int NOMBRECHARACTEMPS = 8;
     /**
+     * Constante pdf time.
+     */
+    private static final int NUMBERPDFTIME = 8;
+    /**
      * doPost method.
      * @param request request
      * @param response response
@@ -154,8 +158,10 @@ public class FormEvent extends HttpServlet {
         String eventCity = request.getParameter("eventCity");
         String eventLocation = request.getParameter("eventLocation");
         String eventPrice = request.getParameter("eventPrice");
-        String eventHourBeg = request.getParameter("eventHourBeg").substring(0,5);
-        String eventHourEnd = request.getParameter("eventHourEnd").substring(0,5);
+        String eventHourBeg = request.
+            getParameter("eventHourBeg").substring(0, NUMBERPDFTIME);
+        String eventHourEnd = request.getParameter("eventHourEnd").
+            substring(0, NUMBERPDFTIME);
         String eventDateBeg = request.getParameter("eventDateBeg");
         String eventDateEnd = request.getParameter("eventDateEnd");
         String eventOrganizer = request.getParameter(
@@ -229,7 +235,8 @@ public class FormEvent extends HttpServlet {
         String eventCity = request.getParameter("eventCity");
         String eventLocation = request.getParameter("eventLocation");
         String eventPrice = request.getParameter("eventPrice");
-        String eventHour = request.getParameter("eventHourBeg").substring(0,5);
+        String eventHour = request.
+            getParameter("eventHourBeg").substring(0, NUMBERPDFTIME);
         String eventDate = request.getParameter("eventDateBeg");
         String eventOrganizer = request.getParameter(
             "eventOrganizer");
@@ -307,7 +314,8 @@ public class FormEvent extends HttpServlet {
         String eventCity = request.getParameter("eventCity");
         String eventLocation = request.getParameter("eventLocation");
         String eventPrice = request.getParameter("eventPrice");
-        String eventHour = request.getParameter("eventHourBeg").substring(0,5);
+        String eventHour = request.
+            getParameter("eventHourBeg").substring(0, NUMBERPDFTIME);
         String eventDate = request.getParameter("eventDateBeg");
         String eventOrganizer = request.getParameter(
             "eventOrganizer");
@@ -386,7 +394,8 @@ public class FormEvent extends HttpServlet {
         String eventCity = request.getParameter("eventCity");
         String eventLocation = request.getParameter("eventLocation");
         String eventPrice = request.getParameter("eventPrice");
-        String eventHour = request.getParameter("eventHourBeg").substring(0,5);
+        String eventHour = request.
+            getParameter("eventHourBeg").substring(0, NUMBERPDFTIME);
         String eventDate = request.getParameter("eventDateBeg");
         String eventOrganizer = request.getParameter(
             "eventOrganizer");
