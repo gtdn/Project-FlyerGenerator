@@ -59,16 +59,12 @@ public class CompetitionDAO {
      * @param conf Competition donné en parametre
      */
     public final void updateCompetition(final Competition conf) {
-        System.out.print("COMPARAISON Competition");
         TypedQuery<Competition> q = em.createQuery("SELECT conf"
         + " FROM competition conf WHERE conf.idEvent"
         + " = ?1", Competition.class);
         q.setParameter(1, conf.getId());
         List<Competition> results = q.getResultList();
         if (results.size() > 0) {
-            System.out.print("COMPARAISON Competition");
-            System.out.print(results.iterator().next().equals(conf));
-            System.out.print("COMPARAISON Competition");
             if (results.iterator().next().equals(conf)) {
                 em.getTransaction().begin();
                  //em.remove(results.iterator().next());

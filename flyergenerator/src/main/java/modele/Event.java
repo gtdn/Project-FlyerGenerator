@@ -36,6 +36,7 @@ public class Event {
         this.prix = 0;
         this.heureDebut = new Time(0);
         this.dateDebut = new Date(0);
+        this.contacts = new Contacts();
 
     }
     /*

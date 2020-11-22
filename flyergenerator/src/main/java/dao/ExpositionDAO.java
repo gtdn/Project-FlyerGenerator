@@ -64,12 +64,8 @@ public class ExpositionDAO {
         q.setParameter(1, exp.getId());
         List<Exposition> results = q.getResultList();
         if (results.size() > 0) {
-            System.out.print("COMPARAISON Exposition");
-            System.out.print(results.iterator().next().equals(exp));
-            System.out.print("COMPARAISON Exposition");
             if (results.iterator().next().equals(exp)) {
                 em.getTransaction().begin();
-                 //em.remove(results.iterator().next());
                  em.persist(exp);
                  em.getTransaction().commit();
             } else {

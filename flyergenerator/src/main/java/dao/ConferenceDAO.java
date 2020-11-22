@@ -59,19 +59,14 @@ public class ConferenceDAO {
      * @param spec Conference donné en parametre
      */
     public final void updateConference(final Conference spec) {
-        System.out.print("COMPARAISON CONFERENCE");
         TypedQuery<Conference> q = em.createQuery("SELECT spec"
         + " FROM conference spec WHERE spec.idEvent"
         + " = ?1", Conference.class);
         q.setParameter(1, spec.getId());
         List<Conference> results = q.getResultList();
         if (results.size() > 0) {
-            System.out.print("COMPARAISON Conference");
-            System.out.print(results.iterator().next().equals(spec));
-            System.out.print("COMPARAISON Conference");
             if (results.iterator().next().equals(spec)) {
                 em.getTransaction().begin();
-                 //em.remove(results.iterator().next());
                  em.persist(spec);
                  em.getTransaction().commit();
             } else {

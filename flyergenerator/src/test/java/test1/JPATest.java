@@ -7,6 +7,7 @@ import dao.ExpositionDAO;
 import dao.SpectacleDAO;
 import dao.CompetitionDAO;
 import dao.UserDAO;
+import jdk.jfr.Timestamp;
 import modele.Competition;
 import modele.User;
 import modele.Event;
@@ -35,71 +36,37 @@ public class JPATest {
     @Test
     public void setupEMTest() {
        EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
-        Competition compet = new Competition();
-        UserDAO userdao = new UserDAO(em);
-        User test = userdao.ajouterUser("pseudo", "motdepasse");
-        SpectacleDAO spectacledao = new SpectacleDAO(em);
+       em.close();
+        }
+    @Test 
+    public void ConnexionUser() {
+      EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
+      UserDAO userdao = new UserDAO(em);
+      User test = userdao.ajouterUser("pseudo", "motdepasse");
+      em.close();
+      assert(test != null);
+    }
+    @Test 
+    public void CreationEvenements() {
+      EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
+      SpectacleDAO spectacledao = new SpectacleDAO(em);
         ConferenceDAO conferencedao = new ConferenceDAO(em);
         CompetitionDAO competitiondao = new CompetitionDAO(em);
         ExpositionDAO expodao = new ExpositionDAO(em);
-        //List<Conference> liste_spectacle = conferencedao.getConferenceByIdUser(732);
-        //Conference spec = liste_spectacle.get(0);
+        Competition compet = new Competition();
         Spectacle spec = new Spectacle();
         Exposition expo = new Exposition();
         Conference conf = new Conference();
-        spec.setIdutilisateur(732);
-        expo.setIdutilisateur(732);
-        compet.setIdutilisateur(732);
-        conf.setIdutilisateur(732);
-        System.out.println("<--------------------");
-        Contacts cont = new Contacts();
-        //spec.setContacts(cont);
-        spec.setContacts(cont);
-        conf.setContacts(cont);
-        expo.setContacts(cont);
-        compet.setContacts(cont);
+        spec.setIdutilisateur(27); // Identifiant de l'utilisateur "pseudo"
+        expo.setIdutilisateur(27);
+        compet.setIdutilisateur(27);
+        conf.setIdutilisateur(27);
         spectacledao.updateSpectacle(spec);
         conferencedao.updateConference(conf);
         competitiondao.updateCompetition(compet);
         expodao.updateExposition(expo);
-        /*ConferenceDAO conferencedao = new ConferenceDAO(em);
-        ExpositionDAO expositiondao = new ExpositionDAO(em);
-        CompetitionDAO competDAO = new CompetitionDAO(em);
-        Event event = new Event();
-        event.setIdutilisateur(732);
-        Spectacle spec = new Spectacle();
-        Exposition exp = new Exposition();
-        Conference conf = new Conference();
-        Competition comp = new Competition();
-        List<String> intervenants = new ArrayList<String>();
-        intervenants.add("Booba");
-        intervenants.add("Lacrim");
-        intervenants.add("Andy");
-        spec.copieEvent(event);
-        conf.copieEvent(event);
-        exp.copieEvent(event);
-        comp.copieEvent(event);
-        spec.setListeIntervenants(intervenants);
-        conf.setListeIntervenants(intervenants);
-        exp.setListeIntervenants(intervenants);
-        comp.setListeIntervenants(intervenants);
-        spectacledao.updateSpectacle(spec);
-        conferencedao.updateConference(conf);
-        competDAO.updateCompetition(compet);
-        expodao.updateConference(expo);
-        List<Competition> liste_competition = competDAO.getCompetitionByIdUser(732);
-        System.out.println(liste_competition.size());
-        System.out.println("<--------------------");
-
-
-        expositiondao.updateExposition(exp);
-        List<Spectacle> liste_spectacle = spectacledao.getSpectacleByIdUser(test.getID());
-        
-        //Spectacle test_2 = liste_spectacle.get(0);
-        Collection<String> testintervenant = new ArrayList<String>();
-       */
-      em.close();
-        }
+        em.close();
+    }
 
     }
    
