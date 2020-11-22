@@ -45,6 +45,10 @@ public class FormEvent extends HttpServlet {
     */
     private EntityManager em;
     /**
+     * Sert à concaténer la valeure de l'heure.
+    */
+    private static final int NOMBRECHARACTEMPS = 8;
+    /**
      * doPost method.
      * @param request request
      * @param response response
@@ -70,7 +74,8 @@ public class FormEvent extends HttpServlet {
         String eventCity = request.getParameter("eventCity");
         String eventLocation = request.getParameter("eventLocation");
         String eventPrice = request.getParameter("eventPrice");
-        String eventHourBeg = request.getParameter("eventHourBeg") + ":00";
+        String eventHourBegtest = request.getParameter("eventHourBeg") + ":00";
+        String eventHourBeg = eventHourBegtest.substring(0, NOMBRECHARACTEMPS);
         String eventDateBeg = request.getParameter("eventDateBeg");
         // PersonneList missing yet
         String eventOrganizer = request.getParameter(
@@ -448,21 +453,17 @@ public class FormEvent extends HttpServlet {
         final HttpServletRequest request) {
         String eventTitle = request.getParameter("eventTitle");
         String eventCity = request.getParameter("eventCity");
-        System.out.print("LA     9A    VA");
         String eventLocation = request.getParameter("eventLocation");
-        System.out.print("LA     2A    VA");
         String eventPrice = request.getParameter("eventPrice");
-        System.out.print("LA     3A    VA");
-        String eventHourBeg = request.getParameter("eventHourBeg") + ":00";
-        System.out.print("LA     4A    VA");
+        System.out.print("TAILLE HEURE --------->");
+        String eventHourBegtest = request.getParameter("eventHourBeg") + ":00";
+        String eventHourBeg = eventHourBegtest.substring(0, NOMBRECHARACTEMPS);
+        System.out.print(eventHourBeg.length());
         String eventDateBeg = request.getParameter("eventDateBeg");
         // PersonneList missing yet
-        System.out.print("LA     5A    VA");
         String eventContactName = request.getParameter(
             "eventOrganizer");
-            System.out.print("LA     6A    VA");
         String eventContactNumber = request.getParameter("eventContactNumber");
-        System.out.print("LA     7A    VA");
         String eventContactEmail = request.getParameter("eventContactEmail");
 
         e.setIdutilisateur(((User) session.getAttribute("user")).getID());
