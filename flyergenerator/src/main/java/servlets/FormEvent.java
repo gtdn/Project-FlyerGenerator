@@ -190,6 +190,7 @@ public class FormEvent extends HttpServlet {
         htmlString = htmlString.replace("$eventBackground$",
             eventBackground);
 
+        System.out.println(htmlString);
         byte[] pdfData = getPdf(htmlString);
         FileUtils.writeByteArrayToFile(new File(
             current + "/../webapps/flyergenerator/pdf/output.pdf"),
