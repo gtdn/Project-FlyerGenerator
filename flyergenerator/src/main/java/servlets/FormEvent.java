@@ -268,6 +268,8 @@ public class FormEvent extends HttpServlet {
         htmlString = htmlString.replace("$eventDescription$", eventDescription);
         htmlString = htmlString.replace("$eventOrganizer$", eventOrganizer);
 
+        System.out.println(eventCity);
+
         byte[] pdfData = getPdf(htmlString);
         FileUtils.writeByteArrayToFile(new File(
             current + "/../webapps/flyergenerator/pdf/output.pdf"),
