@@ -32,7 +32,7 @@
 
     <div class="form-group">
         <label for="eventHourBeg">Horaire</label>
-        <input type="time" name="eventHourBeg" value="${horaire}" class="form-control" id="eventHourBeg" required>
+        <input type="time" name="eventHourBeg" class="form-control" id="eventHourBeg" required>
     </div>
 
     <div class="form-group">

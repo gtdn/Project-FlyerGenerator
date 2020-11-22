@@ -45,7 +45,6 @@ public class ControllerModifCompet extends HttpServlet {
         request.setAttribute("prix", compet.getPrix());
         request.setAttribute("cashPrize", compet.getCashPrize());
         request.setAttribute("date", compet.getDateDebut());
-        request.setAttribute("horaire", compet.getHeureDebut());
         request.setAttribute("hashtag", compet.getHashtag());
         request.setAttribute("description", compet.getResume());
         request.setAttribute("nom_orga", compet.getContacts().getNom());

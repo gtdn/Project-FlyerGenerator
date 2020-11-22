@@ -45,10 +45,6 @@ public class FormEvent extends HttpServlet {
     */
     private EntityManager em;
     /**
-     * Sert à concaténer la valeure de l'heure.
-    */
-    private static final int NOMBRECHARACTEMPS = 8;
-    /**
      * doPost method.
      * @param request request
      * @param response response
@@ -75,7 +71,6 @@ public class FormEvent extends HttpServlet {
         String eventLocation = request.getParameter("eventLocation");
         String eventPrice = request.getParameter("eventPrice");
         String eventHourBegtest = request.getParameter("eventHourBeg") + ":00";
-        String eventHourBeg = eventHourBegtest.substring(0, NOMBRECHARACTEMPS);
         String eventDateBeg = request.getParameter("eventDateBeg");
         // PersonneList missing yet
         String eventOrganizer = request.getParameter(
@@ -456,8 +451,7 @@ public class FormEvent extends HttpServlet {
         String eventLocation = request.getParameter("eventLocation");
         String eventPrice = request.getParameter("eventPrice");
         System.out.print("TAILLE HEURE --------->");
-        String eventHourBegtest = request.getParameter("eventHourBeg") + ":00";
-        String eventHourBeg = eventHourBegtest.substring(0, NOMBRECHARACTEMPS);
+        String eventHourBeg = request.getParameter("eventHourBeg") + ":00";
         System.out.print(eventHourBeg.length());
         String eventDateBeg = request.getParameter("eventDateBeg");
         // PersonneList missing yet

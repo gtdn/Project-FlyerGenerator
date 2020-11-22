@@ -91,7 +91,7 @@
                                             <c:out value="${ competition.getPrix() }" />
                                         </td>
                                         <td scope="row">
-                                            <c:out value="${ competition.getHeureDebut() }" />
+                                            <c:out value="${ competition.getHeureDebut().toString().substring(0,5) }" />
                                         </td>
                                         <td scope="row">
                                             <c:out value="${ competition.getDateDebut() }" />

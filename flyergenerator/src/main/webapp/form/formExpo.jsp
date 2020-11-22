@@ -37,12 +37,12 @@
 
     <div class="form-group">
         <label for="eventHourBeg">Horaire de début</label>
-        <input type="time" name="eventHourBeg" value="${horaireDeb}" class="form-control" id="eventHourBeg" required>
+        <input type="time" name="eventHourBeg" class="form-control" id="eventHourBeg" required>
     </div>
 
     <div class="form-group">
         <label for="eventHourEnd">Horaire de fin</label>
-        <input type="time" name="eventHourEnd" value="${horaireFin}" class="form-control" id="eventHourEnd" required>
+        <input type="time" name="eventHourEnd" class="form-control" id="eventHourEnd" required>
     </div>
 
     <div class="form-group">

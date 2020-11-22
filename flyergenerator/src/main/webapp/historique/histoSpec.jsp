@@ -90,7 +90,7 @@
                                             <c:out value="${ spectacle.getPrix() }" />
                                         </td>
                                         <td scope="row">
-                                            <c:out value="${ spectacle.getHeureDebut() }" />
+                                            <c:out value="${ spectacle.getHeureDebut().toString().substring(0,5) }" />
                                         </td>
                                         <td scope="row">
                                             <c:out value="${ spectacle.getDateDebut() }" />
