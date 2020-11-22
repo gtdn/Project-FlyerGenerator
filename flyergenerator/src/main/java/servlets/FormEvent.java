@@ -54,6 +54,8 @@ public class FormEvent extends HttpServlet {
     protected final void doPost(final HttpServletRequest request,
     final HttpServletResponse response) throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
+
         String eventType = request.getParameter("eventType");
 
         HttpSession session = request.getSession(true);
