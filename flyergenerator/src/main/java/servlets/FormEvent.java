@@ -48,6 +48,9 @@ public class FormEvent extends HttpServlet {
      * Sert à concaténer la valeure de l'heure.
     */
     private static final int NUMBERTIMEBDD = 8;
+    /**
+     * Sert à concaténer la valeure de l'heure.
+    */
     private static final int NUMBERTIMEPDF = 5;
     /**
      * doPost method.
