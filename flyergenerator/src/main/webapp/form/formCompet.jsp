@@ -7,27 +7,27 @@
 
     <div class="form-group">
       <label for="eventTitle">Nom de l'évènement</label>
-      <input type="text" name="eventTitle" value="${nom}" placeholder="Coupe de France de bucheronnage" class="form-control" id="eventTitle" minlength="15" maxlength="45" required>
+      <input type="text" name="eventTitle" value="${nom}" placeholder="Porsche Cup Event" class="form-control" id="eventTitle" minlength="5" maxlength="30" required>
     </div>
 
     <div class="form-group">
         <label for="eventCity">Ville</label>
-        <input type="text" name="eventCity" value="${ville}" placeholder="La Rochelle" class="form-control" id="eventCity" minlength="2" maxlength="25" required>
+        <input type="text" name="eventCity" value="${ville}" placeholder="La Ciotat" class="form-control" id="eventCity" minlength="2" maxlength="25" required>
     </div>
 
     <div class="form-group">
         <label for="eventLocation">Lieu</label>
-        <input type="text" name="eventLocation" value="${lieu}" placeholder="Parc de Mireuil" class="form-control" id="eventLocation" maxlength="30" required>
+        <input type="text" name="eventLocation" value="${lieu}" placeholder="Circuit Paul Ricard - Le Castellet" class="form-control" id="eventLocation" maxlength="35" required>
     </div>
 
     <div class="form-group">
         <label for="eventPrice">Prix d'entrée</label>
-        <input type="number" name="eventPrice" value="${prix}" placeholder="10" class="form-control" id="eventPrice" min="0" required>
+        <input type="number" name="eventPrice" value="${prix}" placeholder="20" class="form-control" id="eventPrice" min="0" required>
     </div>
 
     <div class="form-group">
         <label for="eventCashPrize">Cashprize du gagnant</label>
-        <input type="text" name="eventCashPrize" value="${cashPrize}" placeholder="Pack de bières / 15€" class="form-control" id="eventCashPrize" maxlength="25" required>
+        <input type="text" name="eventCashPrize" value="${cashPrize}" placeholder="Pack de bières / 150€ / ..." class="form-control" id="eventCashPrize" maxlength="25" required>
     </div>
 
     <div class="form-group">
@@ -42,27 +42,27 @@
 
     <div class="form-group">
         <label for="eventOrganizer">Nom de l'organisateur</label>
-        <input type="text" name="eventOrganizer" value="${nom_orga}" placeholder="Fédération Française de Bucheronnage" class="form-control" id="eventOrganizer" required>
+        <input type="text" name="eventOrganizer" value="${nom_orga}" placeholder="Porsche Cup Suisse" class="form-control" id="eventOrganizer" maxlength="20" required>
     </div>
 
     <div class="form-group">
         <label for="eventContactNumber">Numero contact</label>
-        <input type="number" name="eventContactNumber" value="${numeroContact}" placeholder="0617283971" class="form-control" id="eventContactNumber" required>
+        <input type="tel" name="eventContactNumber" value="${numeroContact}" placeholder="0617283971" class="form-control" id="eventContactNumber" pattern="[0-9]{10}" required>
     </div>
 
     <div class="form-group">
         <label for="eventContactEmail">Email contact</label>
-        <input type="email" name="eventContactEmail" value="${mail}" placeholder="roger.legrobra@gmail.com" class="form-control" id="eventContactEmail" required>
+        <input type="email" name="eventContactEmail" value="${mail}" placeholder="porsche@cup.ch" class="form-control" id="eventContactEmail" required>
     </div>
 
     <div class="form-group">
         <label for="eventHashtag">Hashtag de l'évènement</label>
-        <input type="text" name="eventHashtag" value="${hashtag}" placeholder="bucheronnageCompetition" class="form-control" id="eventPrice" required>
+        <input type="text" name="eventHashtag" value="${hashtag}" placeholder="thisisahashtag" class="form-control" id="eventPrice" maxlength="20" required>
     </div>
 
     <div class="form-group">
         <label for="eventDescription">Description de l'évènement</label>
-        <input type="text" name="eventDescription" value="${description}" placeholder="Affrontez les plus grands bûcherons de France..." class="form-control" id="eventDescription" maxlength="120" required>
+        <input type="text" name="eventDescription" value="${description}" placeholder="Affrontez les meilleurs pilotes sur l'un des plus beaux circuits de France" class="form-control" id="eventDescription" maxlength="120" required>
     </div>
 
     <div class="form-group">

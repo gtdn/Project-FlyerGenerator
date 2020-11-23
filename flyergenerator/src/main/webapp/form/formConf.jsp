@@ -7,12 +7,12 @@
 
     <div class="form-group">
       <label for="eventTitle">Nom de l'évènement</label>
-      <input type="text" name="eventTitle" value="${nom}" placeholder="Pour un optimisme obstiné sur le climat" class="form-control" id="eventTitle" minlength="15" maxlength="45" required>
+      <input type="text" name="eventTitle" value="${nom}" placeholder="Pour un optimisme obstiné sur le climat" class="form-control" id="eventTitle" maxlength="45" required>
     </div>
 
     <div class="form-group">
         <label for="eventCity">Ville</label>
-        <input type="text" name="eventCity" value="${ville}" placeholder="Paris" class="form-control" id="eventCity" minlength="2" maxlength="25" required>
+        <input type="text" name="eventCity" value="${ville}" placeholder="Paris" class="form-control" id="eventCity" minlength="2" maxlength="16" required>
     </div>
 
     <div class="form-group">
@@ -37,7 +37,7 @@
 
     <div class="form-group">
         <label for="eventOrganizer">Nom de l'organisateur</label>
-        <input type="text" name="eventOrganizer" value="${nom_orga}" placeholder="Frydays for Future" class="form-control" id="eventOrganizer">
+        <input type="text" name="eventOrganizer" value="${nom_orga}" placeholder="Frydays for Future" class="form-control" maxlength="20" id="eventOrganizer">
     </div>
 
     <div class="form-group">
@@ -47,7 +47,7 @@
 
     <div class="form-group">
         <label for="eventContactNumber">Numero contact</label>
-        <input type="number" name="eventContactNumber" value="${numeroContact}" placeholder="0619527182" class="form-control" id="eventContactNumber" required>
+        <input type="tel" name="eventContactNumber" value="${numeroContact}" placeholder="0619527182" class="form-control" id="eventContactNumber" pattern="[0-9]{10}" required>
     </div>
 
     <div class="form-group">

@@ -7,12 +7,12 @@
 
     <div class="form-group">
       <label for="eventTitle">Nom de l'évènement</label>
-      <input type="text" name="eventTitle" value="${nom}" placeholder="The 8 Mile Show" class="form-control" id="eventTitle" minlength="15" maxlength="45" required>
+      <input type="text" name="eventTitle" value="${nom}" placeholder="The 8 Mile Show" class="form-control" id="eventTitle" maxlength="45" required>
     </div>
 
     <div class="form-group">
         <label for="eventCity">Ville</label>
-        <input type="text" name="eventCity" value="${ville}" placeholder="Detroit" class="form-control" id="eventCity" minlength="2" maxlength="25" required>
+        <input type="text" name="eventCity" value="${ville}" placeholder="Detroit" class="form-control" id="eventCity" minlength="2" maxlength="20" required>
     </div>
 
     <div class="form-group">
@@ -37,12 +37,12 @@
 
     <div class="form-group">
         <label for="eventAsso">Nom de l'association</label>
-        <input type="text" name="eventAsso" value="${nom_asso}" placeholder="Shady Records" class="form-control" id="eventAsso" required>
+        <input type="text" name="eventAsso" value="${nom_asso}" placeholder="Shady Records" class="form-control" id="eventAsso" maxlength="25" required>
     </div>
 
     <div class="form-group">
         <label for="eventOrganizer">Nom de l'organisateur</label>
-        <input type="text" name="eventOrganizer" value="${nom_orga}" placeholder="Shady Records" class="form-control" id="eventOrganizer" required>
+        <input type="text" name="eventOrganizer" value="${nom_orga}" placeholder="Shady Records" class="form-control" id="eventOrganizer" maxlength="25" required>
     </div>
 
     <div class="form-group">
@@ -52,7 +52,7 @@
 
     <div class="form-group">
         <label for="eventContactNumber">Numero contact</label>
-        <input type="number" name="eventContactNumber" value="${numeroContact}" placeholder="0617283971" class="form-control" id="eventContactNumber" required>
+        <input type="tel" name="eventContactNumber" value="${numeroContact}" placeholder="0617283971" class="form-control" id="eventContactNumber" pattern="[0-9]{10}" required>
     </div>
 
     <div class="form-group">
