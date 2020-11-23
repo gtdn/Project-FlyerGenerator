@@ -76,7 +76,7 @@
                                     <tr>
                                         <td scope="row">
                                             <input type="hidden" name="id" value="${ competition.getId() }" />
-                                            <button type="submit" class="btn btn-primary">Modifier</button>
+                                            <button type="submit" class="btn btn-primary">Regénérer</button>
                                         </td>
                                         <td scope="row">
                                             <c:out value="${ competition.getNom() }" />
