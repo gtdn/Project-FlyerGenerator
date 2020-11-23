@@ -52,7 +52,7 @@
 
     <div class="form-group">
         <label for="eventContactNumber">Numero contact</label>
-        <input type="tel" name="eventContactNumber" value="${numeroContact}" placeholder="0617283971" class="form-control" id="eventContactNumber" pattern="[0-9]{10}" required>
+        <input type="number" name="eventContactNumber" value="${numeroContact}" placeholder="0617283971" class="form-control" id="eventContactNumber" pattern="[0-9]{10}" required>
     </div>
 
     <div class="form-group">
