@@ -246,7 +246,7 @@ public class FormEvent extends HttpServlet {
         "Nov", "Déc"};
         String eventMonth = months[(Integer.parseInt(
             eventDateSplitted[1]))];
-        String eventDay = eventDateSplitted[1];
+        String eventDay = eventDateSplitted[2];
 
         htmlString = htmlString.replace("$eventTitle$", eventTitle);
         htmlString = htmlString.replace("$urlApplication$", urlApplication);
@@ -321,7 +321,7 @@ public class FormEvent extends HttpServlet {
         "Novembre", "Décembre"};
         String eventMonth = months[(Integer.parseInt(
             eventDateSplitted[1]))];
-        String eventDay = eventDateSplitted[1];
+        String eventDay = eventDateSplitted[2];
 
         eventSpeakers = eventSpeakers.replace(" , ", ",");
         eventSpeakers = eventSpeakers.replace(" ,", ",");
@@ -400,7 +400,7 @@ public class FormEvent extends HttpServlet {
         "Novembre", "Décembre"};
         String eventMonth = months[(Integer.parseInt(
             eventDateSplitted[1]))];
-        String eventDay = eventDateSplitted[1];
+        String eventDay = eventDateSplitted[2];
 
         eventArtists = eventArtists.replace(" , ", ",");
         eventArtists = eventArtists.replace(" ,", ",");
