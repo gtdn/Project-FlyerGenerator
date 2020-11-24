@@ -34,11 +34,6 @@ public class Contacts {
     @GeneratedValue()
     @Column(name = "id_contact")
     private int id;
-    /*
-    @OneToOne(mappedBy = "id_event", cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_event")
-    private Event idEvent;
-     */
     /**
      * nom du contact.
      */
@@ -58,17 +53,6 @@ public class Contacts {
     public final void id(final int newid) {
         this.id = newid;
     }
-
-    /*public void setIdEvent(int idEvent) {
-        this.idEvent = idEvent;
-    }
-    /**
-     * @return l'id de l'event associé
-     *
-    public final int getIDEvent() {
-        return idEvent;
-    }*/
-
     /**
      * set le nom du contacts.
      * @param newNom valeur du nom a set.

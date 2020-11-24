@@ -73,41 +73,41 @@
                             <c:forEach items="${requestScope.spectacles}" var="spectacle">
                                 <form method="post" action="ModifSpectacle">
                                     <tr>
-                                        <td scope="row">
+                                        <td>
                                             <input type="hidden" name="id" value="${ spectacle.getId() }" />
                                             <button type="submit" class="btn btn-primary">Regénérer</button>
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ spectacle.getNom() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ spectacle.getLieu() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ spectacle.getVille() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ spectacle.getPrix() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ spectacle.getHeureDebut().toString().substring(0,5) }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ spectacle.getDateDebut() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${spectacle.getListeArtistes()}" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ spectacle.getNomAssociation()}" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ spectacle.getContacts().getNom()}" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ spectacle.getContacts().getNumero()}" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ spectacle.getContacts().getMail()}" />
                                         </td>
                                     </tr>

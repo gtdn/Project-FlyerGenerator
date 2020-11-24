@@ -23,6 +23,7 @@ public class Deco extends HttpServlet {
      * @throws ServletException pour erreur
      * @throws IOException pour erreur
      */
+    @Override
     protected final void doGet(final HttpServletRequest request,
                          final HttpServletResponse response)
             throws ServletException, IOException {
@@ -30,6 +31,5 @@ public class Deco extends HttpServlet {
         session.removeAttribute("user");
         session.invalidate();
         response.sendRedirect("index.jsp");
-        return;
     }
 }
