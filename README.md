@@ -24,8 +24,21 @@ Pour notre base de données, nous utilisons la base de donnée PostgreSQL fourni
 
 Pour build ce projet, il faut tout d'abord démarrer Tomcat. Pour cela, il faut aller dans le dossier où est intallé Tomcat puis dans /bin. Cela donne quelquechose comme ceci :
     ```cd /Path/to/Tomcat/bin/```
+    *Il est impératif de lancer Tomcat depuis le dossier bin. C'est indispensable pour que le wkhtmltopdf ai le bon path pour générer le pdf*
+
 Une fois dans ce dossier, il faut executer startup.sh de cette façon : 
     ```./startup.sh```
+
+Maintenant il est temps d'aller dans le dossier de notre projet :
+    ```cd /Path/to/ProjectDir/flyergenerator/```
+
+Une fois dans ce dossier, Utiliser la commande suivante pour build en local notre projet :
+    ```mvn Tomcat7:redeploy```
+
+Vous pouvez désormais accéder à votre version locale du site à l'addresse suivante :
+    ```http://localhost:8080/flyergenerator```
+
+
 
 
 
