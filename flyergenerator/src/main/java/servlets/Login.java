@@ -39,19 +39,19 @@ public class Login extends HttpServlet {
     /**
      * List op competitions.
      */
-    private final List<Competition> competitions;
+    private List<Competition> competitions;
      /**
      * List op expositions.
      */
-    private final List<Exposition> expositions;
+    private List<Exposition> expositions;
     /**
      * List op conferences.
      */
-    private final List<Conference> conferences;
+    private List<Conference> conferences;
      /**
      * List op spectacles.
      */
-    private final List<Spectacle> spectacles;
+    private List<Spectacle> spectacles;
 
     /**
      * Instancies les DAO.
