@@ -31,6 +31,5 @@ public class Deco extends HttpServlet {
         session.removeAttribute("user");
         session.invalidate();
         response.sendRedirect("index.jsp");
-        return;
     }
 }
