@@ -43,6 +43,19 @@ public class ExpositionDAO {
         }
     }
     /**
+     * @param idUser Exposition donné en parametre.
+     * @return le nombre de Expositions de l'utilisateur
+     */
+    public final int getNombreExpositionByIdUser(final int idUser) {
+
+        List<Exposition> liste = getExpositionByIdUser(idUser);
+        if (liste != null) {
+            return liste.size();
+        } else {
+            return 0;
+        }
+    }
+    /**
      * @param idEvent Exposition donné en parametre.
      * @return toutes les Expositions de l'utilisateur
      */

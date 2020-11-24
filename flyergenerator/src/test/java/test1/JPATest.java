@@ -4,16 +4,18 @@ import org.junit.Test;
 
 import dao.ConferenceDAO;
 import dao.ExpositionDAO;
-import dao.SpectacleDAO;
 import dao.CompetitionDAO;
+import dao.SpectacleDAO;
 import dao.UserDAO;
+import jdk.jfr.Timestamp;
 import modele.Competition;
 import modele.User;
 import modele.Event;
-import modele.Spectacle;
+import modele.Competition;
 import modele.Conference;
 import modele.Contacts;
 import modele.Exposition;
+import modele.Spectacle;
 import modele.Contacts;
 import java.util.Collection;
 import java.util.Vector;
@@ -27,79 +29,116 @@ import java.lang.String;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+
 /**
  * Created by ecoquery on 26/09/2016.
  */
 public class JPATest {
 
-    @Test
+    @Test // Test Connexion Base de donnée
     public void setupEMTest() {
        EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
-        Competition compet = new Competition();
-        UserDAO userdao = new UserDAO(em);
-        User test = userdao.ajouterUser("pseudo", "motdepasse");
-        SpectacleDAO spectacledao = new SpectacleDAO(em);
+       em.close();
+        }
+    @Test //Test Connexion Utilisateur
+    public void ConnexionUser() {
+      EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
+      UserDAO userdao = new UserDAO(em);
+      User test = userdao.ajouterUser("pseudo", "motdepasse");
+      em.close();
+      assert(test != null);
+    }
+    @Test // Ce test crée 4 éevenements à l'utilisateur "pseudo" et vérifie qu'il a bien 4 événements de plus après leurs ajouts
+    public void CreationEvenements() {
+      EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
+      CompetitionDAO competitiondao = new CompetitionDAO(em);
         ConferenceDAO conferencedao = new ConferenceDAO(em);
-        CompetitionDAO competitiondao = new CompetitionDAO(em);
-        ExpositionDAO expodao = new ExpositionDAO(em);
-        //List<Conference> liste_spectacle = conferencedao.getConferenceByIdUser(732);
-        //Conference spec = liste_spectacle.get(0);
+        SpectacleDAO spectacledao = new SpectacleDAO(em);
+        ExpositionDAO expositiondao = new ExpositionDAO(em);
+        Competition compet = new Competition();
+        Competition spec = new Competition();
+        Exposition expo = new Exposition();
+        Conference conf = new Conference();
+        //L'id 27 est celui de l'utilisateur "pseudo"
+        // On récupère le nombre de différents évènements
+        int nombreCompetition = competitiondao.getNombreCompetitionByIdUser(27);
+        int nombreConference = conferencedao.getNombreConferenceByIdUser(27);
+        int nombreExposition = expositiondao.getNombreExpositionByIdUser(27);
+        int nombreSpectacle = spectacledao.getNombreSpectacleByIdUser(27);
+
+        int nombreEvent = nombreCompetition + nombreConference + nombreSpectacle + nombreExposition;
+        spec.setIdutilisateur(27); 
+        expo.setIdutilisateur(27);
+        compet.setIdutilisateur(27);
+        conf.setIdutilisateur(27);
+
+        Contacts contact = new Contacts();
+        spec.setContacts(contact); 
+        expo.setContacts(contact);
+        compet.setContacts(contact);
+        conf.setContacts(contact);
+        competitiondao.updateCompetition(spec);
+        conferencedao.updateConference(conf);
+        competitiondao.updateCompetition(compet);
+        expositiondao.updateExposition(expo);
+
+        int nombreCompetition2 = competitiondao.getNombreCompetitionByIdUser(27);
+        int nombreConference2 = conferencedao.getNombreConferenceByIdUser(27);
+        int nombreExposition2 = expositiondao.getNombreExpositionByIdUser(27);
+        int nombreSpectacle2 = spectacledao.getNombreSpectacleByIdUser(27);
+        int nombreEvent2 = nombreCompetition2 + nombreConference2 + nombreSpectacle2 + nombreExposition2;
+
+        em.close();
+
+        nombreEvent = nombreEvent + 4;
+        assertEquals(nombreEvent,nombreEvent2);
+    }
+    @Test // Ce test modifie 4 éevenements à l'utilisateur "pseudo" et vérifie qu'il a bien le même nombre d'évènements après leurs ajouts
+    public void ModificationEvenements() {
+      EntityManager em = Persistence.createEntityManagerFactory("flyergenerator").createEntityManager();
+      CompetitionDAO competitiondao = new CompetitionDAO(em);
+        ConferenceDAO conferencedao = new ConferenceDAO(em);
+        SpectacleDAO spectacledao = new SpectacleDAO(em);
+        ExpositionDAO expositiondao = new ExpositionDAO(em);
+        Competition compet = new Competition();
         Spectacle spec = new Spectacle();
         Exposition expo = new Exposition();
         Conference conf = new Conference();
-        spec.setIdutilisateur(732);
-        expo.setIdutilisateur(732);
-        compet.setIdutilisateur(732);
-        conf.setIdutilisateur(732);
-        System.out.println("<--------------------");
-        Contacts cont = new Contacts();
-        //spec.setContacts(cont);
-        spec.setContacts(cont);
-        conf.setContacts(cont);
-        expo.setContacts(cont);
-        compet.setContacts(cont);
+        //L'id 27 est celui de l'utilisateur "pseudo"
+        // On récupère les différents événements
+        List<Competition> listCompetition = competitiondao.getCompetitionByIdUser(27);
+        List<Conference> listConference  = conferencedao.getConferenceByIdUser(27);
+        List<Exposition> listExposition = expositiondao.getExpositionByIdUser(27);
+        List<Spectacle> listSpectacle = spectacledao.getSpectacleByIdUser(27);
+        //On récupère leur nombre
+        int nombreCompetition = competitiondao.getNombreCompetitionByIdUser(27);
+        int nombreConference = conferencedao.getNombreConferenceByIdUser(27);
+        int nombreExposition = expositiondao.getNombreExpositionByIdUser(27);
+        int nombreSpectacle = spectacledao.getNombreSpectacleByIdUser(27);
+
+        int nombreEvent = nombreCompetition + nombreConference + nombreSpectacle + nombreExposition;
+        // On prend 4 évènements des listes
+        compet = listCompetition.get(0);
+        spec = listSpectacle.get(0);
+        expo = listExposition.get(0);
+        conf = listConference.get(0);
+        // On récupère des événements déjà existants et on les remet dans la bdd
         spectacledao.updateSpectacle(spec);
         conferencedao.updateConference(conf);
         competitiondao.updateCompetition(compet);
-        expodao.updateExposition(expo);
-        /*ConferenceDAO conferencedao = new ConferenceDAO(em);
-        ExpositionDAO expositiondao = new ExpositionDAO(em);
-        CompetitionDAO competDAO = new CompetitionDAO(em);
-        Event event = new Event();
-        event.setIdutilisateur(732);
-        Spectacle spec = new Spectacle();
-        Exposition exp = new Exposition();
-        Conference conf = new Conference();
-        Competition comp = new Competition();
-        List<String> intervenants = new ArrayList<String>();
-        intervenants.add("Booba");
-        intervenants.add("Lacrim");
-        intervenants.add("Andy");
-        spec.copieEvent(event);
-        conf.copieEvent(event);
-        exp.copieEvent(event);
-        comp.copieEvent(event);
-        spec.setListeIntervenants(intervenants);
-        conf.setListeIntervenants(intervenants);
-        exp.setListeIntervenants(intervenants);
-        comp.setListeIntervenants(intervenants);
-        spectacledao.updateSpectacle(spec);
-        conferencedao.updateConference(conf);
-        competDAO.updateCompetition(compet);
-        expodao.updateConference(expo);
-        List<Competition> liste_competition = competDAO.getCompetitionByIdUser(732);
-        System.out.println(liste_competition.size());
-        System.out.println("<--------------------");
-
-
-        expositiondao.updateExposition(exp);
-        List<Spectacle> liste_spectacle = spectacledao.getSpectacleByIdUser(test.getID());
-        
-        //Spectacle test_2 = liste_spectacle.get(0);
-        Collection<String> testintervenant = new ArrayList<String>();
-       */
-      em.close();
-        }
+        expositiondao.updateExposition(expo);
+        // Normalement le nombre d'évènement ne changera pas car les évènements remplaceront leur
+        // copie déjà existantes dans la bdd 
+        int nombreCompetition2 = competitiondao.getNombreCompetitionByIdUser(27);
+        int nombreConference2 = conferencedao.getNombreConferenceByIdUser(27);
+        int nombreExposition2 = expositiondao.getNombreExpositionByIdUser(27);
+        int nombreSpectacle2 = spectacledao.getNombreSpectacleByIdUser(27);
+        int nombreEvent2 = nombreCompetition2 + nombreConference2 + nombreSpectacle2 + nombreExposition2;
+        em.close();
+        assert(nombreEvent ==nombreEvent2);
+    }
 
     }
    
