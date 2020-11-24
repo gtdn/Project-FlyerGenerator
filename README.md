@@ -3,7 +3,7 @@
 ## Dépendances
 
 ### Maven
-Maven est un outil de gestion de projet. Il est basé sur le concept POM (project object model). Il définit une structure type et notre projet utilise et respecte ce modèle.
+Maven est un outil de gestion de projet. Il est basé sur le concept POM (Project Object Model). Il définit une structure type et notre projet utilise et respecte ce modèle.
 Lien vers le site officiel : https://maven.apache.org/
 
 ### Tomcat
