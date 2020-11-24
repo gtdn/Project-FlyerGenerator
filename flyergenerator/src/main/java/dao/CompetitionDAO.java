@@ -37,7 +37,7 @@ public class CompetitionDAO {
         + " = ?1", Competition.class);
         q.setParameter(1, idUser);
         List<Competition> results = q.getResultList();
-        if (results.size() > 0) {
+        if (results.size() != 0) {
             return results;
         } else {
             return null;
