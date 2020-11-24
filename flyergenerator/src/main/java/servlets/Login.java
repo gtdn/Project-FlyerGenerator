@@ -30,11 +30,11 @@ public class Login extends HttpServlet {
     /**
      * Entity manager pour faire le lien avec la base de données.
     */
-    private EntityManager em;
+    private static EntityManager em;
     /**.
      * DAO
     */
-    private UserDAO userdao;
+    private static UserDAO userdao;
 
     /**
      * List op competitions.

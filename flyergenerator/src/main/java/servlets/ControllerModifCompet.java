@@ -1,3 +1,4 @@
+package servlets;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,23 +14,13 @@ import java.io.IOException;
 @WebServlet(name = "ModifCompetition", urlPatterns = "/ModifCompetition")
 public class ControllerModifCompet extends HttpServlet {
     /**
-     * doGet.
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     */
-    protected void doGet(final HttpServletRequest request,
-     final HttpServletResponse response) throws ServletException, IOException {
-    }
-
-    /**
      * DoPost.
      * @param request
      * @param response
      * @throws ServletException
      * @throws IOException
      */
+    @Override
     protected void doPost(final HttpServletRequest request,
     final HttpServletResponse response) throws ServletException, IOException {
         String idString = request.getParameter("id");

@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
+
 <html lang="fr">
 
     <head>
@@ -53,6 +54,8 @@
                         <h2 class="my-4">Historique de vos évènement</h2>
                     </div>
                     <table class="table">
+                        <caption></caption>
+                        <th id="th"></th>
                         <thead>
                             <tr>
                             <th scope="col"></th>
@@ -74,44 +77,44 @@
                             <c:forEach items="${requestScope.expositions}" var="exposition">
                                 <form method="post" action="ModifExposition">
                                     <tr>
-                                        <td scope="row">
+                                        <td>
                                             <input type="hidden" name="id" value="${ exposition.getId() }" />
                                             <button type="submit" class="btn btn-primary">Regénérer</button>
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getNom() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getLieu() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getVille() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getPrix() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getHeureDebut().toString().substring(0,5) }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getHeureFin().toString().substring(0,5) }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getDateDebut() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getDateFin() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getTheme() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getContacts().getNom()}" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getContacts().getNumero()}" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getContacts().getMail()}" />
                                         </td>
                                     </tr>
