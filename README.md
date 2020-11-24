@@ -22,8 +22,10 @@ Pour notre base de données, nous utilisons la base de donnée PostgreSQL fourni
 
 ## procédure de build ------------------------------------------------------ TODO
 
-Pour build ce projet, il faut tout d'abord démarrer Tomcat. Pour cela, il faut aller dans le dossier où est intallé Tomcat puis dans /bin. Cela donne quelquechose comme ceci "cd /Path/to/Tomcat/bin/".
-Une fois dans ce dossier, il faut executer startup.sh de cette façon "./startup.sh"
+Pour build ce projet, il faut tout d'abord démarrer Tomcat. Pour cela, il faut aller dans le dossier où est intallé Tomcat puis dans /bin. Cela donne quelquechose comme ceci :
+    "cd /Path/to/Tomcat/bin/".
+Une fois dans ce dossier, il faut executer startup.sh de cette façon : 
+    "./startup.sh"
 
 
 
