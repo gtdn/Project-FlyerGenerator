@@ -20,6 +20,7 @@ public class ControllerModifConf extends HttpServlet {
      * @throws ServletException
      * @throws IOException
      */
+    @Override
     protected void doGet(final HttpServletRequest request,
      final HttpServletResponse response) throws ServletException, IOException {
     }
@@ -31,6 +32,7 @@ public class ControllerModifConf extends HttpServlet {
      * @throws ServletException
      * @throws IOException
      */
+    @Override
     protected void doPost(final HttpServletRequest request,
     final HttpServletResponse response) throws ServletException, IOException {
         String idString = request.getParameter("id");

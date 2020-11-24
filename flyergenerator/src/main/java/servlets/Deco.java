@@ -23,6 +23,7 @@ public class Deco extends HttpServlet {
      * @throws ServletException pour erreur
      * @throws IOException pour erreur
      */
+    @Override
     protected final void doGet(final HttpServletRequest request,
                          final HttpServletResponse response)
             throws ServletException, IOException {
