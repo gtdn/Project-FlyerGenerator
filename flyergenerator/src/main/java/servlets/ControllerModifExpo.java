@@ -1,3 +1,4 @@
+package servlets;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,18 +14,6 @@ import java.io.IOException;
 
 @WebServlet(name = "ModifExposition", urlPatterns = "/ModifExposition")
 public class ControllerModifExpo extends HttpServlet {
-    /**
-     * doGet.
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     */
-    @Override
-    protected void doGet(final HttpServletRequest request,
-     final HttpServletResponse response) throws ServletException, IOException {
-    }
-
     /**
      * DoPost.
      * @param request

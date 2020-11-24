@@ -1,4 +1,4 @@
-
+package servlets;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,17 +39,5 @@ public class ControllerConf extends HttpServlet {
         RequestDispatcher rd = request.
             getRequestDispatcher("historique/histoConf.jsp");
         rd.forward(request, response);
-    }
-
-    /**
-     * DoPost.
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     */
-    @Override
-    protected void doPost(final HttpServletRequest request,
-    final HttpServletResponse response) throws ServletException, IOException {
     }
 }
