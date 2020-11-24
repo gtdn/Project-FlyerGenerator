@@ -20,7 +20,7 @@ Pour notre base de données, nous utilisons la base de donnée PostgreSQL fourni
 ### autres dependencies pom/xml ??
 
 
-## procédure de build ------------------------------------------------------ TODO
+## procédure de build
 
 Pour build ce projet, il faut tout d'abord démarrer Tomcat. Pour cela, il faut aller dans le dossier où est intallé Tomcat puis dans /bin. Cela donne quelquechose comme ceci :
     ```cd /Path/to/Tomcat/bin/```
@@ -41,11 +41,7 @@ Vous pouvez désormais accéder à votre version locale du site à l'addresse su
 
 
 
-
-
-
-
-## lien vers la VM --------------------------------------------------------- TODO
+## lien vers la VM
 
 Pour accéder à la VM, il faut tout d'abord se connecter au VPN de l'université.
 
