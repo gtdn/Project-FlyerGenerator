@@ -25,8 +25,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.persistence.EntityManager;
-//import javax.persistence.EntityManagerFactory;
-//import javax.persistence.Persistence;
+
 
 
 import org.apache.commons.io.FileUtils;
@@ -99,9 +98,6 @@ public class FormEvent extends HttpServlet {
         Event e = new Event();
 
         fillEvent(e, session, request);
-        /*final EntityManagerFactory factory;
-        factory = Persistence.createEntityManagerFactory("flyergenerator");
-        this.em =  factory.createEntityManager();*/
         ServletContext context = getServletContext();
         this.em = (EntityManager) context.getAttribute("em");
 
@@ -450,18 +446,14 @@ public class FormEvent extends HttpServlet {
         String eventCity = request.getParameter("eventCity");
         String eventLocation = request.getParameter("eventLocation");
         String eventPrice = request.getParameter("eventPrice");
-        System.out.print("TAILLE HEURE --------->");
         String eventHourBeg = request.getParameter("eventHourBeg") + ":00";
-        System.out.print(eventHourBeg.length());
         String eventDateBeg = request.getParameter("eventDateBeg");
-        // PersonneList missing yet
         String eventContactName = request.getParameter(
             "eventOrganizer");
         String eventContactNumber = request.getParameter("eventContactNumber");
         String eventContactEmail = request.getParameter("eventContactEmail");
 
         e.setIdutilisateur(((User) session.getAttribute("user")).getID());
-        System.out.print("LA     4A    VA");
         e.setNom(eventTitle);
         e.setVille(eventCity);
         e.setLieu(eventLocation);

@@ -49,6 +49,6 @@ public class ControllerSpect extends HttpServlet {
      */
     protected void doPost(final HttpServletRequest request,
     final HttpServletResponse response) throws ServletException, IOException {
-        //doGet(request,response);
+
     }
 }

@@ -13,12 +13,8 @@ import java.sql.Time;
 @Table(name = "exposition")
 public class Exposition extends Event {
     /**
-     * id de l'exposition.
+     * Constructeur vide de exposition.
      */
-    //private int idExposition;
-
-
-
     public Exposition() {
         super();
         this.heureFin = new Time(0);
@@ -44,30 +40,7 @@ public class Exposition extends Event {
          heureDebut, dateDebut);
         this.theme = newtheme;
     }
-    /*
-    /**
-     * Constructeur avec toutes les valeures possibles.
-     * @param idUser idUser
-     * @param nom nom evenement
-     * @param imagePath lienimage
-     * @param lieu lieu evenement
-     * @param prix evenement
-     * @param heureDebut heure debutEvenement
-     * @param heureFin heure fin evenement
-     * @param dateDebut date debut evenement
-     * @param dateFin date fin
-     * @param newtheme nom association
-     /
-    public Exposition(final int idUser, final String nom,
-    final String imagePath, final String lieu, final int prix,
-    final Time heureDebut, final Time heureFin, final Date dateDebut,
-    final Date dateFin, final String newtheme) {
 
-        super(idUser, nom, imagePath, lieu, prix,
-         heureDebut, heureFin, dateDebut, dateFin);
-        this.theme = newtheme;
-    }
-*/
     /**
      * getterName.
      * @return name

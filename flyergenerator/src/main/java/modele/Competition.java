@@ -2,7 +2,6 @@ package modele;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.Column;
 /**
  * Classe de l'evènement du type Competition.
  * Elle herite de Event.
@@ -21,11 +20,6 @@ public class Competition extends Event {
      * id de l'event general.
      */
     private String hashtag;
-    /**
-     * nom de l'organisateur.
-     */
-    @Column(name = "nom_orga")
-    private String nomOrganisateur;
     /**
      * descriptif de la competition.
      */
@@ -47,21 +41,6 @@ public class Competition extends Event {
      */
     public final void setHashtag(final String newhashtag) {
         this.hashtag = newhashtag;
-    }
-
-    /**
-     * @return nomOrganisateur.
-     */
-    public final String getNomOrganisateur() {
-        return this.nomOrganisateur;
-    }
-
-    /**.
-     *
-     * @param newnomOrganisateur nouveau nom d'organisateur
-     */
-    public final void setNomOrganisateur(final String newnomOrganisateur) {
-        this.nomOrganisateur = newnomOrganisateur;
     }
 
     /**

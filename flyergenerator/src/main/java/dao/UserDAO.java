@@ -54,7 +54,6 @@ public class UserDAO {
                 return null;
         }
     } else {
-            System.out.println("ETAPE2");
             em.getTransaction().begin();
             em.persist(user);
             em.getTransaction().commit();

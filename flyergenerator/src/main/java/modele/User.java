@@ -6,7 +6,6 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 
-//import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -76,8 +75,6 @@ public class User {
         return pseudo;
     }
 
-    // pas de get/set pour event list pour l'instant, j'attends de voir
-    // comment on l'utilise
     /**
      * @return le password de l'utilisateur.
      */

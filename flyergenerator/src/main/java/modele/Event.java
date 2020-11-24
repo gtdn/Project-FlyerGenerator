@@ -11,9 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-//import javax.persistence.JoinColumns;
 import javax.persistence.OneToOne;
-//import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
 
 /**
@@ -38,35 +36,6 @@ public class Event {
         this.dateDebut = new Date(0);
 
     }
-    /*
-    /**.
-     *
-     * @param newidutilisateur a
-     * @param newnom a
-     * @param newimagePath a
-     * @param newlieu a
-     * @param newprix a
-     * @param newheureDebut a
-     * @param newheureFin a
-     * @param newdateDebut a
-     * @param newdateFin a
-     /
-    public Event(final int newidutilisateur,
-     final String newnom, final String newimagePath,
-     final String newlieu, final int newprix, final Time newheureDebut,
-      final Time newheureFin, final Date newdateDebut, final Date newdateFin) {
-        this.idUtilisateur = newidutilisateur;
-        this.nom = newnom;
-        this.imagePath = newimagePath;
-        this.lieu = newlieu;
-        this.prix = newprix;
-        this.heureDebut = newheureDebut;
-        this.heureFin = newheureFin;
-        this.dateDebut = newdateDebut;
-        this.dateFin = newdateFin;
-        this.listeIntervenants = null;
-    }
-*/
     /**
      * @param newidutilisateur &.
      * @param newnom &
@@ -147,10 +116,6 @@ public class Event {
      * @param newcontacts nouveau contact.
      */
     public final void setContacts(final Contacts newcontacts) {
-        System.out.print("ID_EVENT DE CONTACT:");
-        //System.out.print(contacts.getIDEvent());
-        System.out.print(this.idEvent);
-        System.out.print("ID_EVENT DE CONTACT:");
         this.contacts = newcontacts;
     }
 
@@ -294,24 +259,8 @@ public class Event {
         this.prix = e.getPrix();
         this.heureDebut = e.getHeureDebut();
         this.dateDebut = e.getDateDebut();
-        //missing Personne
+
         this.contacts = e.getContacts();
     }
-
-    /*public ArrayList<Personne> getListeIntervenants() {
-        return this.listeIntervenants;
-    }
-
-    public void setListeIntervenants(ArrayList<Personne> listeIntervenants) {
-        this.listeIntervenants = listeIntervenants;
-    }
-
-    public Contacts getContacts() {
-        return this.contacts;
-    }
-
-    public void setContacts(Contacts contacts) {
-        this.contacts = contacts;
-    }*/
 
 }
