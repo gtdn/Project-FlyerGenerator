@@ -31,18 +31,15 @@ public class ControllerModifConf extends HttpServlet {
         ConferenceDAO confdao = new ConferenceDAO(
             (EntityManager) context.getAttribute("em"));
         conf = confdao.getConferenceByIdEvent(id);
+        String numero = "0" + conf.getContacts().getNumero();
         request.setAttribute("nom", conf.getNom());
         request.setAttribute("ville", conf.getVille());
         request.setAttribute("lieu", conf.getLieu());
         request.setAttribute("prix", conf.getPrix());
         request.setAttribute("date", conf.getDateDebut());
         request.setAttribute("intervenants", conf.getListeIntervenants());
-        if (conf.getContacts().getNom() != null) {
-            request.setAttribute("nom_orga", conf.getContacts().getNom());
-        } else {
-            request.setAttribute("nom_orga", "");
-        }
-        request.setAttribute("numeroContact", conf.getContacts().getNumero());
+        request.setAttribute("nom_orga", conf.getContacts().getNom());
+        request.setAttribute("numeroContact", numero);
         request.setAttribute("mail", conf.getContacts().getMail());
         request.setAttribute("description", conf.getResume());
         RequestDispatcher dispatcher =

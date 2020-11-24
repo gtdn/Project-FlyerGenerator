@@ -31,6 +31,7 @@ public class ControllerModifExpo extends HttpServlet {
         ExpositionDAO expodao = new ExpositionDAO(
             (EntityManager) context.getAttribute("em"));
         expo = expodao.getExpositionByIdEvent(id);
+        String numero = "0" + expo.getContacts().getNumero();
         request.setAttribute("nom", expo.getNom());
         request.setAttribute("ville", expo.getVille());
         request.setAttribute("lieu", expo.getLieu());
@@ -38,7 +39,7 @@ public class ControllerModifExpo extends HttpServlet {
         request.setAttribute("dateDeb", expo.getDateDebut());
         request.setAttribute("dateFin", expo.getDateFin());
         request.setAttribute("nom_contact", expo.getContacts().getNom());
-        request.setAttribute("numeroContact", expo.getContacts().getNumero());
+        request.setAttribute("numeroContact", numero);
         request.setAttribute("mail", expo.getContacts().getMail());
         request.setAttribute("theme", expo.getTheme());
         RequestDispatcher dispatcher =

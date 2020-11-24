@@ -31,6 +31,7 @@ public class ControllerModifSpect extends HttpServlet {
         SpectacleDAO spectdao = new SpectacleDAO(
             (EntityManager) context.getAttribute("em"));
         spect = spectdao.getSpectacleByIdEvent(id);
+        String numero = "0" + spect.getContacts().getNumero();
         request.setAttribute("nom", spect.getNom());
         request.setAttribute("ville", spect.getVille());
         request.setAttribute("lieu", spect.getLieu());
@@ -39,7 +40,7 @@ public class ControllerModifSpect extends HttpServlet {
         request.setAttribute("artistes", spect.getListeArtistes());
         request.setAttribute("nom_asso", spect.getNomAssociation());
         request.setAttribute("nom_orga", spect.getContacts().getNom());
-        request.setAttribute("numeroContact", spect.getContacts().getNumero());
+        request.setAttribute("numeroContact", numero);
         request.setAttribute("mail", spect.getContacts().getMail());
         RequestDispatcher dispatcher = request.getRequestDispatcher(
             "interface.jsp?contenu=spect");

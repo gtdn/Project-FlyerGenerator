@@ -30,6 +30,7 @@ public class ControllerModifCompet extends HttpServlet {
         CompetitionDAO competdao = new CompetitionDAO(
             (EntityManager) context.getAttribute("em"));
         compet = competdao.getCompetitionByIdEvent(id);
+        String numero = "0" + compet.getContacts().getNumero();
         request.setAttribute("nom", compet.getNom());
         request.setAttribute("ville", compet.getVille());
         request.setAttribute("lieu", compet.getLieu());
@@ -39,7 +40,7 @@ public class ControllerModifCompet extends HttpServlet {
         request.setAttribute("hashtag", compet.getHashtag());
         request.setAttribute("description", compet.getResume());
         request.setAttribute("nom_orga", compet.getContacts().getNom());
-        request.setAttribute("numeroContact", compet.getContacts().getNumero());
+        request.setAttribute("numeroContact", numero);
         request.setAttribute("mail", compet.getContacts().getMail());
         RequestDispatcher dispatcher =
         request.getRequestDispatcher("interface.jsp?contenu=compet");
