@@ -35,13 +35,6 @@ public class User {
 
     /**
      * Constructeur.
-    */
-    public User() {
-        this.pseudo = "test";
-        this.password = "test";
-    }
-    /**
-     * Constructeur.
      * @param p de user
      * @param pwd de user
      */
