@@ -41,7 +41,6 @@ public class Conference extends Event {
                 heureDebut, dateDebut);
         this.resume = newresume;
     }
-    
     /**
      * @return resume.
      */
