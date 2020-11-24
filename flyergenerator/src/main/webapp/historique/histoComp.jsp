@@ -74,46 +74,46 @@
                             <c:forEach items="${requestScope.competitions}" var="competition">
                                 <form method="post" action="ModifCompetition">
                                     <tr>
-                                        <td scope="row">
+                                        <td>
                                             <input type="hidden" name="id" value="${ competition.getId() }" />
                                             <button type="submit" class="btn btn-primary">Regénérer</button>
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ competition.getNom() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ competition.getLieu() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ competition.getVille() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ competition.getPrix() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ competition.getHeureDebut().toString().substring(0,5) }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ competition.getDateDebut() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ competition.getHashtag()}" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ competition.getNomOrganisateur()}" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ competition.getResume()}" />
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ competition.getCashPrize()}" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ competition.getContacts().getNom()}" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ competition.getContacts().getNumero()}" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ competition.getContacts().getMail()}" />
                                         </td>
                                     </tr>

@@ -74,44 +74,44 @@
                             <c:forEach items="${requestScope.expositions}" var="exposition">
                                 <form method="post" action="ModifExposition">
                                     <tr>
-                                        <td scope="row">
+                                        <td>
                                             <input type="hidden" name="id" value="${ exposition.getId() }" />
                                             <button type="submit" class="btn btn-primary">Regénérer</button>
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getNom() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getLieu() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getVille() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getPrix() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getHeureDebut().toString().substring(0,5) }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getHeureFin().toString().substring(0,5) }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getDateDebut() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getDateFin() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getTheme() }" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getContacts().getNom()}" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getContacts().getNumero()}" />
                                         </td>
-                                        <td scope="row">
+                                        <td>
                                             <c:out value="${ exposition.getContacts().getMail()}" />
                                         </td>
                                     </tr>
