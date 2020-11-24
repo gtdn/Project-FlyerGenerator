@@ -1,8 +1,8 @@
-# mif10-2020 Groupe 8
+# mif10-2020 - Groupe 8 - Flyergenerator
 
-## dépendances
+## Dépendances
 
-### maven
+### Maven
 Maven est un outil de gestion de projet. Il est basé sur le concept POM (project object model). Il défini une structure type et notre projet utilise et respecte ce modèle.
 Lien vers le site officiel : https://maven.apache.org/
 
@@ -14,13 +14,13 @@ Lien vers le site officiel : http://tomcat.apache.org/
 wkhtmltopdf est un convertisseur de fichier html en fichier pdf. Nous l'utilisons pour générer nos flyer sous forme de pdf à partir des données souhaitées et de fichers hmtl/css définnissant les pâtterns visuels souhaités. 
 Lien vers le site officiel : https://wkhtmltopdf.org/
 
-### base de données PQSL
+### Base de données PQSL
 Pour notre base de données, nous utilisons la base de donnée PostgreSQL fourni par l'université. Plus particulièrement, nous utilisons celles de Quentin Rejaumont puisqu'il était le responsable back-end/BDD de notre projet.
 
 ### autres dependencies pom/xml ??
 
 
-## procédure de build
+## Procédure de build
 
 Pour build ce projet, il faut tout d'abord démarrer Tomcat. Pour cela, il faut aller dans le dossier où est intallé Tomcat puis dans /bin. Cela donne quelquechose comme ceci :
     ```cd /Path/to/Tomcat/bin/```
@@ -41,7 +41,7 @@ Vous pouvez désormais accéder à votre version locale du site à l'addresse su
 
 
 
-## lien vers la VM
+## Lien vers la VM
 
 Pour accéder à la VM, il faut tout d'abord se connecter au VPN de l'université.
 
