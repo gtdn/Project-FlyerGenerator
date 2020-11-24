@@ -44,6 +44,19 @@ public class ConferenceDAO {
         }
     }
     /**
+     * @param idUser conference donné en parametre.
+     * @return le nombre de conferences de l'utilisateur
+     */
+    public final int getNombreConferenceByIdUser(final int idUser) {
+
+        List<Conference> liste = getConferenceByIdUser(idUser);
+        if (liste != null) {
+            return liste.size();
+        } else {
+            return 0;
+        }
+    }
+    /**
      * @param idEvent conference donné en parametre.
      * @return toutes les conferences de l'utilisateur
      */

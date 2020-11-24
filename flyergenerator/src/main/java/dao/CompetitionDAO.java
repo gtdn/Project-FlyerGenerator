@@ -44,6 +44,19 @@ public class CompetitionDAO {
         }
     }
     /**
+     * @param idUser Competition donné en parametre.
+     * @return le nombre de Competitions de l'utilisateur
+     */
+    public final int getNombreCompetitionByIdUser(final int idUser) {
+
+        List<Competition> liste = getCompetitionByIdUser(idUser);
+        if (liste != null) {
+            return liste.size();
+        } else {
+            return 0;
+        }
+    }
+    /**
      * @param idEvent Competition donné en parametre.
      * @return toutes les Competitions de l'utilisateur
      */

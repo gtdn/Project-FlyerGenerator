@@ -43,6 +43,19 @@ public class SpectacleDAO {
             return null;
         }
     }
+    /**
+     * @param idUser Spectacle donné en parametre.
+     * @return le nombre de Spectacles de l'utilisateur
+     */
+    public final int getNombreSpectacleByIdUser(final int idUser) {
+
+        List<Spectacle> liste = getSpectacleByIdUser(idUser);
+        if (liste != null) {
+            return liste.size();
+        } else {
+            return 0;
+        }
+    }
 
      /**
      * @param idEvent Spectacle donné en parametre.
