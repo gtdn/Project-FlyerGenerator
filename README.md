@@ -4,20 +4,33 @@
 
 ### Maven
 Maven est un outil de gestion de projet. Il est basé sur le concept POM (Project Object Model). Il définit une structure type et notre projet utilise et respecte ce modèle.
+
 Lien vers le site officiel : https://maven.apache.org/
 
 ### Tomcat
 Tomcat est un logiciel qui execute des servlets et du JSP. Il est paramétable avec pom.xml situé à la racine du projet. Nous utilisons son plug-in maven afin de les faire fonctionner ensemble.
+
 Lien vers le site officiel : http://tomcat.apache.org/
 
 ### wkhtmltopdf
-wkhtmltopdf est un convertisseur de fichier html en fichier pdf. Nous l'utilisons pour générer nos flyers sous forme de pdf à partir des données souhaitées et de fichers hmtl/css définnissant les patterns visuels souhaités. 
+wkhtmltopdf est un convertisseur de fichier html en fichier pdf. Nous l'utilisons pour générer nos flyers sous forme de pdf à partir des données souhaitées et de fichers hmtl/css définnissant les patterns visuels souhaités.
+
 Lien vers le site officiel : https://wkhtmltopdf.org/
 
 ### Base de données PQSL
 Pour notre base de données, nous utilisons la base de données PostgreSQL fournie par l'université. Plus particulièrement, nous utilisons celle de Quentin Rejaumont puisqu'il était le responsable back-end/BDD de notre projet.
 
-### autres dependencies pom/xml ??
+lien vers le site officiel : https://www.postgresql.org/
+
+### JPA
+Nous utilisons la Java Persistent API dans notre projet pour faire le lien entre l'application et la base de donnée susmentionnée.
+
+lien vers le site officiel : https://www.oracle.com/java/technologies/persistence-jsp.html
+
+### Bootstrap
+Pour la réalisation du Front, nous avons aussi utilisé le framework Bootstrap.
+
+lien vers le site officiel : https://getbootstrap.com/
 
 
 ## Procédure de build
